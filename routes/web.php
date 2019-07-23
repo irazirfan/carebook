@@ -37,3 +37,4 @@ Route::post('/signup', 'HomeController@store');
 Route::get('/patient', 'PatientController@index')->name('patient');
 Route::get('/patient/profile', 'PatientController@profile')->name('patient.profile');
 Route::get('/patient/notification', 'PatientController@notification')->name('patient.notification');
+Route::get('/patient/archive', 'PatientController@archive')->name('patient.archive');
