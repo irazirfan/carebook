@@ -1,0 +1,9 @@
+a.leftborder{
+    border-left: 6px solid lightgreen;
+    margin-left: 5px;
+    margin-top:5px;
+    padding:5px;
+    color:dodgerblue;
+    text-decoration: none;
+    width:100%;
+}

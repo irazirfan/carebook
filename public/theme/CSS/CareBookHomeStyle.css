@@ -1,0 +1,28 @@
+.container{
+  margin-right: 10px;
+}
+
+.homeTable{
+    width: 100%;
+    margin-top: 20px;
+    padding-left: 50px;
+    border: 2px;
+}
+
+#formCell{
+	padding-left: 20px;
+	width: 25%;
+}
+
+#slideCell{
+	height: 80%;
+}
+#nav1{
+	margin-left:10%;
+	p
+}
+#nav2{
+	width:70%;
+	height:50%;
+}
+

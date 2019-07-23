@@ -1,0 +1,335 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+a{
+    text-decoration: none;
+}
+ol,ul{
+    list-style-type: none;
+}
+img{
+    vertical-align: middle;
+}
+.clr{
+    clear: both;
+}
+@font-face{
+    src:url(../font/OpenSans-Regular.ttf);
+    font-family:osr;
+}
+@font-face{
+    src: url(../font/OpenSans-SemiBold.ttf);
+    font-family:ossb;
+}
+@font-face{
+    src:url(../font/OpenSans-ExtraBold.ttf);
+    font-family:oseb;
+}
+.full-wrapper{
+    width:100%;
+}
+.wrapper{
+    width: 1140px;
+    margin: 0 auto;
+}
+
+
+/* ============================================== service part css start=========================*/
+.service{
+    margin-top: 105px;
+}
+.service-item1{
+    text-align: center;
+    width: 25%;
+    padding-bottom: 95px;
+    float: left;
+    
+}
+.service-item1 i{
+    line-height: 100px;
+    font-size: 40px;
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    border: 3px solid #49cbcd;
+    color: #49cbcd;
+    border-radius: 50%;
+    transition: all linear .3s;
+}
+.service-item1 i:hover{
+    color: #ffffff;
+    background: #49cbcd;
+}
+.service-item1 h2{
+    padding-top: 50px;
+    padding-bottom: 25px;
+    font-family: osr;
+    font-size: 23px;
+    color: #4e525d;
+}
+.service-item1 p{
+    line-height: 26px;
+    font-family: osr;
+    font-size: 14px;
+    color: #4e525d;
+    padding-bottom: 20px;
+}
+.service-item1 a{
+    font-size: 14px;
+    font-family: osr;
+    display:inline-block;
+    padding: 10px 15px;
+    background: #49cbcd;
+    border-radius: 3px;
+    color: #fff;
+}
+/*=========================== */
+.service-item2{
+    text-align: center;
+    width: 25%;
+    padding-bottom: 95px;
+    float: left;
+}
+.service-item2 i{
+    line-height: 100px;
+    font-size: 40px;
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    border: 3px solid #49cbcd;
+    color: #49cbcd;
+    border-radius: 50%;
+    transition: all linear .3s;
+}
+.service-item2 i:hover{
+    color: #ffffff;
+    background: #49cbcd;
+}
+.service-item2 h2{
+    padding-top: 50px;
+    padding-bottom: 25px;
+    font-family: osr;
+    font-size: 23px;
+    color: #4e525d;
+}
+.service-item2 p{
+    line-height: 26px;
+    font-family: osr;
+    font-size: 14px;
+    color: #4e525d;
+    padding-bottom: 20px;
+}
+.service-item2 a{
+    font-size: 14px;
+    font-family: osr;
+    display:inline-block;
+    padding: 10px 15px;
+    background: #49cbcd;
+    border-radius: 3px;
+    color: #fff;
+}
+/*===================================*/
+.service-item3{
+    text-align: center;
+    width: 25%;
+    padding-bottom: 95px;
+    float: left;
+}
+.service-item3 i{
+    line-height: 100px;
+    font-size: 40px;
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    border: 3px solid #49cbcd;
+    color: #49cbcd;
+    border-radius: 50%;
+    transition: all linear .3s;
+}
+.service-item3 i:hover{
+    color: #ffffff;
+    background: #49cbcd;
+}
+.service-item3 h2{
+    padding-top: 50px;
+    padding-bottom: 25px;
+    font-family: osr;
+    font-size: 23px;
+    color: #4e525d;
+}
+.service-item3 p{
+    line-height: 26px;
+    font-family: osr;
+    font-size: 14px;
+    color: #4e525d;
+    padding-bottom: 20px;
+}
+.service-item3 a{
+    font-size: 14px;
+    font-family: osr;
+    display:inline-block;
+    padding: 10px 15px;
+    background: #49cbcd;
+    border-radius: 3px;
+    color: #fff;
+}
+/*============================= */
+.service-item4{
+    text-align: center;
+    width: 25%;
+    padding-bottom: 95px;
+    float: left;
+}
+.service-item4 i{
+    line-height: 100px;
+    font-size: 40px;
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    border: 3px solid #49cbcd;
+    color: #49cbcd;
+    border-radius: 50%;
+    transition: all linear .3s;
+}
+.service-item4 i:hover{
+    color: #ffffff;
+    background: #49cbcd;
+}
+.service-item4 h2{
+    padding-top: 50px;
+    padding-bottom: 25px;
+    font-family: osr;
+    font-size: 23px;
+    color: #4e525d;
+}
+.service-item4 p{
+    line-height: 26px;
+    font-family: osr;
+    font-size: 14px;
+    color: #4e525d;
+    padding-bottom: 20px;
+}
+.service-item4 a{
+    font-size: 14px;
+    font-family: osr;
+    display:inline-block;
+    padding: 10px 15px;
+    background: #49cbcd;
+    border-radius: 3px;
+    color: #fff;
+}
+.hover{
+    transition: all linear .3s;
+}
+.hover:hover{
+    transform: translate(0px,-5px);
+    box-shadow: 0px 10px 10px rgba(73, 203, 205, 0.7);
+}
+
+
+
+/*====================================== packge part css start======================*/
+.packge-bg{
+    width: 100%;
+    background: #f1f1f1;
+}
+.packge1{
+    padding-top: 119px;
+    padding-left: 0px;
+    padding-right: 10px;
+    width: 360px;
+    text-align: center;
+    float: left;
+    padding-bottom: 130px;
+}
+.one{
+    border: 1px solid #ecf0f1;
+    width: 100%;
+    background: #485460;
+}
+.one p{
+    font-family: osr;
+    font-size: 26px;
+    line-height: 75px;
+}
+.two{
+    border: 1px solid #ecf0f1;
+    width: 100%;
+    background: #f8f9fb;
+}
+.two p{
+    font-family: osr;
+    font-size: 20px;
+    line-height: 68px;
+}
+.three{
+    border: 1px solid #ecf0f1;
+    width: 100%;
+    background: #fff;
+}
+.three p{
+    font-family: osr;
+    font-size: 14px;
+    line-height: 45px;
+}
+.nine{
+    padding: 29px 0;
+    width: 100%;
+    border: 1px solid #ecf0f1;
+    background: #f8f9fb;
+}
+.nine a{
+    display: inline-block;
+    padding: 12px 51px;
+    background: #788492;
+    font-family: ossb;
+    font-size: 17px;
+    color: #fff;
+    border-radius: 3px;
+}
+.packge2{
+    padding: 0 10px;
+    width: 360px;
+    text-align: center;
+    float: left;
+    padding-top: 119px;
+    padding-bottom: 130px;
+}
+.one2{
+    background: #49cbcd;
+    border: 1px solid #ecf0f1;
+    width: 100%;
+}
+.one2 p{
+    font-family: osr;
+    font-size: 26px;
+    line-height: 75px;
+}
+.nine1{
+    padding: 29px 0;
+    width: 100%;
+    border: 1px solid #ecf0f1;
+    background: #f8f9fb;
+}
+.nine1 a{
+    display: inline-block;
+    padding: 12px 51px;
+    background: #49cbcd;
+    font-family: ossb;
+    font-size: 17px;
+    color: #fff;
+    border-radius: 3px;
+}
+.packge3{
+    padding-left: 10px;
+    padding-right: 0;
+    width: 360px;
+    text-align: center;
+    float: left;
+    padding-top: 119px;
+    padding-bottom: 130px;
+}
+/*====================================== packge part css end======================*/
+
