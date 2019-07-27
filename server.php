@@ -1,4 +1,3 @@
-@@ -1,21 +0,0 @@
 <?php
 /**
  * Laravel - A PHP Framework For Web Artisans
