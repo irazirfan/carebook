@@ -87,27 +87,27 @@
         <nav class="sidebar-nav">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="{{route('patient')}}">
+              <a class="nav-link" href="{{route('doctor')}}">
                 <i class="nav-icon icon-speedometer"></i> Home
 
                 <!--<span class="badge badge-primary">NEW</span>-->
 
               </a>
             </li>
-              <a class="nav-link" href="{{route('patient.profile')}}">
+              <a class="nav-link" href="{{route('doctor.profile')}}">
                 <i class="nav-icon icon-drop"></i> Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('patient.archive')}}">
-                <i class="nav-icon icon-pencil"></i> Archive</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('patient.notification')}}">
+              <a class="nav-link" href="{{route('doctor.notification')}}">
                 <i class="nav-icon icon-pencil"></i> Notification</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="nav-icon icon-pencil"></i> Settings</a>
+              <a class="nav-link" href="{{route('doctor.patient')}}">
+                <i class="nav-icon icon-pencil"></i> Patient</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('doctor.prescription')}}">
+                <i class="nav-icon icon-pencil"></i> Prescription</a>
             </li>
             
               </ul>
@@ -120,7 +120,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item">Home</li>
           <li class="breadcrumb-item">
-            <a href="#">Patient</a>
+            <a href="#">Doctor</a>
           </li>
           <li class="breadcrumb-item active">Dashboard</li>
           <!-- Breadcrumb Menu-->
