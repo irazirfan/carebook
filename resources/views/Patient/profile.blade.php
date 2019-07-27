@@ -142,13 +142,7 @@
 
                             <div class="col-xs-6">
                                 <label for="gender"><h4>Gender</h4></label>
-                                <br>
-                                <select style="width:100%; padding: 5px" name="gender" title="select your gender.">
-                                    <option value="">Select Gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-
+                                <input type="text" class="form-control" id="gender" placeholder="Gender" title="enter your gender">
                             </div>
                         </div>
 
@@ -174,14 +168,14 @@
                     <hr>
                     <form class="form"  method="post" id="#">
 
-                            <div class="col-xs-7">
+                            <div class="col-xs-12">
                                 <label for="password"><h4>Password</h4></label>
                                 <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
                             </div>
 
                         <div class="form-group">
 
-                            <div class="col-xs-7">
+                            <div class="col-xs-12">
                                 <label for="new_password"><h4>New Password</h4></label>
                                 <input type="password" class="form-control" name="new_password" id="new_password" placeholder="new password" title="enter your new password.">
                             </div>
@@ -189,9 +183,9 @@
 
                         <div class="form-group">
 
-                            <div class="col-xs-7">
+                            <div class="col-xs-12">
                                 <label for="confirm_password"><h4>Confirm Password</h4></label>
-                                <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="confirm password" title="enter your confirm password.">
+                                <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="confirm password" title="enter your new confirm password.">
                             </div>
                         </div>
                         <div class="form-group">
