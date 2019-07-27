@@ -98,7 +98,7 @@
                 <i class="nav-icon icon-drop"></i> Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{{route('patient.archive')}}">
                 <i class="nav-icon icon-pencil"></i> Archive</a>
             </li>
             <li class="nav-item">

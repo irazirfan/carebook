@@ -22,6 +22,11 @@ class PatientController extends Controller
     {
         return view('Patient.notification');
     }
+
+    public function archive()
+    {
+        return view('Patient.archive');
+    }
     
 }
 
