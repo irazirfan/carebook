@@ -43,7 +43,7 @@
       </button>
 
       <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="{{asset('patientTeme/img/brand/log3.png')}}" width="89" height="25" alt="CareBook Logo">
+        <img class="navbar-brand-full" src="{{asset('patientTheme/img/brand/log3.png')}}" width="89" height="25" alt="CareBook Logo">
       </a>
 
       <ul class="nav navbar-nav ml-auto">
@@ -55,21 +55,21 @@
           </a>
         </li>
 
-        <li class="nav-item d-md-down-none">
+        <!-- <li class="nav-item d-md-down-none">
           <a class="nav-link" href="#">
             <i class="icon-list"></i>
           </a>
         </li>
-
+        
         <li class="nav-item d-md-down-none">
           <a class="nav-link" href="#">
             <i class="icon-location-pin"></i>
           </a>
-        </li>
+        </li> -->
 
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <img class="img-avatar" src="{{asset('patientTeme/img/avatars/9.jpg')}}" alt="fahim@gmail.com">
+            <img class="img-avatar" src="{{asset('patientTheme/img/avatars/9.jpg')}}" alt="fahim@gmail.com">
           </a>
         </li>
 
@@ -89,31 +89,21 @@
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <i class="nav-icon icon-speedometer"></i> Home
-
-                <!--<span class="badge badge-primary">NEW</span>-->
-
               </a>
-            </li>
-              <a class="nav-link" href="{{route('patient.profile')}}">
-                <i class="nav-icon icon-drop"></i> Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('patient.archive')}}">
-                <i class="nav-icon icon-pencil"></i> Archive</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('patient.notification')}}">
-                <i class="nav-icon icon-pencil"></i> Notification</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <i class="nav-icon icon-pencil"></i> Settings</a>
+                <i class="nav-icon icon-drop"></i> Profile</a>
             </li>
-            
-              </ul>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="nav-icon icon-pencil"></i> Archive</a>
             </li>
-           
-        <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="nav-icon icon-pencil"></i> Notifications</a>
+            </li>       
+          </ul>
       </div>
       <main class="main">
         <!-- Breadcrumb-->
@@ -127,7 +117,7 @@
           
           <li class="breadcrumb-menu d-md-down-none">
             <div class="btn-group" role="group" aria-label="Button group">
-              <a class="btn" href="#">
+              <a class="btn" href="{{route('signout')}}">
                 <i class="icon-settings"></i>  Sign-Out</a>
             </div>
           
@@ -233,17 +223,27 @@
                   </div>
                   <div class="card-body">
                     <div class="list-group">
-                      <a class="list-group-item list-group-item-action flex-column align-items-start active" href="#">
+                      @foreach ($doctors as $doctor)
+                      <?php $name="abc"; ?>
+                        @foreach ($users as $user)
+                        <?php
+                          if ($doctor->email == $user->email)
+                            $name = $user->firstname;
+                          $image = $user->image;
+                          ?>
+                        @endforeach
+                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Dr. Md.Rezaul Haq</h5>
-                          <small>MBBS(DU), FCPS(UK), MD(USA)</small>
+                          <h5 class="mb-1">{{$name}}</h5>
+                          <small>{{$doctor->degree}}</small>
                         </div>
-                        <img class="" style="width: 100px; height: 100px; float: right;" src="{{asset('theme/Images/3.jpg')}}" alt="Card image cap">
-                        <p class="mb-1"> Neuro Medicine</p>
-                        <p class="mb-1"> Lab Aid Hospital, Panthpath, Dhaka.</p>
-                        <p class="mb-1">3pm-8pm</p>
-                        <small> 01454511511</small>              
+                        <img class="" style="width: 100px; height: 100px; float: right;" src="{{Storage::url($image)}}" alt="Card image cap">
+                        <p class="mb-1">{{$doctor->specialized}}</p>
+                        <p class="mb-1">{{$doctor->location}}</p>
+                        <p class="mb-1">{{$doctor->consulting}}</p>
+                        <small>{{$doctor->contact}}</small>              
                       </a>
+                      @endforeach
                       <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
                         <div class="d-flex w-100 justify-content-between">
                           <h5 class="mb-1">Dr. Md.Rezaul Haq</h5>

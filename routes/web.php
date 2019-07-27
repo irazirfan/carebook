@@ -29,10 +29,12 @@ Route::get('/signup', function () {
 //Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::post('/', 'HomeController@verify');
 Route::get('/about', 'HomeController@about');
 Route::get('/pricing', 'HomeController@pricing');
 Route::get('/signup', 'HomeController@signup');
 Route::post('/signup', 'HomeController@store');
+Route::get('/signout', 'HomeController@signout')->name('signout');
 
 Route::get('/patient', 'PatientController@index')->name('patient');
 Route::get('/patient/profile', 'PatientController@profile')->name('patient.profile');

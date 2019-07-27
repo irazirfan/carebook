@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Reg;
 use App\Doctor;
 use App\Tech;
+use DB;
 
 class HomeController extends Controller
 {
@@ -65,6 +66,34 @@ class HomeController extends Controller
             Tech::create($request->all());
         }
         
+        return redirect()->route('home');
+    }
+    public function verify(Request $request){
+
+        $email = $request->email;
+        $password = $request->password;
+
+        $user = DB::table('user')
+                ->where('email', $email)
+                ->where('password', $password)
+                ->first();
+    
+         if($user != null){
+    
+             $request->session()->put('logged', $user);
+    
+             return redirect()->route('patient');
+         }else{
+    
+             $request->session()->flash('message', 'Invalid username or password');
+             return redirect()->route('home');
+        }
+
+    }
+
+    public function signout(Request $request)
+    {
+        $request->session()->flash('message', 'Invalid username or password');
         return redirect()->route('home');
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Doctor;
+use App\Reg;
 use Illuminate\Http\Request;
 
 
@@ -10,7 +12,9 @@ class PatientController extends Controller
    
     public function index()
     {
-        return view('Patient.index');
+        $doctors = Doctor::all();
+        $users = Reg::all();
+        return view('Patient.index', compact(['doctors','users']));
     }
 
     public function profile()
