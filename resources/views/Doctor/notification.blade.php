@@ -43,7 +43,7 @@
       </button>
 
       <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="{{asset('patientTheme/img/brand/log3.png')}}" width="89" height="25" alt="CareBook Logo">
+        <img class="navbar-brand-full" src="{{asset('patientTeme/img/brand/log3.png')}}" width="89" height="25" alt="CareBook Logo">
       </a>
 
       <ul class="nav navbar-nav ml-auto">
@@ -55,21 +55,21 @@
           </a>
         </li>
 
-        <!-- <li class="nav-item d-md-down-none">
+        <li class="nav-item d-md-down-none">
           <a class="nav-link" href="#">
             <i class="icon-list"></i>
           </a>
         </li>
-        
+
         <li class="nav-item d-md-down-none">
           <a class="nav-link" href="#">
             <i class="icon-location-pin"></i>
           </a>
-        </li> -->
+        </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <img class="img-avatar" src="{{asset('patientTheme/img/avatars/9.jpg')}}" alt="fahim@gmail.com">
+            <img class="img-avatar" src="{{asset('patientTeme/img/avatars/9.jpg')}}" alt="fahim@gmail.com">
           </a>
         </li>
 
@@ -87,12 +87,14 @@
         <nav class="sidebar-nav">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="{{route('patient')}}">
+              <a class="nav-link" href="#">
                 <i class="nav-icon icon-speedometer"></i> Home
+
+                <!--<span class="badge badge-primary">NEW</span>-->
+
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{{route('patient.profile')}}">
                 <i class="nav-icon icon-drop"></i> Profile</a>
             </li>
             <li class="nav-item">
@@ -100,10 +102,18 @@
                 <i class="nav-icon icon-pencil"></i> Archive</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{{route('patient.notification')}}">
+                <i class="nav-icon icon-pencil"></i> Notification</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="#">
-                <i class="nav-icon icon-pencil"></i> Notifications</a>
-            </li>       
-          </ul>
+                <i class="nav-icon icon-pencil"></i> Settings</a>
+            </li>
+            
+              </ul>
+            </li>
+           
+        <button class="sidebar-minimizer brand-minimizer" type="button"></button>
       </div>
       <main class="main">
         <!-- Breadcrumb-->
@@ -117,7 +127,7 @@
           
           <li class="breadcrumb-menu d-md-down-none">
             <div class="btn-group" role="group" aria-label="Button group">
-              <a class="btn" href="{{route('signout')}}">
+              <a class="btn" href="#">
                 <i class="icon-settings"></i>  Sign-Out</a>
             </div>
           
@@ -129,144 +139,39 @@
       <aside class="aside-menu">
 
     </div>
+    <div class="container">
 
-
-    
-      <!--<body class="app flex-row align-items-center">-->
-
-      <div class="container-fluid">
-        <div class="row justify-content-center">
-          <div class="col-md-6">
-            <div class="clearfix">
-        
-             <h4 class="pt-3" align="center">Search Your Preferred Doctor</h4>
-        
-            </div>
-            <div class="input-prepend input-group">
-              <div class="input-group-prepend">
-                 <span class="input-group-text">
-                  <i class="fa fa-search"></i>
-                </span>
-               </div>
-              <input class="form-control" id="prependedInput" size="16" type="text" placeholder="Search Doctor">
-              <span class="input-group-append">
-                <button class="btn btn-info" type="button">Search</button>
-              </span>
-            </div>
-            <legend>
-              <font size="3">
-                <b>Search By Speciality</b>
-              </font>
-            </legend>
-
-            <select name="group">
-                <option value="ALLERGY & IMMUNOLOGY">ALLERGY & IMMUNOLOGY</option>
-                <option value="ANESTHESIOLOGY">ANESTHESIOLOGY</option>
-                <option value="DERMATOLOGY">DERMATOLOGY+</option>
-                <option value="DIAGNOSTIC RADIOLOGY">DIAGNOSTIC RADIOLOGY</option>
-                <option value="MEDICINE">MEDICINE</option>
-                <option value="MEDICAL GENETICS">MEDICAL GENETICS</option>
-                <option value="NEUROLOGY">NEUROLOGY</option>
-                <option value="NUCLEAR MEDICINE"> NUCLEAR MEDICINE</option>
-                <option value="OBSTETRICS AND GYNECOLOGY"> OBSTETRICS AND GYNECOLOGY</option>
-                <option value="OPHTHALMOLOGY"> OPHTHALMOLOGY</option>
-                <option value="PATHOLOGY"> PATHOLOGY</option>
-                <option value="PEDIATRICS"> PEDIATRICS</option>
-                <option value="PHYSICAL MEDICINE & REHABILITATION"> PHYSICAL MEDICINE & REHABILITATION</option>
-                <option value="PSYCHIATRY">PSYCHIATRY</option>
-            </select>
-   
-            <legend>
-              <font size="3">
-                  <b>Search By Location</b>
-              </font>
-            </legend>
-
-            <select name="group">
-              <option value="Dhaka">Dhaka</option>
-              <option value="Chittagong">Chittagong</option>
-              <option value="Khulna ">Khulna </option>
-              <option value="Rajshahi">Rajshahi</option>
-              <option value="Sylhet">Sylhet</option>
-              <option value="Barisal">Barisal</option>
-              <option value="Rangpur">Rangpur</option>
-              <option value="Thakurgaon">Thakurgaon</option>
-              <option value="Dinajpur"> Dinajpur </option>
-              <option value="Rangamati "> Rangamati </option>
-              <option value="Noakhali "> Noakhali </option>
-              <option value="Khagrachari"> Khagrachari</option>
-              <option value="Feni"> Feni</option>
-              <option value="Cox's Bazar">Cox's Bazar</option>
-              <option value="Comilla"> Comilla</option>
-              <option value="Chandpur"> Chandpur</option>
-              <option value="Brahmanbaria"> Brahmanbaria</option>
-              <option value="Bandarban"> Bandarban</option>
-              <option value="Perojpur"> Perojpur</option>
-              <option value="Patuakhali"> Patuakhali</option>
-              <option value="Barguna"> Barguna</option>
-              <option value="Sunamganj"> Sunamganj</option>
-              <option value="Moulvibazar"> Moulvibazar</option>
-              <option value="Habiganj"> Habiganj</option>
-              <option value="Sirajganj"> Sirajganj</option>
-              <option value="Natore"> Natore</option>
-              <option value="Naogaon"> Naogaon</option> 
-              <option value="Joypurhat"> Joypurhat</option>     
-            </select>
-          </div>  
-        </div>
-        <div class="row justify-content-center" style="margin-left: 200px">
+        <div class="row justify-content-center" style="margin-right: 200px; margin-top: 50px">
           <div class="col-sm-12 col-xl-12" >
               <div class="card">
                   <div class="card-header">
-                    <i class="fa fa-align-justify"></i> Doctor
+                    <i class="fa fa-align-justify"></i> Notification
                     <small>custom content</small>
                   </div>
                   <div class="card-body">
                     <div class="list-group">
-                      @foreach ($doctors as $doctor)
-                      <?php $name="abc"; ?>
-                        @foreach ($users as $user)
-                        <?php
-                          if ($doctor->email == $user->email)
-                            $name = $user->firstname;
-                          $image = $user->image;
-                          ?>
-                        @endforeach
-                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
+                      <a class="list-group-item list-group-item-action flex-column align-items-start active" href="#">
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">{{$name}}</h5>
-                          <small>{{$doctor->degree}}</small>
-                        </div>
-                        <img class="" style="width: 100px; height: 100px; float: right;" src="{{Storage::url($image)}}" alt="Card image cap">
-                        <p class="mb-1">{{$doctor->specialized}}</p>
-                        <p class="mb-1">{{$doctor->location}}</p>
-                        <p class="mb-1">{{$doctor->consulting}}</p>
-                        <small>{{$doctor->contact}}</small>              
-                      </a>
-                      @endforeach
-                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Dr. Md.Rezaul Haq</h5>
-                          <small>MBBS(DU), FCPS(UK), MD(USA)</small>
-                        </div>
-                        <img class="" style="width: 100px; height: 100px; float: right;" src="{{asset('theme/Images/3.jpg')}}" alt="Card image cap">
-                        <p class="mb-1"> Neuro Medicine</p>
-                        <p class="mb-1"> Lab Aid Hospital, Panthpath, Dhaka.</p>
-                        <p class="mb-1">3pm-8pm</p>
-                        <small> 01454511511</small>
+                          <h5 class="mb-1">New Notice Posted By Dr. Md.Rezaul Haq</h5>
+
+                          <small>23-Jul-2019</small>
+                        </div>          
                       </a>
                       <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Dr. Md.Rezaul Haq</h5>
-                          <small>MBBS(DU), FCPS(UK), MD(USA)</small>
+                          <h5 class="mb-1">New Notice Posted By Dr. Md.Rezaul Haq</h5>
+                          <small>11-June-2019</small>
                         </div>
-                        <img class="" style="width: 100px; height: 100px; float: right;" src="{{asset('theme/Images/3.jpg')}}" alt="Card image cap">
-                        <p class="mb-1"> Neuro Medicine</p>
-                        <p class="mb-1"> Lab Aid Hospital, Panthpath, Dhaka.</p>
-                        <p class="mb-1">3pm-8pm</p>
-                        <small> 01454511511</small>
+               
+                      </a>
+                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">New Notice Posted By Dr. Md.Rezaul Haq</h5>
+                          <small>11-May-2019</small>
+                        </div>
                       </a>
                     </div>
+
                     <nav aria-label="..." style="float: right;">
                       <ul class="pagination">
                         <li class="page-item disabled">
@@ -293,6 +198,7 @@
             </div>
         </div>
       </div>
+    </div>
     
     <footer class="app-footer">
       <div>
