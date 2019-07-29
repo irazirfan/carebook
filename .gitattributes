@@ -1,4 +1,3 @@
 * text=auto
-* linguist-vendored
-*.php linguist-vendored=false
+*.html linguist-detectable=false
 CHANGELOG.md export-ignore
