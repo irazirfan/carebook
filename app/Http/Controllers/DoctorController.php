@@ -25,15 +25,7 @@ class DoctorController extends Controller
 
     public function patient()
     {
-        return view('Doctor.patient');
-    }
-    
-
-    public function prescription()
-    {
-        return view('Doctor.prescription');
+        return view('Doctor.patientlist');
     }
     
 }
-
-

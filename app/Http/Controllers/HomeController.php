@@ -77,10 +77,11 @@ class HomeController extends Controller
                 ->where('email', $email)
                 ->where('password', $password)
                 ->first();
-    
+        
+        //dd($user);
          if($user != null){
     
-             $request->session()->put('logged', $user);
+             $request->session()->put('emali', $email);
     
              return redirect()->route('patient');
          }else{

@@ -16,7 +16,7 @@
                   <i class="fa fa-search"></i>
                 </span>
                </div>
-              <input class="form-control"  size="16" type="text" id="search1" placeholder="Search Doctor">
+              <input class="form-control"  size="16" type="text" id="search" placeholder="Search Doctor">
               <span class="input-group-append">
                 <button class="btn btn-info" id="search" type="button">Search</button>
               </span>
@@ -162,6 +162,22 @@
             </div>
         </div>
       </div>
+      <script type="text/javascript">
+$('#search').on('change',function(){
+$value=$(this).val();
+$.ajax({
+type : 'get',
+url : '{{URL::to('search')}}',
+data:{'search':$value},
+success:function(data){
+$('tbody').html(data);
+}
+});
+})
+</script>
+<script type="text/javascript">
+$.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+</script>
 @endsection    
     
 

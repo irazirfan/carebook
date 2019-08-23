@@ -22,7 +22,25 @@ class PatientController extends Controller
     {
         return view('Patient.profile');
     }
+    public function imageStore(Request $request)
+    {
+        $email = session('email');
+        $reg = Reg::where('email',$email)->get();
+        $reg->accName           = $reg->accName;
+        $reg->save();
 
+        return redirect()->route('patient.profile');
+    }
+    public function profileStore(Request $request)
+    {
+        /*$email = session('email');
+        $account = Account::where('email',$email)->get();
+        $account->accName           = $request->accName;
+        $account->balance           = $request->accbalance;
+        $account->save();
+
+        return redirect()->route('account.index');*/
+    }
     public function notification()
     {
         return view('Patient.notification');

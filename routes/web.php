@@ -38,13 +38,16 @@ Route::get('/signout', 'HomeController@signout')->name('signout');
 
 Route::get('/patient', 'PatientController@index')->name('patient');
 Route::get('/patient/profile', 'PatientController@profile')->name('patient.profile');
+Route::post('/patient/profile', 'PatientController@imageStore');
+Route::post('/patient/profile#edit-profile', 'PatientController@profileStore');
 Route::get('/patient/notification', 'PatientController@notification')->name('patient.notification');
 Route::get('/patient/archive', 'PatientController@archive')->name('patient.archive');
 
 Route::get('/search', 'PatientController@search');
-
+ 
 Route::get('/doctor', 'DoctorController@index')->name('doctor');
 Route::get('/doctor/profile', 'DoctorController@profile')->name('doctor.profile');
 Route::get('/doctor/notification', 'DoctorController@notification')->name('doctor.notification');
-Route::get('/doctor/prescription', 'DoctorController@prescription')->name('doctor.prescription');
 Route::get('/doctor/patient', 'DoctorController@patient')->name('doctor.patient');
+
+Route::get('/logout', 'LogoutController@index')->name('logout');

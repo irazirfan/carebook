@@ -1,0 +1,181 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+a{
+    text-decoration: none;
+}
+ol,ul{
+    list-style-type: none;
+}
+img{
+    vertical-align: middle;
+}
+.clr{
+    clear: both;
+}
+@font-face{
+    src:url(../font/OpenSans-Regular.ttf);
+    font-family:osr;
+}
+@font-face{
+    src: url(../font/OpenSans-SemiBold.ttf);
+    font-family:ossb;
+}
+@font-face{
+    src:url(../font/OpenSans-ExtraBold.ttf);
+    font-family:oseb;
+}
+.full-wrapper{
+    width:100%;
+}
+.wrapper{
+    width: 1140px;
+    margin: 0 auto;
+}
+/*============================== header css start================= */
+.logo{
+    width: 340px;
+    float: left;
+}
+.logo img{
+    padding-top: 32px;
+}
+.menu{
+    width: 800px;
+    float: left;
+}
+.menu ul li{
+    display: inline-block;
+}
+.menu ul li a{
+    display: block;
+    color: #000000;
+    font-size: 15px;
+    font-family: osr;
+    line-height: 100px;
+    padding: 0 27.5px;
+    transition: all linear .3s;
+    border-bottom: 3px solid transparent;
+}
+.menu ul li a:hover{
+    background: #f8f9fb;
+    color: #49cbcd;
+    border-bottom: 3px solid #49cbcd;
+}
+/*============================== header css end================= */
+
+
+
+/*=================================== prescription part css start===================*/
+.prescription-item{
+    text-align: center;
+    width: 1140px;
+    padding-bottom: 51px;
+    background: #f1f1f1;
+}
+.prescription-header h2{
+    padding-top: 35px;
+    padding-bottom: 53px;
+    font-size: 42px;
+    font-family: osr;
+    color: #4e525d;
+}
+.prescription1{
+    position: relative;
+    width: 220px;
+    float: left;
+    padding-left: 0;
+    padding-right: 15px;
+    padding-bottom: 30px;
+}
+.prescription2{
+    width: 375px;
+    padding: 0 15px;
+    padding-bottom: 30px;
+    float: left;
+}
+.prescription3{
+    width: 310px;
+    padding-left: 15px;
+    padding-right: 0px;
+    padding-bottom: 30px;
+    float: left;
+}
+
+/*=================================== prescription part css end===================*/
+/*=================================== patient part css start===================*/
+
+.patient-header h2{
+    padding-top: 35px;
+    padding-bottom: 53px;
+    font-size: 42px;
+    font-family: osr;
+    color: #4e525d;
+}
+.patient1{
+    position: relative;
+    width: 1140px;
+    float: left;
+    padding-left: 0;
+    padding-right: 15px;
+    padding-bottom: 30px;
+}
+
+
+/*=================================== patient part css end===================*/
+/*=================================== main prescription part css start===================*/
+
+.mainp-header h2{
+    padding-top: 35px;
+    padding-bottom: 53px;
+    font-size: 42px;
+    font-family: osr;
+    color: #4e525d;
+}
+.mainp1{
+    position: relative;
+    width: 1140px;
+    float: left;
+    padding-left: 0;
+    padding-right: 15px;
+    padding-bottom: 30px;
+}
+.mainp2{
+    position: relative;
+    width: 420px;
+    float: left;
+    padding-left: 0;
+    padding-right: 10px;
+    padding-bottom: 02px;
+}
+.mainp3{
+   position: relative;
+    width: 420px;
+    float: left;
+    padding-left: 0;
+    padding-right: 15px;
+    padding-bottom: 0px;
+    padding-top: 0px; 
+}
+
+.mainp4{
+    position: relative;
+    width: 420px;
+    float: right;
+    padding-left: 0;
+    padding-right: 15px;
+    padding-bottom: 30px;
+
+}
+
+.design{
+    position: relative;
+    width:;
+}
+
+
+
+
+/*=================================== main prescription part css end===================*/

@@ -10,7 +10,7 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>Patient | Carebook</title>
+    <title>Doctor | Carebook</title>
     <!-- Icons-->
     <link href="patientTheme/node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
     <link href="patientTheme/node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
@@ -43,9 +43,9 @@
       </button>
 
       <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="{{asset('patientTeme/img/brand/log3.png')}}" width="89" height="25" alt="CareBook Logo">
+        <img class="navbar-brand-full" src="{{asset('patientTheme/img/brand/log3.png')}}" width="89" height="25" alt="CareBook Logo">
       </a>
-
+      
       <ul class="nav navbar-nav ml-auto">
 
         <li class="nav-item d-md-down-none">
@@ -67,12 +67,11 @@
           </a>
         </li>
 
-        <li class="nav-item dropdown">
+         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <img class="img-avatar" src="{{asset('patientTeme/img/avatars/9.jpg')}}" alt="fahim@gmail.com">
+            <img class="img-avatar" src="{{asset('patientTheme/img/avatars/9.jpg')}}" alt="fahim@gmail.com">
           </a>
         </li>
-
       </ul>
 
       <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" data-toggle="aside-menu-lg-show">
@@ -94,35 +93,37 @@
 
               </a>
             </li>
-              <a class="nav-link" href="{{route('patient.profile')}}">
+              <a class="nav-link" href="{{route('doctor.profile')}}">
                 <i class="nav-icon icon-drop"></i> Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="nav-icon icon-pencil"></i> Archive</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('patient.notification')}}">
+              <a class="nav-link" href="{{route('doctor.notification')}}">
                 <i class="nav-icon icon-pencil"></i> Notification</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="nav-icon icon-pencil"></i> Settings</a>
+              <a class="nav-link" href="{{route('doctor.patient')}}">
+                <i class="nav-icon icon-pencil"></i> Patient</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  href="{{route('doctor.prescription')}}">
+                <i class="nav-icon icon-pencil"></i> Prescription</a>
             </li>
             
               </ul>
             </li>
-           
+
+           <!--
         <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+          -->
       </div>
       <main class="main">
         <!-- Breadcrumb-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">Home</li>
           <li class="breadcrumb-item">
-            <a href="#">Patient</a>
+            <a href="#">Doctor</a>
           </li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item active">Notification</li>
           <!-- Breadcrumb Menu-->
           
           <li class="breadcrumb-menu d-md-down-none">

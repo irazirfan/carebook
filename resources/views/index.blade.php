@@ -37,7 +37,8 @@
             <td id="formCell">
                 <div class="container">
                     <div class="row">
-                        <form method="post" action="../controler/Login.php">
+                        <form method="post" action="">
+                          @csrf
                           <div class="form-group col col-*">
                             <label for="exampleInputEmail1">Email address</label>
                             <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
