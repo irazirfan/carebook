@@ -44,10 +44,17 @@ Route::get('/patient/notification', 'PatientController@notification')->name('pat
 Route::get('/patient/archive', 'PatientController@archive')->name('patient.archive');
 
 Route::get('/search', 'PatientController@search');
- 
+
 Route::get('/doctor', 'DoctorController@index')->name('doctor');
 Route::get('/doctor/profile', 'DoctorController@profile')->name('doctor.profile');
 Route::get('/doctor/notification', 'DoctorController@notification')->name('doctor.notification');
 Route::get('/doctor/patient', 'DoctorController@patient')->name('doctor.patient');
+
+Route::get('/administrator', 'AdminController@index')->name('admin');
+Route::get('/administrator/profile', 'AdminController@profile')->name('admin.profile');
+Route::get('/administrator/notification', 'AdminController@notification')->name('admin.notification');
+Route::get('/administrator/gallery', 'AdminController@gallery')->name('admin.gallery');
+Route::get('/administrator/todo', 'AdminController@todo')->name('admin.todo');
+Route::get('/administrator/calendar', 'AdminController@calendar')->name('admin.calendar');
 
 Route::get('/logout', 'LogoutController@index')->name('logout');
