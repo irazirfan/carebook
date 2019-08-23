@@ -1,4 +1,4 @@
-<footer class="site-footer">
+
     <div class="text-center">
         <p>
             &copy; Copyrights <strong>CareBook</strong>. All Rights Reserved
@@ -7,7 +7,6 @@
             <i class="fa fa-angle-up"></i>
         </a>
     </div>
-</footer>
 <!--footer end-->
 </section>
 <!-- js placed at the end of the document so the pages load faster -->

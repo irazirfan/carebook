@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2bae140a-34d5-4cad-b205-a44add1986f4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/admin/lib/file-uploader/css/jquery.fileupload-ui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/lib/file-uploader/css/jquery.fileupload.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/lib/file-uploader/js/jquery.fileupload-audio.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/lib/file-uploader/js/jquery.fileupload-image.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/lib/file-uploader/js/jquery.fileupload-process.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/lib/file-uploader/js/jquery.fileupload-ui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/lib/file-uploader/js/jquery.fileupload-validate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/lib/file-uploader/js/jquery.fileupload-video.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/lib/file-uploader/js/jquery.fileupload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/lib/file-uploader/js/jquery.iframe-transport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin-footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin-footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin-sidemenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin-sidemenu.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -140,15 +130,15 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\carebook\resources\views\admin" />
+      <recent name="C:\xampp\htdocs\carebook\public\css\admin" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\carebook\public" />
       <recent name="C:\xampp\htdocs\carebook\public\css\admin\lib" />
       <recent name="C:\xampp\htdocs\carebook\public\css\admin" />
       <recent name="C:\xampp\htdocs\carebook\public\patientTheme\js" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\carebook\resources\views\admin" />
-      <recent name="C:\xampp\htdocs\carebook\public\css\admin" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -183,7 +173,8 @@
       <workItem from="1563913853373" duration="2171000" />
       <workItem from="1566589797528" duration="1047000" />
       <workItem from="1566590912678" duration="3688000" />
-      <workItem from="1566594769871" duration="6571000" />
+      <workItem from="1566594769871" duration="6645000" />
+      <workItem from="1566602284380" duration="1292000" />
     </task>
     <servers />
   </component>

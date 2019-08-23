@@ -8,7 +8,7 @@
         </a>
     </li>
     <li class="sub-menu">
-        <a href="javascript:;">
+        <a href="administrator/notification">
             <i class="fa fa-cogs"></i>
             <span>Notifications</span>
         </a>
