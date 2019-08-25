@@ -70,6 +70,5 @@
 
 </body>
 
-<footer class="site-footer">
-    @include('../layouts/admin-footer')
-</footer>
+
+@include('../layouts/admin-footer')

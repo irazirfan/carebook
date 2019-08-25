@@ -51,10 +51,10 @@ Route::get('/doctor/notification', 'DoctorController@notification')->name('docto
 Route::get('/doctor/patient', 'DoctorController@patient')->name('doctor.patient');
 
 Route::get('/administrator', 'AdminController@index')->name('admin');
-Route::get('/administrator/profile', 'AdminController@profile')->name('admin.profile');
-Route::get('/administrator/notification', 'AdminController@notification')->name('admin.notification');
-Route::get('/administrator/gallery', 'AdminController@gallery')->name('admin.gallery');
-Route::get('/administrator/todo', 'AdminController@todo')->name('admin.todo');
-Route::get('/administrator/calendar', 'AdminController@calendar')->name('admin.calendar');
+Route::get('/profile', 'AdminController@profile')->name('admin.profile');
+Route::get('/notification', 'AdminController@notification')->name('admin.notification');
+Route::get('/gallery', 'AdminController@gallery')->name('admin.gallery');
+Route::get('/todo', 'AdminController@todo')->name('admin.todo');
+Route::get('/calendar', 'AdminController@calendar')->name('admin.calendar');
 
 Route::get('/logout', 'LogoutController@index')->name('logout');
