@@ -68,7 +68,5 @@
     </div>
 </div>
 
-</body>
-
 
 @include('../layouts/admin-footer')
