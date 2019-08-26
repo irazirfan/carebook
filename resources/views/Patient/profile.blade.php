@@ -5,7 +5,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 @endsection
+@section('breadcrumb')
+   <main class="main">
+        <!-- Breadcrumb-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Home</li>
+          
+          <li class="breadcrumb-item active">
+            <a href="#">Profile</a>
+          </li>
+          
+          <li class="breadcrumb-menu d-md-down-none">
+            <div class="btn-group" role="group" aria-label="Button group">
+              <a class="btn" href="{{route('signout')}}">
+                <i class="icon-settings"></i>  Sign-Out</a>
+            </div>
+          
+          </li> 
+        </ol>
 
+      </main>
+@endsection
 @section('body')
 <hr>
 <div class="container bootstrap snippet">

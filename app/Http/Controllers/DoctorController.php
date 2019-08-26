@@ -13,6 +13,10 @@ class DoctorController extends Controller
         return view('Doctor.index');
     }
 
+    public function prescription()
+    {
+        return view('Doctor.prescription');
+    }
     public function profile()
     {
         return view('Doctor.profile');

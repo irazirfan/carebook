@@ -47,6 +47,7 @@ Route::get('/search', 'PatientController@search');
 
 Route::get('/doctor', 'DoctorController@index')->name('doctor');
 Route::get('/doctor/profile', 'DoctorController@profile')->name('doctor.profile');
+Route::get('/doctor/prescription', 'DoctorController@prescription')->name('doctor.prescription');
 Route::get('/doctor/notification', 'DoctorController@notification')->name('doctor.notification');
 Route::get('/doctor/patient', 'DoctorController@patient')->name('doctor.patient');
 

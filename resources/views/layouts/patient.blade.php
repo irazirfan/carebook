@@ -133,26 +133,7 @@ table, th, td {
             </li>       
           </ul>
       </div>
-      <main class="main">
-        <!-- Breadcrumb-->
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">Home</li>
-          <li class="breadcrumb-item">
-            <a href="#">Patient</a>
-          </li>
-          <li class="breadcrumb-item active">Dashboard</li>
-          <!-- Breadcrumb Menu-->
-          
-          <li class="breadcrumb-menu d-md-down-none">
-            <div class="btn-group" role="group" aria-label="Button group">
-              <a class="btn" href="{{route('signout')}}">
-                <i class="icon-settings"></i>  Sign-Out</a>
-            </div>
-          
-          </li> 
-        </ol>
-
-      </main>
+     @yield('breadcrumb');
 
       <aside class="aside-menu">
 

@@ -1,4 +1,24 @@
 @extends('layouts.patient')
+@section('breadcrumb')
+   <main class="main">
+        <!-- Breadcrumb-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Home</li>
+          
+          <li class="breadcrumb-item active">Dashboard</li>
+          <!-- Breadcrumb Menu-->
+          
+          <li class="breadcrumb-menu d-md-down-none">
+            <div class="btn-group" role="group" aria-label="Button group">
+              <a class="btn" href="{{route('signout')}}">
+                <i class="icon-settings"></i>  Sign-Out</a>
+            </div>
+          
+          </li> 
+        </ol>
+
+      </main>
+@endsection
 @section('body')
       <!--<body class="app flex-row align-items-center">-->
 
