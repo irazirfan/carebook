@@ -51,7 +51,7 @@
                             <p class="green">You have 4 pending tasks</p>
                         </li>
                         <li>
-                            <a href="index.blade.php#">
+                            <a href="{{route('admin')}}">
                                 <div class="task-info">
                                     <div class="desc">Carebook Admin Panel</div>
                                     <div class="percent">40%</div>
@@ -64,7 +64,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="index.blade.php#">
+                            <a href="{{route('admin')}}">
                                 <div class="task-info">
                                     <div class="desc">Database Update</div>
                                     <div class="percent">60%</div>
@@ -77,7 +77,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="index.blade.php#">
+                            <a href="{{route('admin')}}">
                                 <div class="task-info">
                                     <div class="desc">Product Development</div>
                                     <div class="percent">80%</div>
@@ -90,7 +90,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="index.blade.php#">
+                            <a href="{{route('admin')}}">
                                 <div class="task-info">
                                     <div class="desc">Payments Sent</div>
                                     <div class="percent">70%</div>
@@ -120,7 +120,7 @@
                             <p class="green">You have 5 new messages</p>
                         </li>
                         <li>
-                            <a href="index.blade.php#">
+                            <a href="{{route('admin')}}">
                                 <span class="photo"><img alt="avatar" src="{{asset('admin/img/ui-zac.jpg')}}"></span>
                                 <span class="subject">
                   <span class="from">Zac Snider</span>
@@ -132,7 +132,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="index.blade.php#">
+                            <a href="{{route('admin')}}">
                                 <span class="photo"><img alt="avatar" src="{{asset('admin/img/ui-divya.jpg')}}"></span>
                                 <span class="subject">
                   <span class="from">Divya Manian</span>
@@ -144,7 +144,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="index.blade.php#">
+                            <a href="{{route('admin')}}">
                                 <span class="photo"><img alt="avatar" src="{{asset('admin/img/ui-danro.jpg')}}"></span>
                                 <span class="subject">
                   <span class="from">Dan Rogers</span>
@@ -156,7 +156,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="index.blade.php#">
+                            <a href="{{route('admin')}}">
                                 <span class="photo"><img alt="avatar" src="{{asset('admin/img/ui-sherman.jpg')}}"></span>
                                 <span class="subject">
                   <span class="from">Dj Sherman</span>
@@ -168,7 +168,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="index.blade.php#">See all messages</a>
+                            <a href="{{route('admin')}}">See all messages</a>
                         </li>
                     </ul>
                 </li>
@@ -185,35 +185,35 @@
                             <p class="yellow">You have 7 new notifications</p>
                         </li>
                         <li>
-                            <a href="index.blade.php#">
+                            <a href="{{route('admin')}}">
                                 <span class="label label-danger"><i class="fa fa-bolt"></i></span>
                                 Server Overloaded.
                                 <span class="small italic">4 mins.</span>
                             </a>
                         </li>
                         <li>
-                            <a href="index.blade.php#">
+                            <a href="{{route('admin')}}">
                                 <span class="label label-warning"><i class="fa fa-bell"></i></span>
                                 Memory #2 Not Responding.
                                 <span class="small italic">30 mins.</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="index.blade.php#">
+                        <li> 
+                            <a href="{{route('admin')}}">
                                 <span class="label label-danger"><i class="fa fa-bolt"></i></span>
                                 Disk Space Reached 85%.
                                 <span class="small italic">2 hrs.</span>
                             </a>
                         </li>
                         <li>
-                            <a href="index.blade.php#">
+                            <a href="{{route('admin')}}">
                                 <span class="label label-success"><i class="fa fa-plus"></i></span>
                                 New User Registered.
                                 <span class="small italic">3 hrs.</span>
                             </a>
                         </li>
                         <li>
-                            <a href="index.blade.php#">See all notifications</a>
+                            <a href="{{route('admin')}}">See all notifications</a>
                         </li>
                     </ul>
                 </li>
@@ -227,3 +227,122 @@
             </ul>
         </div>
     </header>
+    <aside>
+      <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+       <ul class="sidebar-menu" id="nav-accordion">
+    <p class="centered"><a href="{{route('admin.profile')}}"><img src="{{asset('admin/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
+    <h5 class="centered">Iraz Irfan</h5>
+    <li class="mt">
+        <a class="active" href="{{route('admin')}}">
+            <i class="fa fa-dashboard"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
+    <li class="sub-menu">
+        <a href="{{route('admin.notification')}}">
+            <i class="fa fa-cogs"></i>
+            <span>Notifications</span>
+        </a>
+    </li>
+    <li class="sub-menu">
+        <a href="javascript:;">
+            <i class="fa fa-desktop"></i>
+            <span>User Info</span>
+        </a>
+        <ul class="sub">
+            <li><a href="/doctorList">Doctor</a></li>
+            <li><a href="/patientList">Patient</a></li>
+            <li><a href="/technitcianList">Technician</a></li>
+        </ul>
+    </li>
+    <li class="sub-menu">
+        <a href="javascript:;">
+            <i class="fa fa-book"></i>
+            <span>Extra</span>
+        </a>
+        <ul class="sub">
+            <li><a href="/calendar">Calendar</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/todo">Todo List</a></li>
+        </ul>
+    </li>
+
+        <!-- sidebar menu end-->
+      </div>
+    </aside>
+    
+    @yield('content')
+
+<footer class="site-footer">
+    <div class="text-center">
+        <p>
+            &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
+        </p>
+        <a href="index.html#" class="go-top">
+            <i class="fa fa-angle-up"></i>
+        </a>
+    </div>
+</footer>
+<!--footer end-->
+</section>
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="{{asset('admin/lib/jquery/jquery.min.js')}}"></script>
+
+<script src="{{asset('admin/lib/bootstrap/js/bootstrap.min.js')}}"></script>
+<script class="include" type="text/javascript" src="{{asset('admin/lib/jquery.dcjqaccordion.2.7.js')}}"></script>
+<script src="{{asset('admin/lib/jquery.scrollTo.min.js')}}"></script>
+<script src="{{asset('admin/lib/jquery.nicescroll.js')}}" type="text/javascript"></script>
+<script src="{{asset('admin/lib/jquery.sparkline.js')}}"></script>
+<!--common script for all pages-->
+<script src="{{asset('admin/lib/common-scripts.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/lib/gritter/js/jquery.gritter.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/lib/gritter-conf.js')}}"></script>
+<!--script for this page-->
+<script src="{{asset('admin/lib/sparkline-chart.js')}}"></script>
+<script src="{{asset('admin/lib/zabuto_calendar.js')}}"></script>
+<script type="application/javascript">
+    $(document).ready(function() {
+        $("#date-popover").popover({
+            html: true,
+            trigger: "manual"
+        });
+        $("#date-popover").hide();
+        $("#date-popover").click(function(e) {
+            $(this).hide();
+        });
+
+        $("#my-calendar").zabuto_calendar({
+            action: function() {
+                return myDateFunction(this.id, false);
+            },
+            action_nav: function() {
+                return myNavFunction(this.id);
+            },
+            ajax: {
+                url: "show_data.php?action=1",
+                modal: true
+            },
+            legend: [{
+                type: "text",
+                label: "Special event",
+                badge: "00"
+            },
+                {
+                    type: "block",
+                    label: "Regular event",
+                }
+            ]
+        });
+    });
+
+    function myNavFunction(id) {
+        $("#date-popover").hide();
+        var nav = $("#" + id).data("navigation");
+        var to = $("#" + id).data("to");
+        console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+    }
+</script>
+</body>
+
+</html>

@@ -1,31 +1,5 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link href="{{asset('patientTheme/js/profile.js')}}">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<head>
-    <title>Profile | Doctor</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    @include('../layouts/admin-header')
-</head>
-
-<aside>
-    <div id="sidebar" class="nav-collapse ">
-        <!-- sidebar menu start-->
-    @include('../layouts/admin-sidemenu')
-    <!-- sidebar menu end-->
-    </div>
-</aside>
+@extends('layouts.admin')
+@section('content')
 
 <br> <br> <br>
 
@@ -219,6 +193,4 @@
 </div><!--/row-->
 </div>
 
-<footer class="site-footer">
-    @include('../layouts/admin-footer')
-</footer>
+@endsection

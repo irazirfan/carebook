@@ -1,12 +1,5 @@
-@include('../layouts/admin-header')
-
-<aside>
-    <div id="sidebar" class="nav-collapse ">
-        <!-- sidebar menu start-->
-    @include('../layouts/admin-sidemenu')
-    <!-- sidebar menu end-->
-    </div>
-</aside>
+@extends('layouts.admin')
+@section('content')
 
 <br> <br> <br>
 <div class="container">
@@ -68,5 +61,4 @@
     </div>
 </div>
 
-
-@include('../layouts/admin-footer')
+@endsection
