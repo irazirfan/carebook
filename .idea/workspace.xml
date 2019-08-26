@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="2bae140a-34d5-4cad-b205-a44add1986f4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/notification.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/notification.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin-footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin-footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin-header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin-header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin-sidemenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin-sidemenu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -117,7 +121,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -175,6 +179,7 @@
       <workItem from="1566590912678" duration="3688000" />
       <workItem from="1566594769871" duration="6645000" />
       <workItem from="1566602284380" duration="1292000" />
+      <workItem from="1566747234281" duration="2534000" />
     </task>
     <servers />
   </component>

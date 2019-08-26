@@ -4,7 +4,7 @@
     <meta name="description" content="">
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-    <title>Dashio - Bootstrap Admin Template</title>
+    <title>CareBook - Admin</title>
 
     <!-- Favicons -->
     <link href="{{asset('admin/img/favicon.png')}}" rel="icon">
@@ -34,7 +34,7 @@
             <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
         </div>
         <!--logo start-->
-        <a href="index.blade.php" class="logo"><b>DASH<span>IO</span></b></a>
+        <a href="index.blade.php" class="logo"><b>CARE<span>BOOK</span></b></a>
         <!--logo end-->
         <div class="nav notify-row" id="top_menu">
             <!--  notification start -->
@@ -53,7 +53,7 @@
                         <li>
                             <a href="index.blade.php#">
                                 <div class="task-info">
-                                    <div class="desc">Dashio Admin Panel</div>
+                                    <div class="desc">Carebook Admin Panel</div>
                                     <div class="percent">40%</div>
                                 </div>
                                 <div class="progress progress-striped">
