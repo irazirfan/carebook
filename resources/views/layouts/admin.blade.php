@@ -7,8 +7,8 @@
     <title>CareBook - Admin</title>
 
     <!-- Favicons -->
-{{--    <link href="{{asset('admin/img/favicon.png')}}" rel="icon">--}}
-{{--    <link href="{{asset('admin/img/apple-touch-icon.png')}}" rel="apple-touch-icon">--}}
+    <link href="{{asset('admin/img/favicon.png')}}" rel="icon">
+    <link href="{{asset('admin/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
     <!-- Bootstrap core CSS -->
     <link href="{{asset('admin/lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -34,7 +34,7 @@
             <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
         </div>
         <!--logo start-->
-        <a href="index.blade.php" class="logo"><b>CARE<span>BOOK</span></b></a>
+        <a href="{{route('admin')}}" class="logo"><b>CARE<span>BOOK</span></b></a>
         <!--logo end-->
 
         <div class="top-menu">

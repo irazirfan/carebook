@@ -12,21 +12,25 @@
 
                             <thead>
                             <tr>
-                                <th><i class="fa fa-bullhorn"></i> Company</th>
-                                <th class="hidden-phone"><i class="fa fa-question-circle"></i> Descrition</th>
-                                <th><i class="fa fa-bookmark"></i> Profit</th>
-                                <th><i class=" fa fa-edit"></i> Status</th>
+                                <th><i class="fa fa-envelope"></i> Email</th>
+                                <th class="hidden-phone"><i class="fa fa-mobile"></i> Phone</th>
+                                <th><i class=" fa fa-user-circle-o"></i> Name</th>
+                                <th><i class=" fa fa-vcard"></i> Address</th>
+                                <th><i class=" fa fa-bookmark"></i> NID</th>
                                 <th></th>
+                                <th><i class=" fa fa-bolt"></i> Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td>
-                                    <a href="basic_table.html#">Company Ltd</a>
+                                    <a href="basic_table.html#">irazirfan@gmail.com</a>
                                 </td>
-                                <td class="hidden-phone">Lorem Ipsum dolor</td>
-                                <td>12000.00$ </td>
-                                <td><span class="label label-info label-mini">Due</span></td>
+                                <td class="hidden-phone"><span class="label label-info label-mini">+880 1521318232</span></td>
+                                <td>Iraz Irfan</td>
+                                <td>Lalmonirhat</td>
+                                <td><span class="label label-success label-mini">735 539 2403</span></td>
+                                <td></td>
                                 <td>
                                     <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
                                     <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
@@ -35,13 +39,13 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="basic_table.html#">
-                                        Dashio co
-                                    </a>
+                                    <a href="basic_table.html#">shasan@gmail.com</a>
                                 </td>
-                                <td class="hidden-phone">Lorem Ipsum dolor</td>
-                                <td>17900.00$ </td>
-                                <td><span class="label label-warning label-mini">Due</span></td>
+                                <td class="hidden-phone"><span class="label label-info label-mini">+880 1679332699</span></td>
+                                <td>Mahmudul Hasan</td>
+                                <td>Comilla</td>
+                                <td><span class="label label-success label-mini">639 238 1104</span></td>
+                                <td></td>
                                 <td>
                                     <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
                                     <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
@@ -50,13 +54,13 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="basic_table.html#">
-                                        Another Co
-                                    </a>
+                                    <a href="basic_table.html#">shahriar@gmail.com</a>
                                 </td>
-                                <td class="hidden-phone">Lorem Ipsum dolor</td>
-                                <td>14400.00$ </td>
-                                <td><span class="label label-success label-mini">Paid</span></td>
+                                <td class="hidden-phone"><span class="label label-info label-mini">+880 1779452668</span></td>
+                                <td>Fahim Shahriar</td>
+                                <td>Feni</td>
+                                <td><span class="label label-success label-mini">954 354 1204</span></td>
+                                <td></td>
                                 <td>
                                     <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
                                     <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
@@ -65,24 +69,13 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="basic_table.html#">Dashio ext</a>
+                                    <a href="basic_table.html#">kawser007@hotmail.com</a>
                                 </td>
-                                <td class="hidden-phone">Lorem Ipsum dolor</td>
-                                <td>22000.50$ </td>
-                                <td><span class="label label-success label-mini">Paid</span></td>
-                                <td>
-                                    <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                    <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="basic_table.html#">Total Ltd</a>
-                                </td>
-                                <td class="hidden-phone">Lorem Ipsum dolor</td>
-                                <td>12120.00$ </td>
-                                <td><span class="label label-warning label-mini">Due</span></td>
+                                <td class="hidden-phone"><span class="label label-info label-mini">+880 1756322584</span></td>
+                                <td>Kawser Abid</td>
+                                <td>Chittagong</td>
+                                <td><span class="label label-success label-mini">452 240 3015</span></td>
+                                <td></td>
                                 <td>
                                     <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
                                     <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
