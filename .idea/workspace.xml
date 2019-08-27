@@ -3,12 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="2bae140a-34d5-4cad-b205-a44add1986f4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/notification.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/notification.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin-footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin-footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin-header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin-header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin-sidemenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin-sidemenu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/img/apple-touch-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/img/apple-touch-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/img/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/img/favicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/doctorList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/doctorList.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/patientList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/patientList.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/technicianList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/technicianList.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +21,20 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -121,7 +135,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -134,15 +148,15 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\carebook\resources\views\admin" />
-      <recent name="C:\xampp\htdocs\carebook\public\css\admin" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\carebook\public" />
       <recent name="C:\xampp\htdocs\carebook\public\css\admin\lib" />
       <recent name="C:\xampp\htdocs\carebook\public\css\admin" />
       <recent name="C:\xampp\htdocs\carebook\public\patientTheme\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\carebook\resources\views\admin" />
+      <recent name="C:\xampp\htdocs\carebook\public\css\admin" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -179,7 +193,11 @@
       <workItem from="1566590912678" duration="3688000" />
       <workItem from="1566594769871" duration="6645000" />
       <workItem from="1566602284380" duration="1292000" />
-      <workItem from="1566747234281" duration="2534000" />
+      <workItem from="1566747234281" duration="3136000" />
+      <workItem from="1566850690620" duration="72000" />
+      <workItem from="1566850910147" duration="788000" />
+      <workItem from="1566852275941" duration="4357000" />
+      <workItem from="1566876520891" duration="3820000" />
     </task>
     <servers />
   </component>
