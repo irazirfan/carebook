@@ -14,8 +14,7 @@
     
 @endsection
 
-@section('content')
-  @section('nav')
+@section('nav')
     <ul>
       <li ><a href="{{route('doctor')}}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Dashboard</span></a></li>
       <li ><a href="{{route('doctor.prescription')}}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Prescription</span></a></li>
@@ -25,7 +24,10 @@
       <li><a href="{{route('logout')}}"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
     </ul>
   @endsection
-    <div class="container">
+  
+@section('content')
+  
+    <div class="container-fluid">
 
         <div class="row justify-content-center" style="margin-right: 200px; margin-top: 50px">
           <div class="col-sm-12 col-xl-12" >

@@ -13,8 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 @endsection
 
-@section('content')
-  @section('nav')
+ @section('nav')
     <ul>
       <li ><a href="{{route('doctor')}}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Dashboard</span></a></li>
       <li ><a href="{{route('doctor.prescription')}}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Prescription</span></a></li>
@@ -24,37 +23,63 @@
       <li><a href="{{route('logout')}}"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
     </ul>
   @endsection
-      <div class="container">
-        <div class="row justify-content-center" style="margin-left: 50px; margin-top: 50px">
+  
+@section('content')
+ 
+      <div class="container-fluid">
+        <div class="row justify-content-center" style="margin-right: 200px; margin-top: 50px">
           <div class="col-sm-12 col-xl-12" >
               <div class="card">
                   <div class="card-header">
-                    <i class="fa fa-align-justify"></i> Notification
+                    <i class="fa fa-align-justify"></i> Previous Patient
                     <small>custom content</small>
                   </div>
                   <div class="card-body">
                     <div class="list-group">
                       <a class="list-group-item list-group-item-action flex-column align-items-start active" href="#">
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">New Notice Posted By Dr. Md.Rezaul Haq</h5>
+                          <h5 class="mb-1"> Md.Rezaul Haq
 
-                          <small>23-Jul-2019</small>
+                          </h5>
+                          
+
+                          <small>
+                             <small><b>11-May-2019</b></small>
+                            <button class="btn btn-sm btn-danger" type="view">
+                                <i class="fa fa-dot-circle-o"></i> View</button>
+                          </small>
+
                         </div>          
                       </a>
+
                       <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">New Notice Posted By Dr. Md.Rezaul Haq</h5>
-                          <small>11-June-2019</small>
+                          <h5 class="mb-1"> Md.Rezaul Haq</h5>
+                          
+                          <small>
+                            <small><b>05-Feb-2019</b></small>
+                            <button class="btn btn-sm btn-danger" type="view">
+                                <i class="fa fa-dot-circle-o"></i> View</button>
+                          </small>
+                         
                         </div>
                
                       </a>
                       <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">New Notice Posted By Dr. Md.Rezaul Haq</h5>
-                          <small>11-May-2019</small>
+                          <h5 class="mb-1"> Md.Rezaul Haq</h5>
+                           
+                           <small>
+                            <small><b>07-Jan-2019</b></small>
+
+                            <button class="btn btn-sm btn-danger" type="view">
+                                <i class="fa fa-dot-circle-o"></i> View</button>
+                          </small>
+
                         </div>
                       </a>
                     </div>
+
 
                     <nav aria-label="..." style="float: right;">
                       <ul class="pagination">
@@ -81,7 +106,7 @@
                 </div>
             </div>
         </div>
-      </div>
+    </div>
 
 @endsection
 
