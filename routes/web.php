@@ -50,6 +50,7 @@ Route::get('/doctor/profile', 'DoctorController@profile')->name('doctor.profile'
 Route::get('/doctor/prescription', 'DoctorController@prescription')->name('doctor.prescription');
 Route::get('/doctor/notification', 'DoctorController@notification')->name('doctor.notification');
 Route::get('/doctor/patient', 'DoctorController@patient')->name('doctor.patient');
+Route::get('doctor/search', 'DoctorController@search');
 
 Route::get('/administrator', 'AdminController@index')->name('admin');
 Route::get('/administrator/profile', 'AdminController@profile')->name('admin.profile');

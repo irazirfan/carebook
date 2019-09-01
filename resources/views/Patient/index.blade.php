@@ -133,7 +133,7 @@
                         <small>{{$doctor->contact}}</small>              
                       </a>
                       @endforeach
-                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
+                      <!-- <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
                         <div class="d-flex w-100 justify-content-between">
                           <h5 class="mb-1">Dr. Md.Rezaul Haq</h5>
                           <small>MBBS(DU), FCPS(UK), MD(USA)</small>
@@ -154,7 +154,7 @@
                         <p class="mb-1"> Lab Aid Hospital, Panthpath, Dhaka.</p>
                         <p class="mb-1">3pm-8pm</p>
                         <small> 01454511511</small>
-                      </a>
+                      </a> -->
                     </div>
                     <nav aria-label="..." style="float: right;">
                       <ul class="pagination">

@@ -20,7 +20,10 @@
       <li class="active"><a href="{{route('doctor')}}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Dashboard</span></a></li>
       <li ><a href="{{route('doctor.prescription')}}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Prescription</span></a></li>
       <li ><a href="{{route('doctor.patient')}}"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Patient</span></a></li>
-      <li><a href="{{route('doctor.notification')}}"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Notification</span></a></li>
+      <li class="nav-item d-md-down-none">
+        <a href="{{route('doctor.notification')}}" class="nav-link"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Notification</span> <i class="icon-bell"></i>
+            <span class="badge badge-pill badge-danger">0</span></a>       
+      </li>
       <li><a href="{{route('doctor.profile')}}"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Profile</span></a></li>
       <li><a href="{{route('logout')}}"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
     </ul>
@@ -42,10 +45,10 @@
                   <i class="fa fa-search"></i>
                 </span>
                </div>
-              <input class="form-control" id="prependedInput" size="16" type="text" placeholder="Search">
-              <span class="input-group-append">
-                <button class="btn btn-info" type="button">Search</button>
-              </span>
+              <input class="form-control" id="search" size="16" type="text" placeholder="Search">
+             <!--  <span class="input-group-append">
+               <button class="btn btn-info" type="button">Search</button>
+             </span> -->
             </div>
             <legend>
               <font size="3">
@@ -53,10 +56,10 @@
               </font>
             </legend>
 
-            <select name="group">
-                <option value="PHYSICAL MEDICINE & REHABILITATION"> PHYSICAL MEDICINE & REHABILITATION</option>
-                
-            </select>
+           <!--  <select name="group">
+               <option value="PHYSICAL MEDICINE & REHABILITATION"> PHYSICAL MEDICINE & REHABILITATION</option>
+               
+           </select> -->
    
            
           </div>  
@@ -87,41 +90,33 @@
                     <!-- <small>custom content</small> -->
                   </div>
                   <div class="card-body">
-                    <div class="list-group">
-                      <a class="list-group-item list-group-item-action flex-column align-items-start active" href="#">
+                    <div class="list-group" id="disease">
+                      @php
+                        $count=0;
+                      @endphp
+                      @foreach ($diseases as $disease)
+                        {{-- expr --}}
+                        @if ($count == 0)
+                          <a class="list-group-item list-group-item-action flex-column align-items-start active" href="#">
+                          @else
+                            <a class="list-group-item list-group-item-action flex-column align-items-start " href="#">
+                        @endif
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Sars</h5>
+                          <h5 class="mb-1">{{$disease->name}}</h5>
                           
                         </div>
 
-                        <img class="" style="width: 100px; height: 100px; float: right;" src="{{asset('theme/Images/sars.jpg')}}" alt="Card image cap">
-                        <p class="mb-1"> Europe</p>
-                        <p class="mb-1"> Contagious and potentially fatal respiratory illness.</p>
-                        <p class="mb-1">Aches, chills, diarrhea, dry coughing, and shortness of breath</p>
-                        <small> SARS-CoV/ RT-PCR</small>              
+                        <img class="" style="width: 100px; height: 100px; float: right;" src="{{asset('theme/Images')}}/{{$disease->image}}" alt="{{$disease->image}}">
+                        <p class="mb-1"> {{$disease->origin}}</p>
+                        <p class="mb-1"> {{$disease->effects}}</p>
+                        <p class="mb-1">{{$disease->symptom}}</p>
+                        <small> {{$disease->diagnosis}}</small>              
                       </a>
-                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Ebola</h5>
-                         
-                        </div>
-                        <img class="" style="width: 100px; height: 100px; float: right;" src="{{asset('theme/Images/ebola.jpg')}}" alt="Card image cap">
-                        <p class="mb-1"> Africa</p>
-                        <p class="mb-1"> Contagious and potentially fatal respiratory illness.</p>
-                        <p class="mb-1">Aches, chills, diarrhea, dry coughing, and shortness of breath</p>
-                        <small> SARS-CoV/ RT-PCR</small>
-                      </a>
-                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Avian Flu</h5>
-                         
-                        </div>
-                        <img class="" style="width: 100px; height: 100px; float: right;" src="{{asset('theme/Images/avian_flu.jpg')}}" alt="Card image cap">
-                        <p class="mb-1"> America</p>
-                        <p class="mb-1"> Contagious and potentially fatal respiratory illness.</p>
-                        <p class="mb-1">Aches, chills, diarrhea, dry coughing, and shortness of breath</p>
-                        <small> SARS-CoV/ RT-PCR</small>
-                      </a>
+                      @php
+                        $count++;
+                      @endphp
+                      @endforeach
+                     
                     </div>
                     <nav aria-label="..." style="float: right;">
                       <ul class="pagination">
@@ -150,6 +145,23 @@
         </div>
         
       </div>
-
+<script type="text/javascript">
+$('#search').on('keyup',function(){
+$value=$(this).val();
+console.log($value);
+$.ajax({
+type : 'get',
+url : '{{URL::to('doctor/search')}}',
+data:{'search':$value},
+success:function(data){
+console.log(data);
+$('#disease').html(data);
+}
+});
+})
+</script>
+<script type="text/javascript">
+$.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+</script>
              
 @endsection
