@@ -20,6 +20,10 @@ class DoctorController extends Controller
     {
         return view('Doctor.prescription');
     }
+    public function stcky()
+    {
+        return view('Doctor.sticky');
+    }
     public function profile()
     {
         return view('Doctor.profile');

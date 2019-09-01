@@ -11,6 +11,39 @@
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Sticky Notes -->
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?v=1">
+
+   <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+   <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+   <!-- For first-generation iPad: -->
+   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png">
+   <!-- For iPhone 4 with high-resolution Retina display: -->
+   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
+
+   <!-- CSS -->
+   <link rel="stylesheet" href="{{asset('doctorTheme/css/main.css?version=1')}}" />
+   <link rel="stylesheet" href="{{asset('doctorTheme/css/html5sticky.css?version=1')}}" />
+
+   <link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' />
+
+   <!-- JavaScript -->
+   <!--[if IE]><![endif]-->
+   <!--[if lt IE 9]>
+   <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+   <![endif]-->
+    
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+   <script>!window.jQuery && document.write(unescape('%3Cscript src="doctorTheme/js/jquery1.6.2.js"%3E%3C/script%3E'))</script>
+
+   <script src="{{asset('doctorTheme/js/respond.min.js')}}"></script>
+   <script src="{{asset('doctorTheme/js/modernizr.custom.23610.js')}}"></script>
+   <script src="{{asset('doctorTheme/js/html5sticky.js')}}"></script>
+   <script src="{{asset('doctorTheme/js/prettyDate.js')}}"></script>
     
 @endsection
 
@@ -67,21 +100,45 @@
 
         <div class="row justify-content-center" style="padding-top: 20px">
           <div class="col-sm-4 col-xl-4">
-          <div class="card" style="">
-                  <div class="card-header">
-                    <i class="fa fa-align-justify"></i> Daily Task
-                    <!-- <small>custom content</small> -->
-                  </div>
-                  <div class="card-body" style="margin-bottom: 40px">
-                   <textarea rows="17" cols="35" name="textarea"></textarea>
+            <div class="card" style="">
+                <header id="head">
+
+                  <a href="index.html">
+                     <h1>HTML5Sticky <br /><small>sticky notes for web !</small></h1>
+                  </a>
+
+                  <div class="left topsection">
+                     <a href="#" id="addnote" class="tooltip blue-tooltip"><img src="{{asset('doctorTheme/img/add.png')}}" alt="Add a new sticky note"><span>Add a new sticky note</span></a>
+                     <a href="#" id="removenotes" class="tooltip blue-tooltip"><img src="{{asset('doctorTheme/img/remove.png')}}" alt="Remove all sticky notes"><span>Remove all sticky notes</span></a>
                   </div>
 
-                  <div>
-                   <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                  <div class="left topsection">
+                     <a href="#" id="shrink" class="tooltip blue-tooltip"><img src="{{asset('doctorTheme/img/decrease.png')}}" alt="Shrink"><span>Shrink sticky notes</span></a>
+                     <a href="#" id="expand" class="tooltip blue-tooltip"><img src="{{asset('doctorTheme/img/increase.png')}}" alt="Expand"><span>Expand sticky notes</span></a>
+                  </div>
 
-                   <button class="btn btn-lg btn-danger" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Clear</button>
-                  </div> 
-              </div>
+                </header><!-- #head -->
+
+               <div id="main"></div>
+
+               <div class="clear">&nbsp;</div>
+               <div class="clear">&nbsp;</div>
+
+               <footer>
+                  <a href="http://twitter.com/share" class="twitter-share-button" data-text="#HTML5Sticky - #Sticky #Notes for the #Web ! An #HTML5 App" data-count="horizontal" data-via="sarfraznawaz">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+
+                  <!-- Place this tag where you want the +1 button to render -->
+               
+                  <!-- Place this tag after the last plusone tag -->
+                  <script>
+                    (function() {
+                      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                      po.src = 'https://apis.google.com/js/plusone.js';
+                      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                    })();
+                  </script>      
+               </footer>
+            </div>
         </div>
           <div class="col-sm-8 col-xl-8" >
               <div class="card">
@@ -145,6 +202,15 @@
         </div>
         
       </div>
+<script>
+  (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script type="text/javascript">
 $('#search').on('keyup',function(){
 $value=$(this).val();
