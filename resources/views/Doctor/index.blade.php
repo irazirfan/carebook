@@ -101,20 +101,20 @@
         <div class="row justify-content-center" style="padding-top: 20px">
           <div class="col-sm-4 col-xl-4">
             <div class="card" style="">
-                <header id="head">
+                <header id="head" style="">
 
-                  <a href="index.html">
+                  <!-- <a href="index.html">
                      <h1>HTML5Sticky <br /><small>sticky notes for web !</small></h1>
                   </a>
-
-                  <div class="left topsection">
-                     <a href="#" id="addnote" class="tooltip blue-tooltip"><img src="{{asset('doctorTheme/img/add.png')}}" alt="Add a new sticky note"><span>Add a new sticky note</span></a>
-                     <a href="#" id="removenotes" class="tooltip blue-tooltip"><img src="{{asset('doctorTheme/img/remove.png')}}" alt="Remove all sticky notes"><span>Remove all sticky notes</span></a>
+                   -->
+                  <div class=" topsection" style="margin-left: 0px; padding-left: 0px;  float: left">
+                     <a href="#" id="addnote" class=" " style="padding-right: 20x"><img src="{{asset('doctorTheme/img/add.png')}}" alt="Add a new sticky note"></a>
+                     <a href="#" id="removenotes" class=" "><img src="{{asset('doctorTheme/img/remove.png')}}" alt="Remove all sticky notes"></a>
                   </div>
 
-                  <div class="left topsection">
-                     <a href="#" id="shrink" class="tooltip blue-tooltip"><img src="{{asset('doctorTheme/img/decrease.png')}}" alt="Shrink"><span>Shrink sticky notes</span></a>
-                     <a href="#" id="expand" class="tooltip blue-tooltip"><img src="{{asset('doctorTheme/img/increase.png')}}" alt="Expand"><span>Expand sticky notes</span></a>
+                  <div class=" topsection" style="margin-left: 0px; padding-left: 0px; float: left;">
+                     <a href="#" id="shrink" class=" "><img src="{{asset('doctorTheme/img/decrease.png')}}" alt="Shrink"></a>
+                     <a href="#" id="expand" class=" "><img src="{{asset('doctorTheme/img/increase.png')}}" alt="Expand"></a>
                   </div>
 
                 </header><!-- #head -->
@@ -209,10 +209,10 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
 </script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script type="text/javascript">
-$('#search').on('keyup',function(){
+<script type="text/javascript" >
+$('#search').live('keyup',function(){
 $value=$(this).val();
 console.log($value);
 $.ajax({

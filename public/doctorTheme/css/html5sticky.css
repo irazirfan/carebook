@@ -20,12 +20,12 @@ textarea{overflow:auto;}
 /* common styles end */
 
 
-body{background:url("../img/bg.png");color:#fff;padding:10px 30px 10px 30px;}
+body{background:url("doctorTheme/img/bg.png");color:#fff;padding:10px 30px 10px 30px;}
 
 h1{float:left; margin-right:30px; line-height:20px;color:#f6f6f6;text-shadow: 1px 1px 5px #fff;filter: dropshadow(color=#fff, offx=1, offy=1);}
 
-.topsection{border-right:1px solid #999;height:40px;padding:0 10px;width:auto;display:inline;}
-.topsection img{margin-top:7px;float:left;margin-right:3px;}
+.topsection{border-right:1px solid #999;height:40px;padding:0 0px;width:auto;display:inline;}
+.topsection img{margin-top:0px;float:left;margin-right:0px;}
 .topsection a{float:left;display:inline;}
 
 #main{margin-left:10%;width:90%;padding-bottom:50px;margin-top:120px;}
@@ -33,12 +33,12 @@ h1{float:left; margin-right:30px; line-height:20px;color:#f6f6f6;text-shadow: 1p
 #head{
    position:absolute;
    margin:0 auto;
-   width:800px;
+   width:300px;
    height:43px;
    top:20px;
-   left:50px;
-   padding:10px;
-   right:30px;
+   left:0px;
+   padding:0px;
+   right:0px;
 
    background-color: transparent;
    background-color: rgba(255, 255, 255, 0.3);  /* FF3+, Saf3+, Opera 10.10+, Chrome, IE9 */
@@ -131,7 +131,7 @@ footer{
 input:focus,textarea:focus,select:focus{border:1px solid #fafafa;-webkit-box-shadow:0 0 6px #000;-moz-box-shadow:0 0 5px #000;box-shadow:0 0 5px #000;}
 
 .tip{
-   background:url(../img/tip.png) no-repeat;
+   background:url(doctorTheme/img/tip.png) no-repeat;
    font-size:13px;
    padding-left:25px;
    padding-top:3px;
