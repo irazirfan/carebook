@@ -24,6 +24,11 @@ class DoctorController extends Controller
     {
         return view('Doctor.sticky');
     }
+    public function disease($id)
+    {
+        $disease = Disease::find($id);
+        return view('Doctor.disease',compact('disease'));
+    }
     public function profile()
     {
         return view('Doctor.profile');
@@ -58,7 +63,7 @@ class DoctorController extends Controller
                 '</tr>';*/
                 if($key == 0)
                 {
-                  $output.='<a class="list-group-item list-group-item-action flex-column align-items-start active" href="#">'.
+                  $output.='<a class="list-group-item list-group-item-action flex-column align-items-start active" href="doctor/disease/'. $disease->id.'">'.
                         '<div class="d-flex w-100 justify-content-between">'.
                           '<h5 class="mb-1">'.$disease->name.'</h5>'.    
                         '</div>'.
@@ -71,7 +76,7 @@ class DoctorController extends Controller
                 }
                 else
                 {
-                    $output.='<a class="list-group-item list-group-item-action flex-column align-items-start" href="#">'.
+                    $output.='<a class="list-group-item list-group-item-action flex-column align-items-start" href="doctor/disease/'. $disease->id.'">'.
                         '<div class="d-flex w-100 justify-content-between">'.
                           '<h5 class="mb-1">'.$disease->name.'</h5>'.    
                         '</div>'.

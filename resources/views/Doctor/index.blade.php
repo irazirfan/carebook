@@ -154,15 +154,13 @@
                       @foreach ($diseases as $disease)
                         {{-- expr --}}
                         @if ($count == 0)
-                          <a class="list-group-item list-group-item-action flex-column align-items-start active" href="#">
+                          <a class="list-group-item list-group-item-action flex-column align-items-start active" href="{{route('disease', [$disease->id])}}">
                           @else
                             <a class="list-group-item list-group-item-action flex-column align-items-start " href="#">
                         @endif
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">{{$disease->name}}</h5>
-                          
+                          <h5 class="mb-1">{{$disease->name}}</h5>  
                         </div>
-
                         <img class="" style="width: 100px; height: 100px; float: right;" src="{{asset('theme/Images')}}/{{$disease->image}}" alt="{{$disease->image}}">
                         <p class="mb-1"> {{$disease->origin}}</p>
                         <p class="mb-1"> {{$disease->effects}}</p>

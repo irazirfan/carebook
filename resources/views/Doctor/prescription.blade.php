@@ -65,9 +65,9 @@
         @endsection
     <div class="full-wrapper prescription-bg">
             <div class="wrapper prescription-item">
-               <div class="prescription-header">
+               <!-- <div class="prescription-header">
                   <h2>Prescription</h2>
-               </div>
+               </div> -->
                <div class="prescription1">
                 Doctor name <br>
             Degrees <br>
@@ -97,7 +97,7 @@
             <form action="patientData.php" method="post">
         <tr>
           <td>Patient email:</td>
-          <td> <input type="text" name="patientId" id="patient_id" value"></td>
+          <td> <input type="text" name="patientId" id="patient_id" value=""></td>
          <td><button type="submit" class="button" id='pat_search' name="pat_search">Search</button></td>
         </tr>
         <tr>
@@ -278,6 +278,6 @@
 @section('script')
     <script src="{{asset('theme/JS/jquery.min.js')}}"></script>
     <script src="{{asset('theme/JS/pdfobject.min.js')}}"></script>
-    <script src="{{asset('js/press.js')}}"></script>
+    <script src="{{asset('theme/JS/pres.js')}}"></script>
     <!-- <script src="pres.js"></script> -->
 @endsection
