@@ -27,7 +27,9 @@ class DoctorController extends Controller
     public function disease($id)
     {
         $disease = Disease::find($id);
-        return view('Doctor.disease',compact('disease'));
+        $dis = Disease::all();
+        $count = count($dis);
+        return view('Doctor.disease',compact(['disease','count']));
     }
     public function profile()
     {

@@ -36,6 +36,30 @@
       tr:nth-child(even) {
         background-color: #a3eeff;
       }
+      .symptom_table  td {
+        border: 0px solid ;
+        text-align: left;
+        padding: 0px;
+      }
+      .med_table td {
+        border: 0px solid ;
+        text-align: left;
+        padding: 0px;
+      }
+      .test_table td {
+        border: 0px solid ;
+        text-align: left;
+        padding: 0px;
+      }
+      .symptom_table tr:nth-child(even) {
+        background-color: ;
+      }
+      .test_table tr:nth-child(even) {
+        background-color: ;
+      }
+      .med_table  tr:nth-child(even) {
+        background-color: ;
+      }
       .button {
         background-color: #0260f7;
         border: none;
@@ -48,6 +72,49 @@
         margin: 4px 2px;
         cursor: pointer;
       }
+      .container{
+    border: 1px solid black;
+    background-color: white;
+    height: 900px;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 50px;
+    
+  } 
+
+  .top-section{
+
+    background: gray;
+    height :40px;
+    width: 70%;
+    margin : 0 auto;
+    margin-top: 50px;
+    border-radius: 10px;
+  }
+  .main{
+    list-style: none; 
+  }
+  .main li{
+    float: left;
+    height: 50px;
+    width: 30%;
+
+  }
+  .horizontal-line{
+    height:525px;
+    left: 100px;
+    position: absolute;
+    float: left;
+  }
+  .vertical-line{
+    height:525px;
+    border-left: 1px black solid;
+    right: 600px;
+    position: relative;
+    float: right;
+
+
+  }
     </style>
     @endsection
     @section('content')
@@ -132,30 +199,15 @@
                         <td>
                           <div class="mainp2">
                             Symtoms: 
-                    <table border="0" align="center" id="symtom_table">
+                    <table border="0" align="center" id="symtom">
                               
                       <tr><td>
                         <div class="autocomplete" style="position: relative;">
-                         <input type="text" name="s_field_1" id="s_field_1"  placeholder="Write here" >
+                         <input type="text" name="s_field1" id="s_field"  placeholder="Write here" >
                         </div>
                       </td></tr> 
-                      <tr><td>
-                      <div class="autocomplete">
-                        <input type="text" name="s_field_2" id="s_field_2" placeholder="Write here"> 
-                      </div>
-                      </td></tr>
-                      <tr><td>
-                      <div class="autocomplete">
-                        <input type="text" name="s_field_3" id="s_field_3" placeholder="Write here"> 
-                      </div>
-                      </td></tr>
-                      <tr><td>
-                      <div class="autocomplete">
-                        <input type="text" name="s_field_4" id="s_field_4" placeholder="Write here">
-                      </div>
-                      </td></tr> 
                     </table>
-                    <button type="button" onclick="addNewSymtoms()">Add new field</button>
+                    <button type="button" onclick="addNewSymtoms()">Add Symtoms</button>
                         </div>
                         </td>
                       </tr>
@@ -163,30 +215,15 @@
                         <td>
                           <div class="mainp3">
                             Tests:
-                            <table border="0" align="center" id="test_table">
+                            <table border="0" align="center" id="">
                                 <tr><td>
                                   <div class="autocomplete">
-                                  <input type="text" name="t_field_1" id="t_field_1" placeholder="Write here">
+                                  <input type="text" name="t_field" id="t_field" placeholder="Write here">
                                   </div>
                                   
                                 </td></tr>
-                                <tr><td>
-                                <div class="autocomplete">
-                                  <input type="text" name="t_field_2" id="t_field_2" placeholder="Write here">
-                                </div>
-                                </td></tr>
-                                <tr><td>
-                                <div class="autocomplete">
-                                  <input type="text" name="t_field_3" id="t_field_3" placeholder="Write here">
-                                  </div>
-                                </td></tr>
-                                <tr><td>
-                                <div class="autocomplete">
-                                  <input type="text" name="t_field_4" id="t_field_4" placeholder="Write here">
-                                  </div>
-                                </td></tr>
                             </table>
-                            <button type="button" onclick="addNewTest()">Add new field</button>
+                            <button type="button" onclick="addNewTest()">Add Test</button>
                         </div>  
                         </td>
                       </tr>
@@ -194,61 +231,29 @@
                   </td>
                   <td>
                     <div class="mainp4" id="medicine_block">
-                    <table id="med_table">
+                    <table id="">
                       <tr>
                         <td>
                           
-                          <div id="m_field_1" class="design">
+                          <div id="m_field" class="design">
                           <div class="autocomplete">
-                          <input type="text" name="medicineName_1" id="medicineName_1" placeholder="Write medicine name here"> 
+                          <input type="text" name="medicineName" id="medicineName" placeholder="Write medicine name here"> 
                           </div>
-                          days<input type="number" name="days_1"> <br>
+                          days<input type="number" name="days" id="days"> <br>
                           
                           
-                          <input type="number" name="morning_1" placeholder="Morning"> 
-                          <input type="number" name="afternoon_1" placeholder="afternoon">
-                          <input type="number" name="evening_1" placeholder="evening">
-                          <input type="number" name="night_1" placeholder="night"> 
-                          <input type="text" name="comment_1" placeholder="Comment"><br>
+                          <input type="number" name="morning" id="morning" placeholder="Morning"> 
+                          <input type="number" name="afternoon" id="afternoon" placeholder="afternoon">
+                          <input type="number" name="evening" id="evening" placeholder="evening">
+                          <input type="number" name="night" id="night" placeholder="night"> 
+                          <input type="text" name="comment" id="comment" placeholder="Comment"><br>
                         
                         </div>
                       
                         </td>
                       </tr>
-                      <tr>
-                        <td>
-                        <div id="m_field_2">
-                        <div class="autocomplete">
-                        <input type="text" name="medicineName_2" id="medicineName_2" placeholder="Write medicine name here">
-                        </div>
-                         days <input type="number_2" name="days_2"> <br>
-                        
-                        <input type="number" name="morning_2" placeholder="Morning"> 
-                        <input type="number" name="afternoon_2" placeholder="afternoon">
-                        <input type="number" name="evening_2" placeholder="evening">
-                        <input type="number" name="night_2" placeholder="night"> 
-                        <input type="text" name="comment_2" placeholder="Comment"><br>
-                    </div>              
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div id="m_field_3">
-                           <div class="autocomplete">
-                        <input type="text" name="medicineName_3" id="medicineName_3" placeholder="Write medicine name here"> 
-                        </div>
-                        days <input type="number_3" name="days_3"> <br>
-                        
-                        <input type="number" name="morning_3" placeholder="Morning"> 
-                        <input type="number" name="afternoon_3" placeholder="afternoon">
-                        <input type="number" name="evening_3" placeholder="evening">
-                        <input type="number" name="night_3" placeholder="night"> 
-                        <input type="text" name="comment_3" placeholder="Comment"><br>
-                    </div>
-                        </td>
-                      </tr>
                     </table>
-                    <button type="button" onclick="addNewMedicine()">Add new field</button> <br>
+                    <button type="button" onclick="addNewMedicine()">Add Medicine</button> <br>
             </div>
                   </td>
                 </tr>
@@ -273,6 +278,66 @@
     </td>
     </tr>
     </form>
+  </div>
+ <!--  <div class="card">
+   <div class="card-body" style="margin-bottom: 40px"> -->
+      <div class="container">
+      <h1 align="center"> CareBook</h1>
+      <h3 align="center">CareBook professional team is always here to help you</h3>
+      <h4 align="center">We care about you</h4>
+
+      <div class="top-section">
+        <h1 align="center"><b>CareBook Prescription</b></h1>
+        
+      </div>
+
+      <div class="nav">
+        <ul class="main">
+          <li><b>Name:</b></li>
+          <li><b>ID No:</b></li>
+          <li><b>Date/Time:</b></li>
+          <li><b>Age/Sex:</b></li>
+          <li><b>Consultant:</b></li>
+          <li><b>Refd. By:</b></li> 
+        </ul>
+      </div>
+      <br clear="all">
+
+      <div class="note">
+          <b><hr></b>
+        <div class="horizontal-line">
+          <h3><u>Symptoms</u></h3> 
+          <table border="0" align="center" id="symptom_table" class="symptom_table">
+                              
+            
+          </table>
+        </div>
+        <div class="vertical-line">
+           <div class="design" style="height: 300px; width: 100%; padding-right:30px; float: right" >
+              <h4>Clinical diagnosis:</h4> 
+              <h4>Treatment:</h4> 
+              
+                <table border="0" align="center" id="med_table" class="med_table">
+                                    
+                  
+                </table>
+           </div>
+           <div style="height: 300px; width: 100%; padding-left: 30px">
+             <h3>Test:</h3> 
+              <table border="0" align="center" id="test_table" class="test_table">
+                                  
+                
+              </table>
+              <b>Visit after Months/days.</b>
+           </div>
+           
+        </div>
+      </div>
+
+      
+
+    <!-- </div>
+    </div> -->
   </div>
 @endsection
 @section('script')

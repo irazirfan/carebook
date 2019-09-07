@@ -49,6 +49,26 @@
                   </dl>
                 </div>
               </div>
+              <div class="card-footer">
+                <nav aria-label="..." style="float: right;">
+                      <ul class="pagination">
+                        @if ($disease->id-1 > 0)
+                          {{-- expr --}}
+                        <li class="page-item">
+                          <a class="page-link" href="{{route('disease', [$disease->id-1])}}">Previous</a>
+                        </li>
+                        @endif
+                        @if ($disease->id < $count)
+                          {{-- expr --}}
+                        
+                        <li class="page-item">
+                          <a class="page-link" href="{{route('disease', [$disease->id+1])}}">Next</a>
+                        </li>
+                        @endif
+                      </ul>
+                    </nav>
+                  </div>
+              </div>
             </div>
           </div>
     </div>

@@ -8,30 +8,40 @@ showDate();
 
 function addNewSymtoms(){
     console.log("in new symtoms");
-    var table = document.getElementById("symtom_table");
+    var table = document.getElementById("symptom_table");
+    var symptom = document.getElementById("s_field").value;
+    console.log(symptom);
     var rowLength = table.rows.length + 1;
     var row = table.insertRow(-1);
     var cell1 = row.insertCell(0);
-    cell1.innerHTML = "<div class='autocomplete'><input type='text' name='s_field_"+rowLength+"' id='s_field_"+rowLength+"' placeholder='Write here'></div>";
+    cell1.innerHTML = "<div><input type='text' style='border-color: transparent' name='s_field_"+rowLength+"' id='s_field_"+rowLength+"' value='"+symptom+"' readonly></div>";
     initSymArr();
     
 }
 
 function addNewTest(){
     var table = document.getElementById("test_table");
+    var test =  document.getElementById("t_field").value;
     var rowLength = table.rows.length + 1;
     var row = table.insertRow(-1);
     var cell1 = row.insertCell(0);
-    cell1.innerHTML = "<div class='autocomplete'><input type='text' name='t_field_"+rowLength+"' id='t_field_"+rowLength+"' placeholder='Write here'></div>";
+    cell1.innerHTML = "<div class='autocomplete'><input type='text' style='border-color: transparent' name='t_field_"+rowLength+"' id='t_field_"+rowLength+"' value='"+test+"' readonly></div>";
     initTesArr();
 }
 
 function addNewMedicine(){
     var table = document.getElementById("med_table");
     var rowLength = table.rows.length + 1;
+    var medicine = document.getElementById("medicineName").value;
+    var days = document.getElementById("days").value;
+    var morning = document.getElementById("morning").value;
+    var afternoon = document.getElementById("afternoon").value;
+    var evening= document.getElementById("evening").value;
+    var night= document.getElementById("night").value;
+    var comment= document.getElementById("comment").value;
     var row = table.insertRow(-1);
     var cell1 = row.insertCell(0);
-    cell1.innerHTML = "<div id='m_field_"+rowLength+"'><div class='autocomplete'><input type='text' name='medicineName_"+rowLength+"' id='medicineName_"+rowLength+"' placeholder='Write medicine name here'></div> days <input type='number' name='days_'"+rowLength+"> <br><input type='number' name='morning_'"+rowLength+" placeholder='Morning'> <input type='number' name='afternoon_'"+rowLength+" placeholder='afternoon'><input type='number' name='evening_'"+rowLength+" placeholder='evening'><input type='number' name='night_'"+rowLength+" placeholder='night'> <input type='text' name='comment_'"+rowLength+" placeholder='Comment'><br></form></div>";
+    cell1.innerHTML = "<div><input type='text' name='medicineName_"+rowLength+"' id='medicineName_"+rowLength+"' style='border-color: transparent' value='"+medicine+"' readonly> days <input type='text' name='days_'"+rowLength+" style='border-color: transparent' value='"+days+"' readonly> <br><input type='text' name='morning_'"+rowLength+" style='border-color: transparent' value='"+morning+"' readonly>-<input type='text' name='afternoon_'"+rowLength+" style='border-color: transparent' value='"+afternoon+"' readonly>-<input type='text' name='evening_'"+rowLength+" style='border-color: transparent' value='"+evening+"' readonly>-<input type='text' name='night_'"+rowLength+" style='border-color: transparent' value='"+night+"' readonly><br><input type='text' name='comment_'"+rowLength+" style='border-color: transparent' value='"+comment+"' readonly><br></div>";
     initMedArr();
 }
 
@@ -158,7 +168,7 @@ function initSymArr()
         //console.log(this.responseText);
         var data = this.responseText;
         var symArr = data.split('||');
-        setAutoSym(symArr);
+        //setAutoSym(symArr);
         // for(var i=0; i<symArr.length; i++)
         // {
         //   console.log(symArr[i]);
