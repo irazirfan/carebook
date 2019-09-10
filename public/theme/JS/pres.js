@@ -1,6 +1,7 @@
 function showDate(){
   var d = new Date();
   document.getElementById('date_val').innerHTML = d;
+  $("#date").attr("value",d);
   console.log(d);
 }
 
@@ -8,13 +9,13 @@ showDate();
 
 function addNewSymtoms(){
     console.log("in new symtoms");
-    var table = document.getElementById("symptom_table");
+    var table = document.getElementById("symtom_table");
     var symptom = document.getElementById("s_field").value;
     console.log(symptom);
     var rowLength = table.rows.length + 1;
     var row = table.insertRow(-1);
     var cell1 = row.insertCell(0);
-    cell1.innerHTML = "<div><input type='text' style='border-color: transparent' name='s_field_"+rowLength+"' id='s_field_"+rowLength+"' value='"+symptom+"' readonly></div>";
+    cell1.innerHTML = "<div><input type='text' style='border-color: transparent' name='sfield_"+rowLength+"' id='s_field_"+rowLength+"' value='"+symptom+"' readonly></div>";
     initSymArr();
     
 }
@@ -25,7 +26,7 @@ function addNewTest(){
     var rowLength = table.rows.length + 1;
     var row = table.insertRow(-1);
     var cell1 = row.insertCell(0);
-    cell1.innerHTML = "<div class='autocomplete'><input type='text' style='border-color: transparent' name='t_field_"+rowLength+"' id='t_field_"+rowLength+"' value='"+test+"' readonly></div>";
+    cell1.innerHTML = "<div class='autocomplete'><input type='text' style='border-color: transparent' name='tfield_"+rowLength+"' id='t_field_"+rowLength+"' value='"+test+"' readonly></div>";
     initTesArr();
 }
 
@@ -41,7 +42,7 @@ function addNewMedicine(){
     var comment= document.getElementById("comment").value;
     var row = table.insertRow(-1);
     var cell1 = row.insertCell(0);
-    cell1.innerHTML = "<div><input type='text' name='medicineName_"+rowLength+"' id='medicineName_"+rowLength+"' style='border-color: transparent' value='"+medicine+"' readonly> days <input type='text' name='days_'"+rowLength+" style='border-color: transparent' value='"+days+"' readonly> <br><input type='text' name='morning_'"+rowLength+" style='border-color: transparent' value='"+morning+"' readonly>-<input type='text' name='afternoon_'"+rowLength+" style='border-color: transparent' value='"+afternoon+"' readonly>-<input type='text' name='evening_'"+rowLength+" style='border-color: transparent' value='"+evening+"' readonly>-<input type='text' name='night_'"+rowLength+" style='border-color: transparent' value='"+night+"' readonly><br><input type='text' name='comment_'"+rowLength+" style='border-color: transparent' value='"+comment+"' readonly><br></div>";
+    cell1.innerHTML = "<div class='even'><input type='text' name='medicineName_"+rowLength+"' id='medicineName_"+rowLength+"' style='border-color: transparent; width:auto' value='"+medicine+"' readonly>(<input type='text' name='morning_"+rowLength+"' style='border-color: transparent; width:20px' value='"+morning+"' readonly>-<input type='text' name='afternoon_"+rowLength+"' style='border-color: transparent; width:20px; text-align:center' value='"+afternoon+"' readonly>-<input type='text' name='evening_"+rowLength+"' style='border-color: transparent; width:20px; text-align:center' value='"+evening+"' readonly>-<input type='text' name='night_"+rowLength+"' style='border-color: transparent; width:20px; text-align:center' value='"+night+"' readonly>)<input type='text' name='days_"+rowLength+"' style='border-color: transparent;width:20px; text-align:center' value='"+days+"' readonly>days<br><input type='text' name='comment_"+rowLength+"' style='border-color: transparent' value='"+comment+"' readonly><br></div>";
     initMedArr();
 }
 
@@ -53,7 +54,7 @@ function presSave(){
     var tesTableRow = document.getElementById('test_table').rows.length;
     var medTableRow = document.getElementById('med_table').rows.length;
     console.log("sym: "+symTableRow+" tes: "+tesTableRow+" med: "+medTableRow);
-    var url = "presSession.php?srow="+symTableRow+"&trow="+tesTableRow+"&mrow="+medTableRow;
+    var url = "doctor/pressIn?srow="+symTableRow+"&trow="+tesTableRow+"&mrow="+medTableRow;
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         // flag = true;

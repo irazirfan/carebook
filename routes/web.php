@@ -46,13 +46,17 @@ Route::get('/patient/archive', 'PatientController@archive')->name('patient.archi
 Route::get('/search', 'PatientController@search');
 
 Route::get('/doctor', 'DoctorController@index')->name('doctor');
-Route::get('/doctor/sticky', 'DoctorController@stcky');
+Route::get('doctor/pressIn/{id}', 'DoctorController@session');
 Route::get('/doctor/disease/{id}', 'DoctorController@disease')->name('disease');
 Route::get('/doctor/profile', 'DoctorController@profile')->name('doctor.profile');
 Route::get('/doctor/prescription', 'DoctorController@prescription')->name('doctor.prescription');
-Route::get('/doctor/notification', 'DoctorController@notification')->name('doctor.notification');
+Route::post('/doctor/prescription', 'DoctorController@prescriptionStore');
 Route::get('/doctor/patient', 'DoctorController@patient')->name('doctor.patient');
 Route::get('doctor/search', 'DoctorController@search');
+Route::get('doctor/press/search', 'DoctorController@searchPatient');
+Route::get('doctor/press/symptom', 'DoctorController@InsertSymptom');
+Route::get('doctor/press/test', 'DoctorController@InsertTest');
+Route::get('doctor/press/medicine', 'DoctorController@InsertMedicine');
 
 Route::get('/administrator', 'AdminController@index')->name('admin');
 Route::get('/administrator/profile', 'AdminController@profile')->name('admin.profile');

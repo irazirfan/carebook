@@ -11,56 +11,40 @@
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    
+    <style type="text/css">
+      .close{
+        position: absolute;
+        top:0;
+        right: 14px;
+        font-size: 42px;
+        transform: rotate(45deg);
+        cursor: pointer;
+      }
+    </style>
 @endsection
 
-@section('nav')
+ @section('nav')
     <ul>
       <li ><a href="{{route('doctor')}}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Dashboard</span></a></li>
       <li ><a href="{{route('doctor.prescription')}}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Prescription</span></a></li>
-      <li ><a href="{{route('doctor.patient')}}"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Patient</span></a></li>
-      <li class="active"><a href="{{route('doctor.notification')}}"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Notification</span><i class="icon-bell"></i>
-            <span class="badge badge-pill badge-danger">0</span></a></li>
+      <li class="active"><a href="{{route('doctor.patient')}}"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Patient</span></a></li>
       <li><a href="{{route('doctor.profile')}}"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Profile</span></a></li>
       <li><a href="{{route('logout')}}"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
     </ul>
   @endsection
   
 @section('content')
-  
-    <div class="container-fluid">
-
-        <div class="row justify-content-center" style="margin-right: 200px; margin-top: 50px">
+ 
+      <div class="container-fluid">
+        <div class="row justify-content-center" style="margin-right: 200px; margin-top: 50px; margin-left:50px">
           <div class="col-sm-12 col-xl-12" >
-              <div class="card">
+                <div class="card" >
                   <div class="card-header">
-                    <i class="fa fa-align-justify"></i> Notification
+                    <i class="fa fa-align-justify"></i> Previous Patient
                     <small>custom content</small>
                   </div>
-                  <div class="card-body">
-                    <div class="list-group">
-                      <a class="list-group-item list-group-item-action flex-column align-items-start active" href="#">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">New Notice Posted By Dr. Md.Rezaul Haq</h5>
-
-                          <small>23-Jul-2019</small>
-                        </div>          
-                      </a>
-                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">New Notice Posted By Dr. Md.Rezaul Haq</h5>
-                          <small>11-June-2019</small>
-                        </div>
-               
-                      </a>
-                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">New Notice Posted By Dr. Md.Rezaul Haq</h5>
-                          <small>11-May-2019</small>
-                        </div>
-                      </a>
-                    </div>
-
+                  <div class="card-body" id="main">
+                    <div class="close">+</div>
                     <nav aria-label="..." style="float: right;">
                       <ul class="pagination">
                         <li class="page-item disabled">
@@ -84,8 +68,21 @@
                     </nav>
                   </div>
                 </div>
+                </div>
             </div>
         </div>
-      </div>
     </div>
+    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{asset('js/pdfobject.min.js')}}"></script>
+ <script>
+        /*var viewer = $('#viewpdf');
+        PDFObject.embed('sample.pdf', viewer);*/
+        function popup(txt){
+          //document.querySelector('.bg-modal').style.display = "flex";
+          var viewer = $('#single');
+        PDFObject.embed('{{asset('storage')}}/dummy.pdf', viewer);
+        document.querySelector('#main').style.display = "none";
+        }
+    </script>
 @endsection
+

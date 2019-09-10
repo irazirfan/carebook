@@ -36,7 +36,7 @@
       tr:nth-child(even) {
         background-color: #a3eeff;
       }
-      .symptom_table  td {
+      .symtom_table  td {
         border: 0px solid ;
         text-align: left;
         padding: 0px;
@@ -51,13 +51,16 @@
         text-align: left;
         padding: 0px;
       }
-      .symptom_table tr:nth-child(even) {
+      .symtom_table tr:nth-child(even) {
         background-color: ;
       }
       .test_table tr:nth-child(even) {
         background-color: ;
       }
       .med_table  tr:nth-child(even) {
+        background-color: ;
+      }
+      .even  tr:nth-child(even) {
         background-color: ;
       }
       .button {
@@ -107,10 +110,10 @@
     float: left;
   }
   .vertical-line{
-    height:525px;
+    height:500px;
     border-left: 1px black solid;
-    right: 600px;
-    position: relative;
+    right: 500px;
+    position: absolute;
     float: right;
 
 
@@ -124,8 +127,6 @@
                 <li ><a href="{{route('doctor')}}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Dashboard</span></a></li>
                 <li class="active"><a href="{{route('doctor.prescription')}}"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Prescription</span></a></li>
                 <li><a href="{{route('doctor.patient')}}"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Patient</span></a></li>
-                <li><a href="{{route('doctor.notification')}}"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Notification</span><i class="icon-bell"></i>
-            <span class="badge badge-pill badge-danger">0</span></a></li>
                 <li><a href="{{route('doctor.profile')}}"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Profile</span></a></li>
                 <li><a href="{{route('logout')}}"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
             </ul>
@@ -136,9 +137,10 @@
                   <h2>Prescription</h2>
                </div> -->
                <div class="prescription1">
-                Doctor name <br>
-            Degrees <br>
-            Additional info<br>
+                {{$doctor->firstname}} &nbsp {{$doctor->lastname}} <br>
+            {{$doctor->specialized}}<br>
+            {{$doctor->degree}}<br>
+            {{$doctor->location}}<br>
                    
                </div> 
                <!-- doctor info block end-->
@@ -161,15 +163,15 @@
         <!--- patient info block-->
         <div class="patient1">
           <table border="0" align="center">
-            <form action="patientData.php" method="post">
+
         <tr>
           <td>Patient email:</td>
-          <td> <input type="text" name="patientId" id="patient_id" value=""></td>
+          <td> <input type="text" name="patientId" id="patientid" value=""></td>
          <td><button type="submit" class="button" id='pat_search' name="pat_search">Search</button></td>
         </tr>
         <tr>
         <td>Patient Name:</td>
-        <td> <input type="text" name="pname" value=""> </td>
+        <td> <input type="text" name="pname" id="pname" value=""> </td>
         <td><input type="submit" class="button" name="history" value="View history"></td>
          </tr>
         <tr>
@@ -177,7 +179,6 @@
          <td colspan="2"> <input type="number" name="age" value=""></td>
         </tr>
         
-        </form>
         
       
        </table>
@@ -189,7 +190,7 @@
 
                <!--- main prescription info block-->
           
-               <form action="presInsert.php" method="post" autocomplete="off" onsubmit="return presSave()">
+              
               <table>
               
                 <tr>
@@ -207,7 +208,7 @@
                         </div>
                       </td></tr> 
                     </table>
-                    <button type="button" onclick="addNewSymtoms()">Add Symtoms</button>
+                    <button type="button" onclick="addNewSymtoms()" id="add_symptom">Add Symtoms</button>
                         </div>
                         </td>
                       </tr>
@@ -223,7 +224,7 @@
                                   
                                 </td></tr>
                             </table>
-                            <button type="button" onclick="addNewTest()">Add Test</button>
+                            <button type="button" onclick="addNewTest()" id="add_test">Add Test</button>
                         </div>  
                         </td>
                       </tr>
@@ -253,7 +254,7 @@
                         </td>
                       </tr>
                     </table>
-                    <button type="button" onclick="addNewMedicine()">Add Medicine</button> <br>
+                    <button type="button" onclick="addNewMedicine()" id="add_medicine">Add Medicine</button> <br>
             </div>
                   </td>
                 </tr>
@@ -261,24 +262,15 @@
              <div id="footer_block">
               
     
-      <tr><td>Visit me after <input type="number" name="value"> 
-      <select>
+      <tr><td>Visit me after <input type="number" name="time" id="time"> 
+      <select id="duration">
         <option>days</option>
         <option>months</option>
       </select>
       </td></tr>  
-  
-  
-  </div>
-  <div id="action_block">
     
-      <tr><td>
-        <input type="submit" class="button" name="save" value="Save">
-        <input type="submit" class="button" name="discard" value="Discard">
-    </td>
-    </tr>
-    </form>
   </div>
+  
  <!--  <div class="card">
    <div class="card-body" style="margin-bottom: 40px"> -->
       <div class="container">
@@ -290,55 +282,137 @@
         <h1 align="center"><b>CareBook Prescription</b></h1>
         
       </div>
-
+ <form  method="post" autocomplete="off" onsubmit="return presSave()">
+                @csrf
       <div class="nav">
         <ul class="main">
-          <li><b>Name:</b></li>
+          <li><b>Name:</b><input type="text" name="patient_name" id="patient_name" style="border-color: transparent" readonly></li>
           <li><b>ID No:</b></li>
-          <li><b>Date/Time:</b></li>
-          <li><b>Age/Sex:</b></li>
-          <li><b>Consultant:</b></li>
-          <li><b>Refd. By:</b></li> 
+          <li><b>Date/Time:</b><input type="text" name="date" id="date" style="border-color: transparent" readonly></li>
+          <li><b>Age/Sex:</b><input type="text" name="patient_sex" id="patient_sex" style="border-color: transparent" readonly></li>
+          <li><b>Consultant:</b><input type="text" name="doctor_name" style="border-color: transparent" value="{{$doctor->firstname}}" readonly ></li>
         </ul>
       </div>
       <br clear="all">
-
+      
       <div class="note">
           <b><hr></b>
-        <div class="horizontal-line">
+        <div class="horizontal-line" style="float: left">
           <h3><u>Symptoms</u></h3> 
-          <table border="0" align="center" id="symptom_table" class="symptom_table">
+          <table border="0" align="center" id="symtom_table" class="symtom_table">
                               
             
           </table>
         </div>
-        <div class="vertical-line">
-           <div class="design" style="height: 300px; width: 100%; padding-right:30px; float: right" >
+        <div class="vertical-line" style="float: right">
+           <div  style=" width: 100%; margin-left:30px; float: right" >
               <h4>Clinical diagnosis:</h4> 
               <h4>Treatment:</h4> 
-              
-                <table border="0" align="center" id="med_table" class="med_table">
-                                    
-                  
-                </table>
+                <div class="mainp4" style="padding-left: 30px">
+                  <table border="0"  id="med_table" class="med_table">
+                                      
+                    
+                  </table>
+                </div>
            </div>
-           <div style="height: 300px; width: 100%; padding-left: 30px">
+           <div style=" width: 100%; padding-left: 30px">
              <h3>Test:</h3> 
               <table border="0" align="center" id="test_table" class="test_table">
                                   
                 
               </table>
-              <b>Visit after Months/days.</b>
+              <b>Visit after <input type="text" name="timezone" id="timezone" hidden> &nbsp <input type="text" name="visit" id="visit" hidden></b>
            </div>
            
         </div>
+        
       </div>
-
-      
-
-    <!-- </div>
-    </div> -->
   </div>
+  <input type="text" name="patient_email" id="pat_email" hidden>
+  <input type="number" name="sym_row" id="sym_row" hidden>
+      <input type="number" name="test_row" id="test_row" hidden>
+      <input type="number" name="med_row" id="med_row" hidden>
+    <div id="action_block">
+        <input type="submit" class="button" name="save" id="save" value="Save">
+        <input type="submit" class="button" name="discard" value="Discard">
+    </form>
+  </div>
+  <script type="text/javascript">
+    $('#save').on('click',function(){
+    console.log( "ready!" );
+    var symTableRow = document.getElementById('symtom_table').rows.length;
+    var tesTableRow = document.getElementById('test_table').rows.length;
+    var medTableRow = document.getElementById('med_table').rows.length;
+    console.log(symTableRow);
+    $("#sym_row").attr("value",symTableRow);
+    $("#test_row").attr("value",tesTableRow);
+    $("#med_row").attr("value",medTableRow);
+
+    $time=$('#time').val();
+    $duration=$('#duration').val();
+     $("#timezone").attr("value",time);
+    $("#visit").attr("value",duration);
+    /*document.getElementById('test_row').value = tesTableRow;
+    document.getElementById('med_row').value = medTableRow;*/
+    });
+  </script>
+  <script type="text/javascript" >
+$('#pat_search').on('click',function(){
+$value=$('#patientid').val();
+console.log($value);
+$.ajax({
+type : 'get',
+url : '{{URL::to('doctor/press/search')}}',
+data:{'search':$value},
+success:function(data){
+console.log(data);
+$('#pname').attr("value",data[0]);
+$('#patient_name').attr("value",data[0]);
+$('#patient_sex').attr("value",data[1]);
+$('#pat_email').attr("value",data[2]);
+console.log(data[2]);
+
+}
+});
+})
+
+$('#add_symptom').on('click',function(){
+$value=$('#s_field').val();
+$.ajax({
+type : 'get',
+url : '{{URL::to('doctor/press/symptom')}}',
+data:{'search':$value},
+success:function(data){
+}
+});
+})
+
+$('#add_test').on('click',function(){
+$value=$('#t_field').val();
+$email=$('#patientid').val();
+$.ajax({
+type : 'get',
+url : '{{URL::to('doctor/press/test')}}',
+data:{'search':$value, 'email':$email},
+success:function(data){
+}
+});
+})
+
+$('#add_medicine').on('click',function(){
+$value=$('#medicineName').val();
+$.ajax({
+type : 'get',
+url : '{{URL::to('doctor/press/medicine')}}',
+data:{'search':$value},
+success:function(data){
+}
+});
+})
+</script>
+<script type="text/javascript">
+$.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+</script>
 @endsection
 @section('script')
     <script src="{{asset('theme/JS/jquery.min.js')}}"></script>
