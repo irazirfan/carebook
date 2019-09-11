@@ -33,22 +33,31 @@
                   <div class="card-header">
                     <i class="fa fa-align-justify"></i> Previous Patient
                     <small>custom content</small>
+                    <div style="float: right">
+                      <button class="btn btn-success" id="search">Search</button>
+                    </div>
+                    <div style="float: right;margin-right: 30px">
+                      <input type="text" name="email" id="email" placeholder="Write Patient Email">
+                    </div>
+                    
                   </div>
-                  <div class="card-body" id="main">
+                  <div class="card-body" >
                     <div class="list-group">
-                      <a class="list-group-item list-group-item-action flex-column align-items-start active"  href="#single">
+                      @foreach ($prescriptions as $prescription)
+                        {{-- expr --}}
+                      <a class="list-group-item list-group-item-action flex-column align-items-start active"  href="{{route('patientlist.single', [$prescription->prescription_id])}}">
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1"> Md.Rezaul Haq
-
+                          <h5 class="mb-1">{{$prescription->firstname}} &nbsp {{$prescription->lastname}}
                           </h5>
                           <small>
-                             <small><b>11-May-2019</b></small>
+                             <small><b>{{$prescription->date}}</b></small>
                             <button class="btn btn-sm btn-danger" type="view">
                                 <i class="fa fa-dot-circle-o"></i> View</button>
                           </small>
 
                         </div>          
                       </a>
+                      @endforeach
                     </div>
                     <nav aria-label="..." style="float: right;">
                       <ul class="pagination">
@@ -77,6 +86,29 @@
             </div>
         </div>
     </div>
-    
+<script type="text/javascript">
+$('#search').on('click',function(){
+$value=$('#email').val();
+console.log($value);
+$.ajax({
+type : 'get',
+url : '{{URL::to('doctor/patient/search')}}',
+data:{'search':$value},
+success:function(data){
+console.log(data);
+$('#pname').attr("value",data[0]);
+$('#patient_name').attr("value",data[0]);
+$('#patient_sex').attr("value",data[1]);
+$('#pat_email').attr("value",data[2]);
+console.log(data[2]);
+}
+});
+})
+</script>
+<script type="text/javascript">
+$.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+</script>
+@endsection
+@section('script')
 @endsection
 

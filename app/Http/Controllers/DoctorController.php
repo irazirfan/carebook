@@ -10,6 +10,7 @@ use App\Test;
 use App\Symptom;
 use App\Medicine;
 use App\MedicalTest;
+use App\Reg;
 use PDF;
 use DB;
 
@@ -162,12 +163,121 @@ class DoctorController extends Controller
     }
     public function profile()
     {
-        return view('Doctor.profile');
+        $user = DB::table('user')->where('email', 'shaheb@mail.com')->first();
+        return view('Doctor.profile',compact('user'));
     }
+    public function profileStore(Request $request)
+    {
+       $this->validate($request, [
+            'first_name'=>'Required',
+            'last_name'=>'Required',
+            'phone'=>'Required',
+            //'email'=>'Required|email|unique:user',// required and must be unique in the user table
+            'address'=>'Required',     
+            'new_password'=> 'Required',
+            'confirm_password'=> 'Required|same:new_password'
+        ]);
+      if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $name = time().'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('/images');
+        $image->move($destinationPath, $name);
+        DB::table('user')
+            ->where('email', 'shaheb@mail.com')
+            ->update(['image' => $name]);
+        
+        }
 
+        $user = Reg::where('email','shaheb@mail.com')->first();
+        $user->phone = $request->phone;
+        $user->firstname = $request->first_name;
+        $user->lastname = $request->last_name;
+        $user->address = $request->address;
+        $user->password = $request->confirm_password;
+        $user->update();
+        return back();
+    }
+    public function Password(Request $request)
+    {
+        if($request->ajax())
+        {
+            $output="";
+            $user=DB::table('user')->where('email','shaheb@mail.com')
+                    ->first();
+            if($user)
+            {
+              if($user->password != $request->search)
+                $output='true';
+              else
+                $output='false';
+              return Response($output);
+            }
+        }
+    }
+    public function patientListSingle($id)
+    {
+        $prescription = Prescription::find($id);
+        $dis = Prescription::all();
+        $count = count($dis);
+        return view('Doctor.patientListSingle',compact(['prescription','count']));
+    }
     public function patient()
     {
-        return view('Doctor.patientlist');
+        $prescriptions= DB::table('prescription')
+        ->join('user', 'user.email', '=' ,'prescription.doctor_email')
+        ->select('prescription.*', 'user.firstname', 'user.lastname' )
+        ->get();
+        return view('Doctor.patientlist',compact('prescriptions'));
+    }
+    public function PatientListSearch(Request $request)
+    {
+        if($request->ajax())
+        {
+            $output="";
+            $email=DB::table('prescription')->where('patient_email',$request->search)
+                    ->get();
+            if($email)
+            {
+              $prescriptions= DB::table('prescription')
+              ->join('user', 'user.email', '=' ,'prescription.doctor_email')
+              ->select('prescription.*', 'user.firstname', 'user.lastname' )
+              ->get();
+             foreach ($prescriptions as $key => $prescription) {
+                if($key == 0)
+                {
+                  $output.='<a class="list-group-item list-group-item-action flex-column align-items-start active"  href="#single">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">'.$prescription->firstname.'&nbsp'.$prescription->lastname.
+                          '</h5>
+                          <small>
+                             <small><b>'.$prescription->date.'</b></small>
+                            <button class="btn btn-sm btn-danger" type="view">
+                                <i class="fa fa-dot-circle-o"></i> View</button>
+                          </small>
+
+                        </div>          
+                      </a>';
+                }
+                else
+                {
+                    $output.='<a class="list-group-item list-group-item-action flex-column align-items-start"  href="#single">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">'.$prescription->firstname.'&nbsp'.$prescription->lastname.
+                          '</h5>
+                          <small>
+                             <small><b>'.$prescription->date.'</b></small>
+                            <button class="btn btn-sm btn-danger" type="view">
+                                <i class="fa fa-dot-circle-o"></i> View</button>
+                          </small>
+
+                        </div>          
+                      </a>';
+                }
+
+                }
+              return Response($output);
+            }
+        }
     }
     public function searchPatient(Request $request)
     {

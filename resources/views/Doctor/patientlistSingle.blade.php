@@ -45,25 +45,24 @@
                   </div>
                   <div class="card-body" id="main">
                     <div class="close">+</div>
+                    
+                  </div>
+                  <div class="card-footer">
                     <nav aria-label="..." style="float: right;">
                       <ul class="pagination">
-                        <li class="page-item disabled">
-                          <a class="page-link" href="#" tabindex="-1">Previous</a>
-                        </li>
+                        @if ($prescription->prescription_id-1 > 0)
+                          {{-- expr --}}
                         <li class="page-item">
-                          <a class="page-link" href="#">1</a>
+                          <a class="page-link" href="{{route('patientlist.single', [$prescription->prescription_id-1])}}">Previous</a>
                         </li>
-                        <li class="page-item active">
-                          <a class="page-link" href="#">2
-                            <span class="sr-only">(current)</span>
-                          </a>
-                        </li>
+                        @endif
+                        @if ($prescription->prescription_id < $count)
+                          {{-- expr --}}
+                        
                         <li class="page-item">
-                          <a class="page-link" href="#">3</a>
+                          <a class="page-link" href="{{route('patientlist.single', [$prescription->prescription_id+1])}}">Next</a>
                         </li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">Next</a>
-                        </li>
+                        @endif
                       </ul>
                     </nav>
                   </div>
@@ -77,12 +76,12 @@
  <script>
         /*var viewer = $('#viewpdf');
         PDFObject.embed('sample.pdf', viewer);*/
-        function popup(txt){
+       $( document ).ready(function() {
           //document.querySelector('.bg-modal').style.display = "flex";
-          var viewer = $('#single');
-        PDFObject.embed('{{asset('storage')}}/dummy.pdf', viewer);
-        document.querySelector('#main').style.display = "none";
-        }
+          var viewer = $('#main');
+        PDFObject.embed('{{Storage::get('public/storage/', $prescription->pdf) }}', viewer);
+        //document.querySelector('#main').style.display = "none";
+        });
     </script>
 @endsection
 
