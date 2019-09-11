@@ -11,7 +11,7 @@ class LogoutController extends Controller
     	$request->session()->flush();
     	//$request->session()->forget('logged');
 
-    	return redirect()->route('login.index');
+    	return redirect()->route('home');
 
     }
 }

@@ -34,6 +34,8 @@ Route::get('/about', 'HomeController@about');
 Route::get('/pricing', 'HomeController@pricing');
 Route::get('/signup', 'HomeController@signup');
 Route::post('/signup', 'HomeController@store');
+Route::get('/doctorlogin', 'HomeController@doctorlogin')->name('doctorlogin');
+Route::post('/doctorlogin', 'HomeController@doctorloginVerify');
 Route::get('/signout', 'HomeController@signout')->name('signout');
 
 Route::get('/patient', 'PatientController@index')->name('patient');

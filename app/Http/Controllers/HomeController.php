@@ -41,6 +41,18 @@ class HomeController extends Controller
     {
         return view('signup');
     }
+    public function doctorlogin()
+    {
+        return view('doctorlogin');
+    }
+    public function doctorloginVerify(Request $request)
+    {
+        if ($request->type == 'doctor') {
+          return redirect()->route('doctor');
+        }
+        else
+           return redirect()->route('patient');
+    }
     public function store(Request $request)
     {
         $reg  = new Reg([
@@ -80,10 +92,15 @@ class HomeController extends Controller
         
         //dd($user);
          if($user != null){
-    
-             $request->session()->put('emali', $email);
-    
-             return redirect()->route('patient');
+             $request->session()->put('email', $email);
+             $doctor = DB::table('doctor')
+                ->where('email', $email)
+                ->first();
+              if($doctor != null){
+                return redirect()->route('doctorlogin');
+              }
+              else
+                return redirect()->route('patient');
          }else{
     
              $request->session()->flash('message', 'Invalid username or password');

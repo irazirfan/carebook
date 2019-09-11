@@ -5,7 +5,7 @@
     <title>CareBook</title>
     <link rel="stylesheet" href="{{asset('theme/CSS/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('theme/CSS/CareBookHomeStyle.css')}}">
-    
+    @yield('style')
   </head>
   <body>
     

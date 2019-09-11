@@ -26,7 +26,7 @@ class DoctorController extends Controller
 
     public function prescription()
     {
-      $email = session('shaheb@mail.com');
+      $email = session('email');
          $doctor= DB::table('doctor')
         ->join('user', 'user.email', '=' ,'doctor.email')
         ->select('doctor.*', 'user.firstname', 'user.lastname' )
@@ -44,7 +44,7 @@ class DoctorController extends Controller
      $name='public/storage/'.$request->doctor_name.date('m-d-Y_hia').'.pdf';
     \Storage::put($name,$content) ;
 
-      $doctor_email = 'shaheb@mail.com';
+      $doctor_email = session('email');
       $pres = new Prescription();
       $pres->pdf = $orginal_name;
       $pres->patient_email = $request->patient_email;
@@ -163,7 +163,7 @@ class DoctorController extends Controller
     }
     public function profile()
     {
-        $user = DB::table('user')->where('email', 'shaheb@mail.com')->first();
+        $user = DB::table('user')->where('email', session('email'))->first();
         return view('Doctor.profile',compact('user'));
     }
     public function profileStore(Request $request)
@@ -183,12 +183,12 @@ class DoctorController extends Controller
         $destinationPath = public_path('/images');
         $image->move($destinationPath, $name);
         DB::table('user')
-            ->where('email', 'shaheb@mail.com')
+            ->where('email', session('email'))
             ->update(['image' => $name]);
         
         }
 
-        $user = Reg::where('email','shaheb@mail.com')->first();
+        $user = Reg::where('email',session('email'))->first();
         $user->phone = $request->phone;
         $user->firstname = $request->first_name;
         $user->lastname = $request->last_name;
@@ -202,7 +202,7 @@ class DoctorController extends Controller
         if($request->ajax())
         {
             $output="";
-            $user=DB::table('user')->where('email','shaheb@mail.com')
+            $user=DB::table('user')->where('email',session('email'))
                     ->first();
             if($user)
             {
@@ -375,7 +375,7 @@ class DoctorController extends Controller
               $test->name = $request->search;
               $test->save();
 
-              $doctor_email = 'shaheb@mail.com';
+              $doctor_email = session('email');
               $medical = new MedicalTest();
               $medical->test_name = $request->search;
               $medical->patient_email = $request->email;
