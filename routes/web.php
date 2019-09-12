@@ -39,11 +39,16 @@ Route::post('/doctorlogin', 'HomeController@doctorloginVerify');
 Route::get('/signout', 'HomeController@signout')->name('signout');
 
 Route::get('/patient', 'PatientController@index')->name('patient');
+Route::get('/patient/doctor/{id}', 'PatientController@doctorlist')->name('patient.doctorlist');
 Route::get('/patient/profile', 'PatientController@profile')->name('patient.profile');
-Route::post('/patient/profile', 'PatientController@imageStore');
-Route::post('/patient/profile#edit-profile', 'PatientController@profileStore');
+Route::post('/patient/profile', 'PatientController@profileStore');
 Route::get('/patient/notification', 'PatientController@notification')->name('patient.notification');
 Route::get('/patient/archive', 'PatientController@archive')->name('patient.archive');
+Route::get('patient/profile/search', 'PatientController@Password');
+Route::get('patient/doctor/search', 'PatientController@DoctorSearch');
+Route::get('patient/doctor/speciality', 'PatientController@Speciality');
+Route::get('patient/doctor/location', 'PatientController@Location');
+Route::get('patient/archive/search', 'PatientController@archiveSearch');
 
 Route::get('/search', 'PatientController@search');
 

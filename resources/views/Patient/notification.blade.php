@@ -1,6 +1,5 @@
 @extends('layouts.patient')
 @section('breadcrumb')
-   <main class="main">
         <!-- Breadcrumb-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">Home</li>
@@ -17,13 +16,11 @@
           
           </li> 
         </ol>
-
-      </main>
 @endsection
 @section('body')
 
-    <div class="container">
-        <div class="row justify-content-center" style="margin-left: 50px; margin-top: 50px">
+    <div class="container-fluid">
+        <div class="row justify-content-center" style="">
           <div class="col-sm-12 col-xl-12" >
               <div class="card">
                   <div class="card-header">

@@ -1,6 +1,5 @@
 @extends('layouts.patient')
 @section('breadcrumb')
-   <main class="main">
         <!-- Breadcrumb-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">Home</li>
@@ -18,20 +17,17 @@
           
           </li> 
         </ol>
-
-      </main>
 @endsection
 @section('body')
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row justify-content-center" style="">
-          <div class="col-sm-8 col-xl-8" style="padding-right: 100px; padding-top: 50px" >
+          <div class="col-sm-8 col-xl-8" style="padding-right: 0px; padding-top: 50px" >
               <div class="card">
                   <div class="card-header">
                     <i class="fa fa-align-justify"></i> Archieve
                     <div class="col-md-4" style="float: right;">
-                      <select name="file_type" class="form-control">
-                        <option>Select File Type</option>
+                      <select name="file_type" class="form-control" id="file_type">
                           <option value="prescription">Prescription</option>
                           <option value="report">Report</option>
                         </select>
@@ -39,26 +35,26 @@
                   </div>
                   <div class="card-body">
                     <div class="list-group">
+                      @php
+                        $count =0;
+                      @endphp
+                      @foreach ($prescriptions as $prescription)
+                        {{-- expr --}}
+                      @if ($count == 0)
                       <a class="list-group-item list-group-item-action flex-column align-items-start active" href="#">
+                      @else
+                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
+                      @endif
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Dr. Md.Rezaul Haq</h5>
+                          <h5 class="mb-1">{{$prescription->firstname}}</h5>
 
-                          <small>23-Jul-2019</small>
+                          <small>{{$prescription->date}}</small>
                         </div>          
                       </a>
-                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Dr. Md.Rezaul Haq</h5>
-                          <small>11-June-2019</small>
-                        </div>
-               
-                      </a>
-                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Dr. Md.Rezaul Haq</h5>
-                          <small>11-May-2019</small>
-                        </div>
-                      </a>
+                      @php
+                        $count++;
+                      @endphp
+                      @endforeach
                     </div>
 
                     <nav aria-label="..." style="float: right;">
@@ -66,12 +62,14 @@
                         <li class="page-item disabled">
                           <a class="page-link" href="#" tabindex="-1">Previous</a>
                         </li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">1</a>
-                        </li>
                         <li class="page-item active">
-                          <a class="page-link" href="#">2
+                          <a class="page-link" href="#">1
                             <span class="sr-only">(current)</span>
+                          </a>
+                        </li>
+                        <li class="page-item ">
+                          <a class="page-link" href="#">2
+                            
                           </a>
                         </li>
                         <li class="page-item">
@@ -137,4 +135,21 @@
           </div>
         </div>
       </div>
+<script type="text/javascript">
+  $('#file_type').on('change',function(){
+    $value=$(this).val();
+    console.log($value);
+    $.ajax({
+    type : 'get',
+    url : '{{URL::to('patient/archive/search')}}',
+    data:{'search':$value},
+    success:function(data){
+    $('#tbody').html(data);
+    }
+    });
+  })
+</script>
+<script type="text/javascript">
+  $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+</script>
 @endsection

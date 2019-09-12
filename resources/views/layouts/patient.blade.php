@@ -129,21 +129,18 @@ table, th, td {
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{route('patient.notification')}}">
-                <i class="nav-icon icon-pencil"></i> Notifications</a>
-            </li> 
-            <li><a href="{{route('doctor.notification')}}"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Notification</span><i class="icon-bell"></i>
-            <span class="badge badge-pill badge-danger">0</span></a></li>      
+                <i class="nav-icon icon-pencil"></i> Notifications<span class="badge badge-pill badge-danger">0</span></a>
+            </li>       
           </ul>
+        </nav>
       </div>
-     @yield('breadcrumb');
+     
 
-      <aside class="aside-menu">
-
+    <main class="main">
+      @yield('breadcrumb');
+      @yield('body')
+    </main>
     </div>
-
-    
-    @yield('body')
-
     <footer class="app-footer">
       <div>
         <a href="#">CareBook</a>

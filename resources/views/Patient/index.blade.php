@@ -1,6 +1,5 @@
 @extends('layouts.patient')
 @section('breadcrumb')
-   <main class="main">
         <!-- Breadcrumb-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">Home</li>
@@ -16,8 +15,6 @@
           
           </li> 
         </ol>
-
-      </main>
 @endsection
 @section('body')
       <!--<body class="app flex-row align-items-center">-->
@@ -38,7 +35,7 @@
                </div>
               <input class="form-control"  size="16" type="text" id="search" placeholder="Search Doctor">
               <span class="input-group-append">
-                <button class="btn btn-info" id="search" type="button">Search</button>
+                <button class="btn btn-info" id="search_btn" type="button">Search</button>
               </span>
             </div>
             <div id="div1"></div>
@@ -48,21 +45,21 @@
               </font>
             </legend>
 
-            <select name="group">
-                <option value="ALLERGY & IMMUNOLOGY">ALLERGY & IMMUNOLOGY</option>
-                <option value="ANESTHESIOLOGY">ANESTHESIOLOGY</option>
-                <option value="DERMATOLOGY">DERMATOLOGY+</option>
-                <option value="DIAGNOSTIC RADIOLOGY">DIAGNOSTIC RADIOLOGY</option>
-                <option value="MEDICINE">MEDICINE</option>
-                <option value="MEDICAL GENETICS">MEDICAL GENETICS</option>
-                <option value="NEUROLOGY">NEUROLOGY</option>
-                <option value="NUCLEAR MEDICINE"> NUCLEAR MEDICINE</option>
-                <option value="OBSTETRICS AND GYNECOLOGY"> OBSTETRICS AND GYNECOLOGY</option>
-                <option value="OPHTHALMOLOGY"> OPHTHALMOLOGY</option>
-                <option value="PATHOLOGY"> PATHOLOGY</option>
-                <option value="PEDIATRICS"> PEDIATRICS</option>
-                <option value="PHYSICAL MEDICINE & REHABILITATION"> PHYSICAL MEDICINE & REHABILITATION</option>
-                <option value="PSYCHIATRY">PSYCHIATRY</option>
+            <select name="group" id="speciality">
+                <option value="Allergy & Immunology">ALLERGY & IMMUNOLOGY</option>
+                <option value="Anesthesiology">ANESTHESIOLOGY</option>
+                <option value="Dermatology">DERMATOLOGY+</option>
+                <option value="Diagnostic Radiology">DIAGNOSTIC RADIOLOGY</option>
+                <option value="Medicine">MEDICINE</option>
+                <option value="Medical Genetics">MEDICAL GENETICS</option>
+                <option value="Neurology">NEUROLOGY</option>
+                <option value="Neuro Medicine"> NEURO MEDICINE</option>
+                <option value="Obstetrics And Gynecology"> OBSTETRICS AND GYNECOLOGY</option>
+                <option value="Opthalmology"> OPHTHALMOLOGY</option>
+                <option value="Pathology"> PATHOLOGY</option>
+                <option value="Pediatrics"> PEDIATRICS</option>
+                <option value="Physical Medicine & Rehbilitation"> PHYSICAL MEDICINE & REHABILITATION</option>
+                <option value="Psychiatry">PSYCHIATRY</option>
             </select>
    
             <legend>
@@ -71,7 +68,7 @@
               </font>
             </legend>
 
-            <select name="group">
+            <select name="group_location" id="location">
               <option value="Dhaka">Dhaka</option>
               <option value="Chittagong">Chittagong</option>
               <option value="Khulna ">Khulna </option>
@@ -103,7 +100,7 @@
             </select>
           </div>  
         </div>
-        <div class="row justify-content-center" style="margin-left: 200px">
+        <div class="row justify-content-center" style="margin-left: 0px">
           <div class="col-sm-12 col-xl-12" >
               <div class="card">
                   <div class="card-header">
@@ -111,62 +108,44 @@
                     <small>custom content</small>
                   </div>
                   <div class="card-body">
-                    <div class="list-group">
+                    <div class="list-group" id="tbody">
                       @foreach ($doctors as $doctor)
-                      <?php $name="abc"; ?>
-                        @foreach ($users as $user)
-                        <?php
-                          if ($doctor->email == $user->email)
-                            $name = $user->firstname;
-                          $image = $user->image;
-                          ?>
-                        @endforeach
+                      @php
+                        $count = 0;
+                      @endphp
+                        @if ($count == 0)
+                      <a class="list-group-item list-group-item-action flex-column align-items-start active" href="{{route('patient.doctorlist', [$doctor->id])}}">
+                        @else
                       <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
+                        @endif
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">{{$name}}</h5>
+                          <h5 class="mb-1">{{$doctor->firstname}}&nbsp {{$doctor->lastname}}</h5>
                           <small>{{$doctor->degree}}</small>
                         </div>
-                        <img class="" style="width: 100px; height: 100px; float: right;" src="{{Storage::url($image)}}" alt="Card image cap">
+                        <img class="" style="width: 100px; height: 100px; float: right;" src="{{asset('images')}}/{{$doctor->image}}" alt="Card image cap">
                         <p class="mb-1">{{$doctor->specialized}}</p>
                         <p class="mb-1">{{$doctor->location}}</p>
                         <p class="mb-1">{{$doctor->consulting}}</p>
                         <small>{{$doctor->contact}}</small>              
                       </a>
+                      @php
+                        $count++;
+                      @endphp
                       @endforeach
-                      <!-- <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Dr. Md.Rezaul Haq</h5>
-                          <small>MBBS(DU), FCPS(UK), MD(USA)</small>
-                        </div>
-                        <img class="" style="width: 100px; height: 100px; float: right;" src="{{asset('theme/Images/3.jpg')}}" alt="Card image cap">
-                        <p class="mb-1"> Neuro Medicine</p>
-                        <p class="mb-1"> Lab Aid Hospital, Panthpath, Dhaka.</p>
-                        <p class="mb-1">3pm-8pm</p>
-                        <small> 01454511511</small>
-                      </a>
-                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">Dr. Md.Rezaul Haq</h5>
-                          <small>MBBS(DU), FCPS(UK), MD(USA)</small>
-                        </div>
-                        <img class="" style="width: 100px; height: 100px; float: right;" src="{{asset('theme/Images/3.jpg')}}" alt="Card image cap">
-                        <p class="mb-1"> Neuro Medicine</p>
-                        <p class="mb-1"> Lab Aid Hospital, Panthpath, Dhaka.</p>
-                        <p class="mb-1">3pm-8pm</p>
-                        <small> 01454511511</small>
-                      </a> -->
+                      
                     </div>
                     <nav aria-label="..." style="float: right;">
                       <ul class="pagination">
                         <li class="page-item disabled">
                           <a class="page-link" href="#" tabindex="-1">Previous</a>
                         </li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">1</a>
-                        </li>
                         <li class="page-item active">
-                          <a class="page-link" href="#">2
+                          <a class="page-link" href="#">1
                             <span class="sr-only">(current)</span>
+                          </a>
+                        </li>
+                        <li class="page-item ">
+                          <a class="page-link" href="#">2
                           </a>
                         </li>
                         <li class="page-item">
@@ -183,14 +162,40 @@
         </div>
       </div>
       <script type="text/javascript">
-$('#search').on('change',function(){
+  /*Search by Any*/
+$('#search').on('keyup',function(){
 $value=$(this).val();
 $.ajax({
 type : 'get',
-url : '{{URL::to('search')}}',
+url : '{{URL::to('patient/doctor/search')}}',
 data:{'search':$value},
 success:function(data){
-$('tbody').html(data);
+$('#tbody').html(data);
+}
+});
+})
+/*Search by Speciality*/
+$('#speciality').on('change',function(){
+$value=$(this).val();
+$.ajax({
+type : 'get',
+url : '{{URL::to('patient/doctor/speciality')}}',
+data:{'search':$value},
+success:function(data){
+$('#tbody').html(data);
+}
+});
+})
+/*Search by Speciality*/
+$('#location').on('change',function(){
+$value=$(this).val();
+console.log($value);
+$.ajax({
+type : 'get',
+url : '{{URL::to('patient/doctor/location')}}',
+data:{'search':$value},
+success:function(data){
+$('#tbody').html(data);
 }
 });
 })
