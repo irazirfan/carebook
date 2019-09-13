@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Doctor;
+use App\Disease;
+use App\Prescription;
+use App\Test;
+use App\Symptom;
+use App\Medicine;
+use App\MedicalTest;
 use App\Reg;
 use DB;
 use Illuminate\Http\Request;
@@ -95,9 +100,24 @@ class PatientController extends Controller
     }
     public function notification()
     {
-        return view('Patient.notification');
+         $prescriptions= DB::table('prescription')
+        ->join('user', 'user.email', '=' ,'prescription.doctor_email')
+        ->where('patient_email', session('email'))
+        ->where('notification', 0)
+        ->select('prescription.*', 'user.firstname', 'user.lastname', 'user.image' )
+        ->get();
+        return view('Patient.notification', compact('prescriptions'));
     }
-
+    public function notificationSingle($id)
+    {
+        $prescription = Prescription::find($id);
+        $dis = Prescription::all();
+        $count = count($dis);
+        DB::table('prescription')
+            ->where('prescription_id', $id)
+            ->update(['notification' => 1]);
+        return view('Patient.notificationSingle',compact(['prescription','count']));
+    }
     public function archive()
     {
          $prescriptions= DB::table('prescription')
@@ -106,6 +126,37 @@ class PatientController extends Controller
         ->select('prescription.*', 'user.firstname', 'user.lastname', 'user.image' )
         ->get();
         return view('Patient.archive',compact('prescriptions'));
+    }
+    public function archiveStore(Request $request)
+    {
+        $this->validate($request, [
+            'doctor_email'=>'Required',
+            'date'=>'Required',
+            'file_type'=>'Required',
+            'file_input'=>'Required|max:10000'
+        ]);
+        if ($request->hasFile('file_input')) {
+        $file = $request->file('file_input');
+        //$name = 'public/storage/'.session('email').time().'.'.$image->getClientOriginalExtension();
+        $name = session('email').time().'.'.$file->getClientOriginalExtension();
+        //\Storage::put($name,$file);
+        $path = $request->file('file_input')->storeAs('public/storage',$name);
+        
+          $pres  = new Prescription;
+          $pres->pdf  = $name;
+          $pres->patient_email = session('email');
+          $pres->doctor_email = $request->doctor_email;
+          $pres->date = $request->date;
+          $pres->save();  
+        }
+        return back();
+    }
+    public function patientListSingle($id)
+    {
+        $prescription = Prescription::find($id);
+        $dis = Prescription::all();
+        $count = count($dis);
+        return view('Patient.patientListSingle',compact(['prescription','count']));
     }
     
     public function DoctorSearch(Request $request)

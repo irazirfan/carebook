@@ -29,26 +29,25 @@
                   </div>
                   <div class="card-body">
                     <div class="list-group">
-                      <a class="list-group-item list-group-item-action flex-column align-items-start active" href="#">
+                      @php
+                        $count =0;
+                      @endphp
+                      @foreach ($prescriptions as $prescription)
+                      @if ($count==0)
+                      <a class="list-group-item list-group-item-action flex-column align-items-start active" href="{{route('patient.notification.single', [$prescription->prescription_id])}}">
+                      @else
+                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="{{route('patient.notification.single', [$prescription->prescription_id])}}">
+                      @endif
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">New Notice Posted By Dr. Md.Rezaul Haq</h5>
+                          <h5 class="mb-1">New Notice Posted By {{$prescription->firstname}}</h5>
 
-                          <small>23-Jul-2019</small>
+                          <small>{{$prescription->date}}</small>
                         </div>          
                       </a>
-                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">New Notice Posted By Dr. Md.Rezaul Haq</h5>
-                          <small>11-June-2019</small>
-                        </div>
-               
-                      </a>
-                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">New Notice Posted By Dr. Md.Rezaul Haq</h5>
-                          <small>11-May-2019</small>
-                        </div>
-                      </a>
+                      @php
+                        $count++;
+                      @endphp
+                      @endforeach
                     </div>
 
                     <nav aria-label="..." style="float: right;">

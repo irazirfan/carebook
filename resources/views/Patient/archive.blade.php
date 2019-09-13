@@ -41,9 +41,9 @@
                       @foreach ($prescriptions as $prescription)
                         {{-- expr --}}
                       @if ($count == 0)
-                      <a class="list-group-item list-group-item-action flex-column align-items-start active" href="#">
+                      <a class="list-group-item list-group-item-action flex-column align-items-start active" href="{{route('patient.single', [$prescription->prescription_id])}}">
                       @else
-                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
+                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="{{route('patient.single', [$prescription->prescription_id])}}">
                       @endif
                         <div class="d-flex w-100 justify-content-between">
                           <h5 class="mb-1">{{$prescription->firstname}}</h5>
@@ -89,11 +89,13 @@
                     Input Prescriptions/Report
                   </div>
                   <div class="card-body">
+                    <form class="form"  method="post" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                       <div class="col-sm-12">
                         <div class="form-group">
-                          <label for="name">Doctor Name</label>
-                          <input class="form-control" name="doctor_name" type="text" placeholder="Enter Doctor name">
+                          <label for="name">Doctor Email</label>
+                          <input class="form-control" name="doctor_email" type="text" placeholder="Enter Doctor Email">
                         </div>
                       </div>
                     </div>
@@ -120,7 +122,7 @@
                     <div class="form-group row">
                         <label class="col-sm-8 " for="file-input">File input</label>
                         <div class="col-sm-8">
-                          <input id="file-input" type="file" name="file-input">
+                          <input id="file-input" type="file" name="file_input">
                         </div>
                       </div>
 
@@ -130,6 +132,14 @@
                       </div>
 
                     <!-- /.row-->
+                  </form>
+                  <div>
+                @if($errors->any())
+                    @foreach($errors->all() as $err)
+                    {{$err}} <br>
+                    @endforeach
+                @endif
+            </div>
                   </div>
                 </div>
           </div>

@@ -187,16 +187,16 @@
                                 <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="confirm password" title="enter your confirm password." >
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <br>
-                                <button class="btn btn-lg btn-success pull-left" type="submit" id="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                <!--<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>-->
-                            </div>
-                        </div>
-                    </form>
-
+                        
             </div><!--/tab-pane-->
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <br>
+                    <button class="btn btn-lg btn-success pull-left" type="submit" id="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                    <!--<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>-->
+                </div>
+            </div>
+            </form>
             <div>
                 @if($errors->any())
                     @foreach($errors->all() as $err)

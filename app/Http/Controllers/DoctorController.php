@@ -71,11 +71,11 @@ class DoctorController extends Controller
       </div>
       <div >
         <ul >
-          <li ><b>Name:</b></li>
+          <li ><b>Name:'.$request->patient_name.'</b></li>
           <li ><b>ID No:</b></li>
-          <li ><b>Date/Time:</b></li>
-          <li ><b>Age/Sex:</b></li>
-          <li ><b>Consultant:</b></li>
+          <li ><b>Date/Time:'.$request->date.'</b></li>
+          <li ><b>Age/Sex:'.$request->patient_sex.'</b></li>
+          <li ><b>Consultant:'.$request->doctor_name.'</b></li>
         </ul>
       </div>
       <br >
@@ -174,8 +174,8 @@ class DoctorController extends Controller
             'phone'=>'Required',
             //'email'=>'Required|email|unique:user',// required and must be unique in the user table
             'address'=>'Required',     
-            'new_password'=> 'Required',
-            'confirm_password'=> 'Required|same:new_password'
+            //'new_password'=> 'Required',
+            'confirm_password'=> 'same:new_password'
         ]);
       if ($request->hasFile('image')) {
         $image = $request->file('image');
