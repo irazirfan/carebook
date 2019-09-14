@@ -55,6 +55,15 @@ class HomeController extends Controller
     }
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'firstname'=>'Required',
+            'lastname'=>'Required',
+            'phone'=>'Required',
+            'email'=>'Required|email|unique:user',// required and must be unique in the user table
+            'address'=>'Required',     
+            'password'=> 'Required',
+            'compass'=> 'same:password'
+        ]);
         $reg  = new Reg([
           'firstname' => $request->get('firstname'),
           'lastname' => $request->get('lastname'),
@@ -68,11 +77,15 @@ class HomeController extends Controller
         //dd($request->all());
         $usertype = $request->get('usertype');
         if ($usertype == 'Doctor') {
-            $doctor = new Doctor([
-                'email' => $request->get('email'),
-                'bmdc' => $request->get('bmdc'),
-            ]);
-            Doctor::create($request->all());
+            $doctor = new Doctor;
+            $doctor->email = $request->email;
+            $doctor->bmdc = $request->bmdc;
+            $doctor->degree = $request->degree;
+            $doctor->specialized = $request->specialized;
+            $doctor->consulting = $request->consulting;
+            $doctor->location = $request->location;
+            $doctor->contact = $request->phone;
+            $doctor->save();
         }
         elseif ($usertype == 'Technation') {
             Tech::create($request->all());
