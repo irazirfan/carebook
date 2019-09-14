@@ -55,7 +55,7 @@
         </a>
     </li>
            <li class="sub-menu">
-               <a href="javascript:;">
+               <a href="javascript:">
                    <i class="fa fa-cogs"></i>
                    <span>Notifications</span>
                </a>
@@ -64,7 +64,7 @@
                </ul>
            </li>
     <li class="sub-menu">
-        <a href="javascript:;">
+        <a href="javascript:">
             <i class="fa fa-desktop"></i>
             <span>User Info</span>
         </a>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2019 at 02:04 PM
+-- Generation Time: Sep 14, 2019 at 06:05 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -83,7 +83,7 @@ CREATE TABLE `doctor` (
   `consulting` varchar(100) COLLATE utf32_unicode_ci DEFAULT NULL,
   `location` varchar(200) COLLATE utf32_unicode_ci DEFAULT NULL,
   `contact` varchar(100) COLLATE utf32_unicode_ci DEFAULT NULL,
-  `status` int(1) DEFAULT NULL,
+  `status` int(1) DEFAULT '0',
   `updated_at` datetime NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
@@ -93,8 +93,9 @@ CREATE TABLE `doctor` (
 --
 
 INSERT INTO `doctor` (`id`, `email`, `bmdc`, `degree`, `specialized`, `consulting`, `location`, `contact`, `status`, `updated_at`, `created_at`) VALUES
-(1, 'shaheb@mail.com', 51464186, 'MBBS(DU), FCPS(UK), MD(USA)', 'Neuro Medicine', '3pm-8pm', 'Lab Aid Hospital, Panthpath, Dhaka.', '01454511511', NULL, '2019-07-19 18:52:19', '2019-07-19 18:52:19'),
-(2, 'shahidul@gmail.com', 4552486, 'MBBS, FCPS, FRCPS', 'Eye Specialist', '5pm-10pm', 'Fulbari Busstand, Dinajpur', '01779452668', NULL, '2019-09-14 11:37:11', '2019-09-14 11:37:11');
+(1, 'shaheb@mail.com', 51464186, 'MBBS(DU), FCPS(UK), MD(USA)', 'Neuro Medicine', '3pm-8pm', 'Lab Aid Hospital, Panthpath, Dhaka.', '01454511511', 1, '2019-09-14 15:26:25', '2019-07-19 18:52:19'),
+(2, 'shahidul@gmail.com', 45524086, 'MBBS, FCPS, FRCPS', 'Eye Specialist', '5pm-10pm', 'Fulbari Busstand, Dinajpur', '01779452668', 1, '2019-09-14 15:48:24', '2019-09-14 11:37:11'),
+(6, 'sdd@yaho.com', 2455244, 'MBBS, FCPS', 'Medicine', '8am-2pm', 'Banani, Dhaka', '0177655245', 0, '2019-09-14 16:02:59', '2019-09-14 16:02:59');
 
 -- --------------------------------------------------------
 
@@ -254,7 +255,7 @@ CREATE TABLE `user` (
   `phone` varchar(20) NOT NULL,
   `firstname` varchar(150) NOT NULL,
   `lastname` varchar(100) NOT NULL,
-  `address` varchar(300) NOT NULL,
+  `address` varchar(300) DEFAULT NULL,
   `gender` varchar(10) NOT NULL,
   `password` varchar(150) NOT NULL,
   `image` varchar(300) DEFAULT NULL,
@@ -269,13 +270,17 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`email`, `phone`, `firstname`, `lastname`, `address`, `gender`, `password`, `image`, `nid`, `updated_at`, `created_at`) VALUES
 ('123@gmail.com', 'fdvgdf', 'efwrfw', 'sfgdrfg', 'gergv', 'Male', 'adca', NULL, '48949', '2019-07-19 18:51:10', '2019-07-19 18:51:10'),
+('a@yaho.com', '45454454587', 'dbdjb', 'dnsjdnjsnd', 'oolollolo', 'Female', '123', NULL, '99303033777', '2019-09-14 15:52:23', '2019-09-14 15:52:23'),
 ('bhuiyanmahmudul@gmail.com', 'sdfsd', 'sdfsdcfs', 'sdvsd', 'sdfsd', 'Male', 'dscfsdcs', NULL, '156165', '2019-07-19 18:59:05', '2019-07-19 18:59:05'),
 ('hbjh@gmail.com', 'asdfc', 'dfgdrf', 'sfdgsd', 'ascsdc', 'Male', 'sdfvs', NULL, '1561858', '2019-07-19 18:58:03', '2019-07-19 18:58:03'),
+('i.oonnee@gmail.com', '54545454', 'y', 'yyyhbbjb', NULL, 'Male', '123', NULL, '7355392403', '2019-09-14 15:54:36', '2019-09-14 15:54:36'),
 ('mahmudulhasan661@gmail.com', 'fdvgdf', 'efwrfw', 'sfgdrfg', 'gergv', 'Male', 'dgdt', NULL, '48949', '2019-07-19 18:42:15', '2019-07-19 18:42:15'),
+('sdd@yaho.com', '154545421', 'Atif', 'Aslam', NULL, 'Male', '123', NULL, '73553485545', '2019-09-14 16:02:59', '2019-09-14 16:02:59'),
 ('sdfvsdfv1@gmail.com', 'sdfs', 'sfs', 'sfsdf', 'sdcsd', 'Male', 'sdfsd', NULL, '41861896', '2019-07-19 19:03:23', '2019-07-19 19:03:23'),
 ('sdfvsdfv@gmail.com', 'sdfs', 'sfs', 'sfsdf', 'sdcsd', 'Male', 'dsfsd', NULL, '41861896', '2019-07-19 19:00:23', '2019-07-19 19:00:23'),
 ('shaheb@mail.com', 'fdvgdf', 'efwrfw', 'sfgdrfg', 'gergv', 'Male', '5aas', '1568373902.jpg', '48949', '2019-07-19 18:52:19', '2019-07-19 18:52:19'),
-('shahidul@gmail.com', '01779452668', 'Dr. Shahidul', 'Islam Khan', 'Fulbari, Dinajpur', 'Male', '123', NULL, '7355392403', '2019-09-14 11:37:11', '2019-09-14 11:37:11');
+('shahidul@gmail.com', '01779452668', 'Dr. Shahidul', 'Islam Khan', 'Fulbari, Dinajpur', 'Male', '123', NULL, '7355392403', '2019-09-14 11:37:11', '2019-09-14 11:37:11'),
+('vvvv@v.com', '01679332699', 'a', 'v', 'jbhiubniuo', 'Female', '123', NULL, '7355392403', '2019-09-14 15:49:22', '2019-09-14 15:49:22');
 
 --
 -- Indexes for dumped tables
@@ -370,7 +375,7 @@ ALTER TABLE `disease`
 -- AUTO_INCREMENT for table `doctor`
 --
 ALTER TABLE `doctor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `medical_test`
