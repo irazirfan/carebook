@@ -15,8 +15,11 @@ class AdminController extends Controller
     }
 
     public function notification()
+
     {
-        return view('admin.notification');
+        $notificationList = Doctor::where('status', NULL)
+                            ->get();
+        return view('admin.notification', ['notification'=> $notificationList]);
     }
 
     public function patient(){

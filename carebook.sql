@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2019 at 12:39 AM
+-- Generation Time: Sep 14, 2019 at 02:04 PM
 -- Server version: 10.1.38-MariaDB
--- PHP Version: 7.1.28
+-- PHP Version: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `carebook`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `email`, `password`, `updated_at`, `created_at`) VALUES
+(1, 'admin@gmail.com', '123', '2019-09-13 08:17:08', '2019-09-13 09:21:19');
 
 -- --------------------------------------------------------
 
@@ -62,6 +83,7 @@ CREATE TABLE `doctor` (
   `consulting` varchar(100) COLLATE utf32_unicode_ci DEFAULT NULL,
   `location` varchar(200) COLLATE utf32_unicode_ci DEFAULT NULL,
   `contact` varchar(100) COLLATE utf32_unicode_ci DEFAULT NULL,
+  `status` int(1) DEFAULT NULL,
   `updated_at` datetime NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
@@ -70,8 +92,9 @@ CREATE TABLE `doctor` (
 -- Dumping data for table `doctor`
 --
 
-INSERT INTO `doctor` (`id`, `email`, `bmdc`, `degree`, `specialized`, `consulting`, `location`, `contact`, `updated_at`, `created_at`) VALUES
-(1, 'shaheb@mail.com', 51464186, 'MBBS(DU), FCPS(UK), MD(USA)', 'Neuro Medicine', '3pm-8pm', 'Lab Aid Hospital, Panthpath, Dhaka.', '01454511511', '2019-07-19 18:52:19', '2019-07-19 18:52:19');
+INSERT INTO `doctor` (`id`, `email`, `bmdc`, `degree`, `specialized`, `consulting`, `location`, `contact`, `status`, `updated_at`, `created_at`) VALUES
+(1, 'shaheb@mail.com', 51464186, 'MBBS(DU), FCPS(UK), MD(USA)', 'Neuro Medicine', '3pm-8pm', 'Lab Aid Hospital, Panthpath, Dhaka.', '01454511511', NULL, '2019-07-19 18:52:19', '2019-07-19 18:52:19'),
+(2, 'shahidul@gmail.com', 4552486, 'MBBS, FCPS, FRCPS', 'Eye Specialist', '5pm-10pm', 'Fulbari Busstand, Dinajpur', '01779452668', NULL, '2019-09-14 11:37:11', '2019-09-14 11:37:11');
 
 -- --------------------------------------------------------
 
@@ -114,7 +137,8 @@ CREATE TABLE `medicine` (
 --
 
 INSERT INTO `medicine` (`id`, `name`, `updated_at`, `created_at`) VALUES
-(1, 'aefae', '2019-09-10 20:40:23', '2019-09-10 20:40:23');
+(1, 'aefae', '2019-09-10 20:40:23', '2019-09-10 20:40:23'),
+(2, 'Napa Extra', '2019-09-13 10:55:52', '2019-09-13 10:55:52');
 
 -- --------------------------------------------------------
 
@@ -151,7 +175,8 @@ CREATE TABLE `prescription` (
 --
 
 INSERT INTO `prescription` (`prescription_id`, `pdf`, `patient_email`, `doctor_email`, `date`, `updated_at`, `created_at`) VALUES
-(1, 'efwrfw09-10-2019_0810pm.pdf', 'shaheb@mail.com', 'shaheb@mail.com', '2019-09-10', '2019-09-10 20:10:26', '2019-09-10 20:10:26');
+(1, 'efwrfw09-10-2019_0810pm.pdf', 'shaheb@mail.com', 'shaheb@mail.com', '2019-09-10', '2019-09-10 20:10:26', '2019-09-10 20:10:26'),
+(2, 'efwrfw09-13-2019_1056am.pdf', 'shaheb@mail.com', 'shaheb@mail.com', '2019-09-13', '2019-09-13 10:56:15', '2019-09-13 10:56:15');
 
 -- --------------------------------------------------------
 
@@ -171,7 +196,8 @@ CREATE TABLE `symptom` (
 --
 
 INSERT INTO `symptom` (`id`, `name`, `updated_at`, `created_at`) VALUES
-(1, 'eafea', '2019-09-10 20:35:41', '2019-09-10 20:35:41');
+(1, 'eafea', '2019-09-10 20:35:41', '2019-09-10 20:35:41'),
+(2, 'Headache', '2019-09-13 10:54:58', '2019-09-13 10:54:58');
 
 -- --------------------------------------------------------
 
@@ -248,11 +274,19 @@ INSERT INTO `user` (`email`, `phone`, `firstname`, `lastname`, `address`, `gende
 ('mahmudulhasan661@gmail.com', 'fdvgdf', 'efwrfw', 'sfgdrfg', 'gergv', 'Male', 'dgdt', NULL, '48949', '2019-07-19 18:42:15', '2019-07-19 18:42:15'),
 ('sdfvsdfv1@gmail.com', 'sdfs', 'sfs', 'sfsdf', 'sdcsd', 'Male', 'sdfsd', NULL, '41861896', '2019-07-19 19:03:23', '2019-07-19 19:03:23'),
 ('sdfvsdfv@gmail.com', 'sdfs', 'sfs', 'sfsdf', 'sdcsd', 'Male', 'dsfsd', NULL, '41861896', '2019-07-19 19:00:23', '2019-07-19 19:00:23'),
-('shaheb@mail.com', 'fdvgdf', 'efwrfw', 'sfgdrfg', 'gergv', 'Male', '5aas', '3.jpg', '48949', '2019-07-19 18:52:19', '2019-07-19 18:52:19');
+('shaheb@mail.com', 'fdvgdf', 'efwrfw', 'sfgdrfg', 'gergv', 'Male', '5aas', '1568373902.jpg', '48949', '2019-07-19 18:52:19', '2019-07-19 18:52:19'),
+('shahidul@gmail.com', '01779452668', 'Dr. Shahidul', 'Islam Khan', 'Fulbari, Dinajpur', 'Male', '123', NULL, '7355392403', '2019-09-14 11:37:11', '2019-09-14 11:37:11');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `disease`
@@ -321,6 +355,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `disease`
 --
 ALTER TABLE `disease`
@@ -330,7 +370,7 @@ ALTER TABLE `disease`
 -- AUTO_INCREMENT for table `doctor`
 --
 ALTER TABLE `doctor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `medical_test`
@@ -342,19 +382,19 @@ ALTER TABLE `medical_test`
 -- AUTO_INCREMENT for table `medicine`
 --
 ALTER TABLE `medicine`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `prescription`
 --
 ALTER TABLE `prescription`
-  MODIFY `prescription_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `prescription_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `symptom`
 --
 ALTER TABLE `symptom`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `technician`

@@ -10,7 +10,7 @@ class Doctor extends Model
     use Notifiable;
 
     protected $table = 'doctor';
-    protected $primaryKey ='email' ;
+    //protected $primaryKey ='email' ;
 
     protected $fillable = ['email', 'bmdc'];
 }
