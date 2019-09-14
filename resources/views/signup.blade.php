@@ -118,7 +118,7 @@
                         </div>
                     </div>
                 </div> <!-- /.form-group -->
-				<div class="form-group">
+				        <div class="form-group">
                     <label for="address" class="col-sm-3 control-label">Address</label>
                     <div class="col-sm-9">
                         <input type="text" id="address" name="address" onkeydown="genderValid()" placeholder="Address" class="form-control" autofocus>
@@ -143,37 +143,11 @@
             						</select>
                     </div>
                 </div>
-                <div class="doctor" id="doctor">
-                    <div class="form-group" >
-                        <label for="nid" class="col-sm-3 control-label">BMDC No.* </label>
-                        <div class="col-sm-9">
-                            <input type="number" id="bmdc" placeholder="1098657893" name="bmdc" class="form-control">
-                            <span class="help-block">Your BMDC Number won't be disclosed anywhere </span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="degree" class="col-sm-3 control-label">Degree*</label>
-                        <div class="col-sm-9">
-                            <input type="text" id="degree" name="degree" placeholder="Degree" class="form-control" autofocus>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="specialized" class="col-sm-3 control-label">Specialized*</label>
-                        <div class="col-sm-9">
-                            <input type="text" id="specialized" name="specialized" placeholder="specialized" class="form-control" autofocus>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="consulting" class="col-sm-3 control-label">Consulting*</label>
-                        <div class="col-sm-9">
-                            <input type="text" id="consulting" name="consulting" placeholder="consulting hours" class="form-control" autofocus>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="location" class="col-sm-3 control-label">Location/Chamber*</label>
-                        <div class="col-sm-9">
-                            <input type="text" id="location" name="location" placeholder="location/Chamber" class="form-control" autofocus>
-                        </div>
+                <div class="form-group doctor" id="doctor">
+                    <label for="nid" class="col-sm-3 control-label">BMDC No.* </label>
+                    <div class="col-sm-9">
+                        <input type="number" id="nid" placeholder="1098657893" name="bmdc" class="form-control">
+                        <span class="help-block">Your BMDC Number won't be disclosed anywhere </span>
                     </div>
                 </div>
                 <div class="form-group tech" id="tech">
@@ -182,13 +156,6 @@
                         <input type="number" id="center" name="center" placeholder="Center No." class="form-control">
                         
                     </div>
-                </div>
-                <div class="form-group">
-                @if($errors->any())
-                    @foreach($errors->all() as $err)
-                    {{$err}} <br>
-                    @endforeach
-                @endif
                 </div>
                 <div class="form-group">
                     <div class="col-sm-9 col-sm-offset-3">
@@ -209,13 +176,6 @@
     if($value == "Doctor")
       {
         $("#doctor").show();
-        
-        $('#bmdc').attr('required','true');
-        $('#degree').attr('required','true');
-        $('#specialized').attr('required','true');
-        $('#consulting').attr('required','true');
-        $('#location').attr('required','true');
-
         $("#tech").hide();
         //$("#doctor").style.display="block";
     }
