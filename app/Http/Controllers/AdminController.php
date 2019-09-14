@@ -17,7 +17,7 @@ class AdminController extends Controller
     public function notification()
 
     {
-        $notificationList = Doctor::where('status', NULL)
+        $notificationList = Doctor::where('status', 0)
                             ->get();
         return view('admin.notification', ['notification'=> $notificationList]);
     }
@@ -34,13 +34,30 @@ class AdminController extends Controller
         return view('admin.doctorList', ['doctor'=> $doctorList]);
     }
 
-    public function gallery()
-    {
-        return view('admin.gallery');
-    }
     public function todo()
     {
         return view('admin.todo_list');
+    }
+
+    public function accept($id){
+
+        $doctor = Doctor::where('id', $id)
+            ->first();
+
+        $doctor->status = 1;
+        $doctor->save();
+
+        return redirect()->route('admin.notification');
+    }
+
+    public function reject($id){
+
+        $doctor = Doctor::where('id', $id)
+                    ->first();
+
+        Doctor::destroy($id);
+
+        return redirect()->route('admin.notification');
     }
 
 }

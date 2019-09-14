@@ -24,12 +24,12 @@
                                 <tbody>
                                 @foreach($patient as $value)
                                     <tr>
-                                        <td>{{$value['email']}}</td>
-                                        <td>{{$value['phone']}}</td>
+                                        <td style="color: #1f6fb2">{{$value['email']}}</td>
+                                        <td><span class="label label-success label-mini">{{$value['phone']}}</span></td>
                                         <td>{{$value['firstname']}}</td>
                                         <td>{{$value['lastname']}}</td>
                                         <td>{{$value['address']}}</td>
-                                        <td>{{$value['nid']}}</td>
+                                        <td><span class="label label-warning label-mini">{{$value['nid']}}</span></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

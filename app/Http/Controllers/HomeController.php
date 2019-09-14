@@ -70,7 +70,8 @@ class HomeController extends Controller
         if ($usertype == 'Doctor') {
             $doctor = new Doctor([
                 'eamil' => $request->get('email'),
-                'bmdc' => $request->get('bmdc')
+                'bmdc' => $request->get('bmdc'),
+                'status' => 0,
             ]);
             Doctor::create($request->all());
         }

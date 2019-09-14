@@ -44,22 +44,25 @@
         </div>
     </header>
     <aside>
-      <div id="sidebar" class="nav-collapse ">
+      <div id="sidebar" class="nav-collapse">
         <!-- sidebar menu start-->
        <ul class="sidebar-menu" id="nav-accordion">
     <h5 class="centered">Iraz Irfan</h5>
     <li class="mt">
-        <a class="active" href="{{route('admin')}}">
+        <a href="{{route('admin')}}">
             <i class="fa fa-dashboard"></i>
             <span>Dashboard</span>
         </a>
     </li>
-    <li class="sub-menu">
-        <a href="{{route('admin.notification')}}">
-            <i class="fa fa-cogs"></i>
-            <span>Notifications</span>
-        </a>
-    </li>
+           <li class="sub-menu">
+               <a href="javascript:;">
+                   <i class="fa fa-cogs"></i>
+                   <span>Notifications</span>
+               </a>
+               <ul class="sub">
+                   <li><a href="{{route('admin.notification')}}">Sign up Requests</a></li>
+               </ul>
+           </li>
     <li class="sub-menu">
         <a href="javascript:;">
             <i class="fa fa-desktop"></i>
@@ -71,7 +74,6 @@
         </ul>
     </li>
 
-        <!-- sidebar menu end-->
        </ul>
       </div>
     </aside>

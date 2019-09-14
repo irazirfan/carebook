@@ -25,13 +25,13 @@
                                 <tbody>
                                 @foreach($doctor as $value)
                                     <tr>
-                                        <td>{{$value['email']}}</td>
-                                        <td>{{$value['bmdc']}}</td>
+                                        <td style="color: #1f6fb2">{{$value['email']}}</td>
+                                        <td><span class="label label-success label-mini">{{$value['bmdc']}}</span></td>
                                         <td>{{$value['degree']}}</td>
                                         <td>{{$value['specialized']}}</td>
-                                        <td>{{$value['consulting']}}</td>
+                                        <td><span class="label label-warning label-mini">{{$value['consulting']}}</span></td>
                                         <td>{{$value['location']}}</td>
-                                        <td>{{$value['contact']}}</td>
+                                        <td><span class="label label-info label-mini">{{$value['contact']}}</span></td>
                                     </tr>
                                 @endforeach
                                 </tbody>
