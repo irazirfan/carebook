@@ -78,6 +78,8 @@ Route::get('/administrator/todo_list', 'AdminController@todo')->name('admin.todo
 Route::get('/administrator/doctorList', 'AdminController@doctor')->name('admin.doctorList');
 Route::get('/administrator/patientList', 'AdminController@patient')->name('admin.patientList');
 Route::get('/administrator/technicianList', 'AdminController@technician')->name('admin.technicianList');
+Route::get('/administrator/accept/{id}', 'AdminController@accept')->name('admin.accept');
+Route::get('/administrator/reject/{id}', 'AdminController@reject')->name('admin.reject');
 
 
 
