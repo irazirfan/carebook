@@ -77,7 +77,7 @@ class HomeController extends Controller
         elseif ($usertype == 'Technation') {
             Tech::create($request->all());
         }
-        
+
         return redirect()->route('home');
     }
     public function verify(Request $request){
@@ -89,7 +89,7 @@ class HomeController extends Controller
                 ->where('email', $email)
                 ->where('password', $password)
                 ->first();
-        
+
         //dd($user);
          if($user != null){
              $request->session()->put('email', $email);
@@ -102,9 +102,19 @@ class HomeController extends Controller
               else
                 return redirect()->route('patient');
          }else{
-    
-             $request->session()->flash('message', 'Invalid username or password');
-             return redirect()->route('home');
+
+             $admin = DB::table('admin')
+                 ->where('email', $email)
+                 ->where('password', $password)
+                 ->first();
+             if($admin != null) {
+                 $request->session()->put('email', $email);
+                 return redirect()->route('admin');
+             }
+             else {
+                 $request->session()->flash('message', 'Invalid username or password');
+                 return redirect()->route('home');
+             }
         }
 
     }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2019 at 05:59 PM
+-- Generation Time: Sep 11, 2019 at 12:39 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.1.28
 
@@ -21,6 +21,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `carebook`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `disease`
+--
+
+CREATE TABLE `disease` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) COLLATE utf32_unicode_ci NOT NULL,
+  `origin` varchar(200) COLLATE utf32_unicode_ci NOT NULL,
+  `effects` varchar(200) COLLATE utf32_unicode_ci NOT NULL,
+  `symptom` varchar(200) COLLATE utf32_unicode_ci NOT NULL,
+  `diagnosis` varchar(200) COLLATE utf32_unicode_ci NOT NULL,
+  `image` varchar(200) COLLATE utf32_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+
+--
+-- Dumping data for table `disease`
+--
+
+INSERT INTO `disease` (`id`, `name`, `origin`, `effects`, `symptom`, `diagnosis`, `image`) VALUES
+(1, 'Sars', 'Europe', 'Contagious and potentially fatal respiratory illness.', 'Aches, chills, diarrhea, dry coughing, and shortness of breath', ' SARS-CoV/ RT-PCR', 'sars.jpg'),
+(2, 'Ebola', 'Africa', 'Contagious and potentially fatal respiratory illness.', 'Aches, chills, diarrhea, dry coughing, and shortness of breath', 'SARS-CoV/ RT-PCR', 'ebola.jpg'),
+(3, 'Avian Flu', 'America', 'Contagious and potentially fatal respiratory illness.', 'Aches, chills, diarrhea, dry coughing, and shortness of breath', ' SARS-CoV/ RT-PCR', 'avian_flu.jpg');
 
 -- --------------------------------------------------------
 
@@ -55,10 +80,41 @@ INSERT INTO `doctor` (`id`, `email`, `bmdc`, `degree`, `specialized`, `consultin
 --
 
 CREATE TABLE `medical_test` (
-  `prescription_id` int(11) NOT NULL,
-  `test_id` int(11) NOT NULL,
-  `test_report_file` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL,
+  `test_name` varchar(200) COLLATE utf32_unicode_ci NOT NULL,
+  `patient_email` varchar(200) COLLATE utf32_unicode_ci NOT NULL,
+  `doctor_email` varchar(200) COLLATE utf32_unicode_ci NOT NULL,
+  `pdf` varchar(200) COLLATE utf32_unicode_ci DEFAULT NULL,
+  `updated_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+
+--
+-- Dumping data for table `medical_test`
+--
+
+INSERT INTO `medical_test` (`id`, `test_name`, `patient_email`, `doctor_email`, `pdf`, `updated_at`, `created_at`) VALUES
+(1, 'dasdaadfascasdsa', 'shaheb@mail.com', 'shaheb@mail.com', NULL, '2019-09-10 21:00:04', '2019-09-10 21:00:04');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `medicine`
+--
+
+CREATE TABLE `medicine` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) COLLATE utf32_unicode_ci NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+
+--
+-- Dumping data for table `medicine`
+--
+
+INSERT INTO `medicine` (`id`, `name`, `updated_at`, `created_at`) VALUES
+(1, 'aefae', '2019-09-10 20:40:23', '2019-09-10 20:40:23');
 
 -- --------------------------------------------------------
 
@@ -77,39 +133,45 @@ CREATE TABLE `medicine_brand` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `patient_symptomps`
---
-
-CREATE TABLE `patient_symptomps` (
-  `symptomp_id` int(11) NOT NULL,
-  `prescription_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `prescribed_medicine`
---
-
-CREATE TABLE `prescribed_medicine` (
-  `prescription_id` int(11) NOT NULL,
-  `medicine_brand_id` int(11) NOT NULL,
-  `days` int(11) NOT NULL,
-  `time` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `prescription`
 --
 
 CREATE TABLE `prescription` (
   `prescription_id` int(11) NOT NULL,
-  `Date` date NOT NULL,
-  `disease_name` varchar(50) NOT NULL,
-  `patient_email` varchar(150) NOT NULL
+  `pdf` varchar(200) NOT NULL,
+  `patient_email` varchar(150) NOT NULL,
+  `doctor_email` varchar(200) NOT NULL,
+  `date` varchar(200) NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `prescription`
+--
+
+INSERT INTO `prescription` (`prescription_id`, `pdf`, `patient_email`, `doctor_email`, `date`, `updated_at`, `created_at`) VALUES
+(1, 'efwrfw09-10-2019_0810pm.pdf', 'shaheb@mail.com', 'shaheb@mail.com', '2019-09-10', '2019-09-10 20:10:26', '2019-09-10 20:10:26');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `symptom`
+--
+
+CREATE TABLE `symptom` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) COLLATE utf32_unicode_ci NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+
+--
+-- Dumping data for table `symptom`
+--
+
+INSERT INTO `symptom` (`id`, `name`, `updated_at`, `created_at`) VALUES
+(1, 'eafea', '2019-09-10 20:35:41', '2019-09-10 20:35:41');
 
 -- --------------------------------------------------------
 
@@ -131,6 +193,29 @@ CREATE TABLE `technician` (
 
 INSERT INTO `technician` (`id`, `email`, `center`, `updated_at`, `created_at`) VALUES
 (1, 'sdfvsdfv1@gmail.com', 165165, '2019-07-19 19:03:23', '2019-07-19 19:03:23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `test`
+--
+
+CREATE TABLE `test` (
+  `test_id` int(11) NOT NULL,
+  `name` varchar(200) COLLATE utf32_unicode_ci NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+
+--
+-- Dumping data for table `test`
+--
+
+INSERT INTO `test` (`test_id`, `name`, `updated_at`, `created_at`) VALUES
+(1, 'efeaf', '2019-09-10 20:34:20', '2019-09-10 20:34:20'),
+(2, 'dasda', '2019-09-10 20:58:12', '2019-09-10 20:58:12'),
+(3, 'dasdaadfasca', '2019-09-10 20:58:46', '2019-09-10 20:58:46'),
+(4, 'dasdaadfascasdsa', '2019-09-10 21:00:04', '2019-09-10 21:00:04');
 
 -- --------------------------------------------------------
 
@@ -170,6 +255,12 @@ INSERT INTO `user` (`email`, `phone`, `firstname`, `lastname`, `address`, `gende
 --
 
 --
+-- Indexes for table `disease`
+--
+ALTER TABLE `disease`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `doctor`
 --
 ALTER TABLE `doctor`
@@ -180,7 +271,13 @@ ALTER TABLE `doctor`
 -- Indexes for table `medical_test`
 --
 ALTER TABLE `medical_test`
-  ADD PRIMARY KEY (`test_id`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `medicine`
+--
+ALTER TABLE `medicine`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `medicine_brand`
@@ -189,22 +286,16 @@ ALTER TABLE `medicine_brand`
   ADD PRIMARY KEY (`medicine_id`);
 
 --
--- Indexes for table `patient_symptomps`
---
-ALTER TABLE `patient_symptomps`
-  ADD PRIMARY KEY (`symptomp_id`);
-
---
--- Indexes for table `prescribed_medicine`
---
-ALTER TABLE `prescribed_medicine`
-  ADD PRIMARY KEY (`medicine_brand_id`);
-
---
 -- Indexes for table `prescription`
 --
 ALTER TABLE `prescription`
   ADD PRIMARY KEY (`prescription_id`);
+
+--
+-- Indexes for table `symptom`
+--
+ALTER TABLE `symptom`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `technician`
@@ -212,6 +303,12 @@ ALTER TABLE `prescription`
 ALTER TABLE `technician`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `test`
+--
+ALTER TABLE `test`
+  ADD PRIMARY KEY (`test_id`);
 
 --
 -- Indexes for table `user`
@@ -224,9 +321,39 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `disease`
+--
+ALTER TABLE `disease`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `doctor`
 --
 ALTER TABLE `doctor`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `medical_test`
+--
+ALTER TABLE `medical_test`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `medicine`
+--
+ALTER TABLE `medicine`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `prescription`
+--
+ALTER TABLE `prescription`
+  MODIFY `prescription_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `symptom`
+--
+ALTER TABLE `symptom`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -234,6 +361,12 @@ ALTER TABLE `doctor`
 --
 ALTER TABLE `technician`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `test`
+--
+ALTER TABLE `test`
+  MODIFY `test_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

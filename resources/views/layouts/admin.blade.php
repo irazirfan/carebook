@@ -47,7 +47,6 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
        <ul class="sidebar-menu" id="nav-accordion">
-    <p class="centered"><a href="{{route('admin.profile')}}"><img src="{{asset('admin/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
     <h5 class="centered">Iraz Irfan</h5>
     <li class="mt">
         <a class="active" href="{{route('admin')}}">
