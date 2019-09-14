@@ -1,105 +1,47 @@
 @extends('layouts.admin')
 @section('content')
 
+
     <section id="main-content">
         <section class="wrapper">
             <h3><i class="fa fa-angle-right"></i>Doctor List</h3>
             <div class="row">
-            <div class="row mt">
-                <div class="col-md-12">
-                    <div class="content-panel">
-                        <table class="table table-striped table-advance table-hover">
+                <div class="row mt">
+                    <div class="col-md-12">
+                        <div class="content-panel">
 
-                            <thead>
-                            <tr>
-                                <th><i class="fa fa-envelope"></i> Email</th>
-                                <th class="hidden-phone"><i class="fa fa-mobile"></i> Phone</th>
-                                <th><i class=" fa fa-user-circle-o"></i> Name</th>
-                                <th><i class=" fa fa-info-circle"></i> Specialist</th>
-                                <th><i class=" fa fa-bookmark"></i> BMDC</th>
-                                <th></th>
-                                <th><i class=" fa fa-bolt"></i> Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <a href="basic_table.html#">irazirfan@gmail.com</a>
-                                </td>
-                                <td class="hidden-phone"><span class="label label-info label-mini">+880 1521318232</span></td>
-                                <td>Iraz Irfan</td>
-                                <td>Medicine</td>
-                                <td><span class="label label-success label-mini">7354 5394 2403</span></td>
-                                <td></td>
-                                <td>
-                                    <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="basic_table.html#">shasan@gmail.com</a>
-                                </td>
-                                <td class="hidden-phone"><span class="label label-info label-mini">+880 1679332699</span></td>
-                                <td>Mahmudul Hasan</td>
-                                <td>Eye</td>
-                                <td><span class="label label-success label-mini">639 238 1104</span></td>
-                                <td></td>
-                                <td>
-                                    <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="basic_table.html#">shahriar@gmail.com</a>
-                                </td>
-                                <td class="hidden-phone"><span class="label label-info label-mini">+880 1779452668</span></td>
-                                <td>Fahim Shahriar</td>
-                                <td>Dentist</td>
-                                <td><span class="label label-success label-mini">954 354 1204</span></td>
-                                <td></td>
-                                <td>
-                                    <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="basic_table.html#">kawser007@hotmail.com</a>
-                                </td>
-                                <td class="hidden-phone"><span class="label label-info label-mini">+880 1756322584</span></td>
-                                <td>Kawser Abid</td>
-                                <td>General Sergeon</td>
-                                <td><span class="label label-success label-mini">452 240 3015</span></td>
-                                <td></td>
-                                <td>
-                                    <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                </td>
-                            </tr>
-
-                            </tbody>
-                        </table>
+                            <table class="table table-striped table-advance table-hover">
+                                <thead>
+                                <tr>
+                                    <th>Email</th>
+                                    <th>BMDC No</th>
+                                    <th>Degree</th>
+                                    <th>Specialized</th>
+                                    <th>Consulting</th>
+                                    <th>Location</th>
+                                    <th>Contact</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($doctor as $value)
+                                    <tr>
+                                        <td>{{$value['email']}}</td>
+                                        <td>{{$value['bmdc']}}</td>
+                                        <td>{{$value['degree']}}</td>
+                                        <td>{{$value['specialized']}}</td>
+                                        <td>{{$value['consulting']}}</td>
+                                        <td>{{$value['location']}}</td>
+                                        <td>{{$value['contact']}}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                    <!-- /content-panel -->
                 </div>
-                <!-- /col-md-12 -->
             </div>
-            <!-- /row -->
         </section>
     </section>
-
-    </section>
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="lib/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="lib/jquery.scrollTo.min.js"></script>
-    <script src="lib/jquery.nicescroll.js" type="text/javascript"></script>
-    <!--common script for all pages-->
-    <script src="lib/common-scripts.js"></script>
-    <!--script for this page-->
 
     </body>
 

@@ -74,7 +74,6 @@ Route::get('doctor/profile/search', 'DoctorController@Password');
 
 Route::get('/administrator', 'AdminController@index')->name('admin');
 Route::get('/administrator/notification', 'AdminController@notification')->name('admin.notification');
-Route::get('/administrator/gallery', 'AdminController@gallery')->name('admin.gallery');
 Route::get('/administrator/todo_list', 'AdminController@todo')->name('admin.todo');
 Route::get('/administrator/doctorList', 'AdminController@doctor')->name('admin.doctorList');
 Route::get('/administrator/patientList', 'AdminController@patient')->name('admin.patientList');

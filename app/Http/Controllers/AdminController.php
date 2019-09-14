@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Doctor;
 use App\Reg;
+use App\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -17,19 +19,16 @@ class AdminController extends Controller
         return view('admin.notification');
     }
 
-    public function patient()
-    {
-        return view('admin.patientlist');
+    public function patient(){
+
+        $patientList = User::all();
+        return view('admin.patientList', ['patient'=> $patientList]);
     }
 
-    public function doctor()
-    {
-        return view('admin.doctorlist');
-    }
+    public function doctor(){
 
-    public function technician()
-    {
-        return view('admin.technicianlist');
+        $doctorList = Doctor::all();
+        return view('admin.doctorList', ['doctor'=> $doctorList]);
     }
 
     public function gallery()

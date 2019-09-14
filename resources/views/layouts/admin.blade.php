@@ -68,21 +68,11 @@
         <ul class="sub">
             <li><a href="{{route('admin.doctorList')}}">Doctor</a></li>
             <li><a href="{{route('admin.patientList')}}">Patient</a></li>
-            <li><a href="{{route('admin.technicianList')}}">Technician</a></li>
-        </ul>
-    </li>
-    <li class="sub-menu">
-        <a href="javascript:;">
-            <i class="fa fa-book"></i>
-            <span>Extra</span>
-        </a>
-        <ul class="sub">
-            <li><a href="{{route('admin.todo')}}">Todo List</a></li>
-            <li><a href="{{route('admin.gallery')}}">Gallery</a></li>
         </ul>
     </li>
 
         <!-- sidebar menu end-->
+       </ul>
       </div>
     </aside>
 
