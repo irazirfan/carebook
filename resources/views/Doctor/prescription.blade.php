@@ -172,7 +172,7 @@
         <tr>
         <td>Patient Name:</td>
         <td> <input type="text" name="pname" id="pname" value=""> </td>
-        <td><input type="submit" class="button" name="history" value="View history"></td>
+       <!--  <td><input type="submit" class="button" name="history" value="View history"></td> -->
          </tr>
         <tr>
          <td>Age</td>
@@ -264,9 +264,10 @@
     
       <tr><td>Visit me after <input type="number" name="time" id="time"> 
       <select id="duration">
-        <option>days</option>
-        <option>months</option>
+        <option value="days">days</option>
+        <option value="month">months</option>
       </select>
+      <button type="button" id="add_visit">Add Visits</button>
       </td></tr>  
     
   </div>
@@ -279,7 +280,7 @@
       <h4 align="center">We care about you</h4>
 
       <div class="top-section">
-        <h1 align="center"><b>CareBook Prescription</b></h1>
+        <h2 align="center"><b>CareBook Prescription</b></h2>
         
       </div>
  <form  method="post" autocomplete="off" onsubmit="return presSave()">
@@ -321,7 +322,7 @@
                                   
                 
               </table>
-              <b>Visit after <input type="text" name="timezone" id="timezone" hidden> &nbsp <input type="text" name="visit" id="visit" hidden></b>
+              <b>Visit after <input type="text" name="timezone" id="timezone" style="border-color: transparent; width: 20px" readonly> <input type="text" name="visit" id="visit" style="border-color: transparent; width: 40px" readonly></b>
            </div>
            
         </div>
@@ -348,10 +349,7 @@
     $("#test_row").attr("value",tesTableRow);
     $("#med_row").attr("value",medTableRow);
 
-    $time=$('#time').val();
-    $duration=$('#duration').val();
-     $("#timezone").attr("value",time);
-    $("#visit").attr("value",duration);
+    
     /*document.getElementById('test_row').value = tesTableRow;
     document.getElementById('med_row').value = medTableRow;*/
     });
@@ -359,13 +357,11 @@
   <script type="text/javascript" >
 $('#pat_search').on('click',function(){
 $value=$('#patientid').val();
-console.log($value);
 $.ajax({
 type : 'get',
 url : '{{URL::to('doctor/press/search')}}',
 data:{'search':$value},
 success:function(data){
-console.log(data);
 $('#pname').attr("value",data[0]);
 $('#patient_name').attr("value",data[0]);
 $('#patient_sex').attr("value",data[1]);
@@ -408,6 +404,13 @@ data:{'search':$value},
 success:function(data){
 }
 });
+})
+$('#add_visit').on('click',function(){
+  $time=$('#time').val();
+  //console.log($time);
+  $duration=$('#duration').val();
+  $("#timezone").attr("value",$time);
+  $("#visit").attr("value",$duration);
 })
 </script>
 <script type="text/javascript">

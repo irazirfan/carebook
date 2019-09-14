@@ -43,7 +43,10 @@ Route::get('/patient/doctor/{id}', 'PatientController@doctorlist')->name('patien
 Route::get('/patient/profile', 'PatientController@profile')->name('patient.profile');
 Route::post('/patient/profile', 'PatientController@profileStore');
 Route::get('/patient/notification', 'PatientController@notification')->name('patient.notification');
+Route::get('/patient/notification/{id}', 'PatientController@notificationSingle')->name('patient.notification.single');
 Route::get('/patient/archive', 'PatientController@archive')->name('patient.archive');
+Route::post('/patient/archive', 'PatientController@archiveStore');
+Route::get('/patient/patient/{id}', 'PatientController@patientListSingle')->name('patient.single');
 Route::get('patient/profile/search', 'PatientController@Password');
 Route::get('patient/doctor/search', 'PatientController@DoctorSearch');
 Route::get('patient/doctor/speciality', 'PatientController@Speciality');

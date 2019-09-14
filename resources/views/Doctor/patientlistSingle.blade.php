@@ -11,16 +11,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <style type="text/css">
-      .close{
-        position: absolute;
-        top:0;
-        right: 14px;
-        font-size: 42px;
-        transform: rotate(45deg);
-        cursor: pointer;
-      }
-    </style>
+  
 @endsection
 
  @section('nav')
@@ -38,13 +29,12 @@
       <div class="container-fluid">
         <div class="row justify-content-center" style="margin-right: 200px; margin-top: 50px; margin-left:50px">
           <div class="col-sm-12 col-xl-12" >
-                <div class="card" >
+                <div class="card" style="height: 900px; width: 700px" >
                   <div class="card-header">
                     <i class="fa fa-align-justify"></i> Previous Patient
                     <small>custom content</small>
                   </div>
-                  <div class="card-body" id="main">
-                    <div class="close">+</div>
+                  <div class="card-body" id="main" >
                     
                   </div>
                   <div class="card-footer">
@@ -76,12 +66,14 @@
  <script>
         /*var viewer = $('#viewpdf');
         PDFObject.embed('sample.pdf', viewer);*/
-       $( document ).ready(function() {
+       /*$( document ).ready(function() {*/
           //document.querySelector('.bg-modal').style.display = "flex";
           var viewer = $('#main');
-        PDFObject.embed('{{Storage::get('public/storage/', $prescription->pdf) }}', viewer);
+        PDFObject.embed('{{asset('storage/storage')}}/{{$prescription->pdf}}', viewer);
+        var x = "{{ $prescription->pdf}}";
+        console.log(x);
         //document.querySelector('#main').style.display = "none";
-        });
+        /*});*/
     </script>
 @endsection
 
