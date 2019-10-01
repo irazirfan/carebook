@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Doctor | Carebook</title>
     @yield('style')
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link href="{{asset('theme/CSS/bootstrap.min.css')}}" >
+    <script src="{{asset('theme/JS/bootstrap.min.js')}}"></script>
+    <script src="{{asset('theme/JS/jquery-3.4.1.min.js')}}"></script>
     <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
     <link rel="stylesheet" href="{{asset('css/doctor.css')}}">
     <script type="text/javascript" src="{{asset('js/doctor.js')}}"></script>
@@ -18,7 +19,7 @@
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 </head>
-<body class="home">
+<body class="home ">
     <header class="app-header navbar">
       <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
         <span class="navbar-toggler-icon"></span>
@@ -28,30 +29,16 @@
         <img class="navbar-brand-full" src="{{asset('patientTheme/img/brand/log3.png')}}" width="89" height="25" alt="CareBook Logo">
       </a>
 
-      <ul class="nav navbar-nav ml-auto">
+      <ul class="nav navbar-nav ml-auto" style="">
 
-        <li class="nav-item d-md-down-none">
-          <a class="nav-link" href="#">
-            <i class="icon-bell"></i>
-            <span class="badge badge-pill badge-danger">0</span>
-          </a>
-        </li>
-
-
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" style="padding-left: 1000px">
           <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <img class="img-avatar" src="{{asset('patientTheme/img/avatars/9.jpg')}}" alt="fahim@gmail.com">
+            <img class="img-avatar" src="{{asset('images')}}/{{$customer->image}}" alt="fahim@gmail.com">
           </a>
         </li>
 
       </ul>
 
-      <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" data-toggle="aside-menu-lg-show">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <button class="navbar-toggler aside-menu-toggler d-lg-none" type="button" data-toggle="aside-menu-show">
-        <span class="navbar-toggler-icon"></span>
-      </button>
     </header>
     <div class="container-fluid display-table">
         <div class="row display-table-row">

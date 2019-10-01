@@ -34,9 +34,9 @@
                 </span>
                </div>
               <input class="form-control"  size="16" type="text" id="search" placeholder="Search Doctor">
-              <span class="input-group-append">
+              <!-- <span class="input-group-append">
                 <button class="btn btn-info" id="search_btn" type="button">Search</button>
-              </span>
+              </span> -->
             </div>
             <div id="div1"></div>
             <legend>
@@ -109,14 +109,15 @@
                   </div>
                   <div class="card-body">
                     <div class="list-group" id="tbody">
-                      @foreach ($doctors as $doctor)
                       @php
                         $count = 0;
                       @endphp
+                      @foreach ($doctors as $doctor)
+                      
                         @if ($count == 0)
                       <a class="list-group-item list-group-item-action flex-column align-items-start active" href="{{route('patient.doctorlist', [$doctor->id])}}">
                         @else
-                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
+                      <a class="list-group-item list-group-item-action flex-column align-items-start" href="{{route('patient.doctorlist', [$doctor->id])}}">
                         @endif
                         <div class="d-flex w-100 justify-content-between">
                           <h5 class="mb-1">{{$doctor->firstname}}&nbsp {{$doctor->lastname}}</h5>
@@ -161,38 +162,42 @@
             </div>
         </div>
       </div>
-      <script type="text/javascript">
-  /*Search by Any*/
-$('#search').on('keyup',function(){
+     <script src="{{asset('theme/JS/bootstrap.min.js')}}"></script>
+     <script src="{{asset('theme/JS/jquery-3.4.1.min.js')}}"></script>
+<script type="text/javascript">
+  $('#search').on('keyup',function(){
 $value=$(this).val();
+console.log($value);
 $.ajax({
 type : 'get',
-url : '{{URL::to('patient/doctor/search')}}',
+url : '{{URL::to('patient/doctorlist')}}',
 data:{'search':$value},
-success:function(data){
+success:function(data){   
+    console.log(data);
 $('#tbody').html(data);
 }
 });
 })
-/*Search by Speciality*/
+
+
 $('#speciality').on('change',function(){
 $value=$(this).val();
 $.ajax({
 type : 'get',
-url : '{{URL::to('patient/doctor/speciality')}}',
+url : '{{URL::to('patient/doctorlist/speciality')}}',
 data:{'search':$value},
 success:function(data){
 $('#tbody').html(data);
 }
 });
 })
-/*Search by Speciality*/
+
 $('#location').on('change',function(){
 $value=$(this).val();
 console.log($value);
 $.ajax({
 type : 'get',
-url : '{{URL::to('patient/doctor/location')}}',
+url : '{{URL::to('patient/doctorlist/location')}}',
 data:{'search':$value},
 success:function(data){
 $('#tbody').html(data);

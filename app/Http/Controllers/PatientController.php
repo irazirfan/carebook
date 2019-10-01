@@ -18,26 +18,53 @@ class PatientController extends Controller
    
     public function index()
     {
+        if(session('email') == null){
+                   return redirect()->route('home');
+        }
         $doctors= DB::table('doctor')
         ->join('user', 'user.email', '=' ,'doctor.email')
         ->select('doctor.*', 'user.firstname', 'user.lastname', 'user.image' )
         ->get();
-        return view('Patient.index', compact('doctors'));
+        $customer = DB::table('user')->where('email', session('email'))->first();
+        $dis = DB::table('prescription')
+            ->where('patient_email', session('email'))
+            ->where('notification', 0)
+            ->get();
+        $notif = count($dis);
+        return view('Patient.index', compact(['doctors','customer','notif']));
     }
     public function doctorlist($id)
     {
+        if(session('email') == null){
+                   return redirect()->route('home');
+        }
         $doctor= DB::table('doctor')
         ->join('user', 'user.email', '=' ,'doctor.email')
         ->where('id', $id)
         ->select('doctor.*', 'user.firstname', 'user.lastname', 'user.image' )
         ->first();
-        return view('Patient.doctorSingle', compact('doctor'));
+        $customer = DB::table('user')->where('email', session('email'))->first();
+        $dis = DB::table('prescription')
+            ->where('patient_email', session('email'))
+            ->where('notification', 0)
+            ->get();
+        $notif = count($dis);
+        return view('Patient.doctorSingle', compact(['doctor','customer','notif']));
     }
 
     public function profile()
     {
+        if(session('email') == null){
+                   return redirect()->route('home');
+        }
         $user = DB::table('user')->where('email', session('email'))->first();
-        return view('Patient.profile',compact('user'));
+        $customer = DB::table('user')->where('email', session('email'))->first();
+        $dis = DB::table('prescription')
+            ->where('patient_email', session('email'))
+            ->where('notification', 0)
+            ->get();
+        $notif = count($dis);
+        return view('Patient.profile',compact(['user','customer','notif']));
     }
     public function profileStore(Request $request)
     {
@@ -100,32 +127,59 @@ class PatientController extends Controller
     }
     public function notification()
     {
+        if(session('email') == null){
+                   return redirect()->route('home');
+        }
          $prescriptions= DB::table('prescription')
         ->join('user', 'user.email', '=' ,'prescription.doctor_email')
         ->where('patient_email', session('email'))
         ->where('notification', 0)
         ->select('prescription.*', 'user.firstname', 'user.lastname', 'user.image' )
         ->get();
-        return view('Patient.notification', compact('prescriptions'));
+        $customer = DB::table('user')->where('email', session('email'))->first();
+        $dis = DB::table('prescription')
+            ->where('patient_email', session('email'))
+            ->where('notification', 0)
+            ->get();
+        $notif = count($dis);
+        return view('Patient.notification', compact(['prescriptions','customer','notif']));
     }
     public function notificationSingle($id)
     {
+        if(session('email') == null){
+                   return redirect()->route('home');
+        }
         $prescription = Prescription::find($id);
         $dis = Prescription::all();
         $count = count($dis);
         DB::table('prescription')
             ->where('prescription_id', $id)
             ->update(['notification' => 1]);
-        return view('Patient.notificationSingle',compact(['prescription','count']));
+        $customer = DB::table('user')->where('email', session('email'))->first();
+        $x = DB::table('prescription')
+            ->where('patient_email', session('email'))
+            ->where('notification', 0)
+            ->get();
+        $notif = count($x);
+        return view('Patient.notificationSingle',compact(['prescription','count','customer','notif']));
     }
     public function archive()
     {
+        if(session('email') == null){
+                   return redirect()->route('home');
+        }
          $prescriptions= DB::table('prescription')
         ->join('user', 'user.email', '=' ,'prescription.doctor_email')
         ->where('patient_email', session('email'))
         ->select('prescription.*', 'user.firstname', 'user.lastname', 'user.image' )
         ->get();
-        return view('Patient.archive',compact('prescriptions'));
+        $customer = DB::table('user')->where('email', session('email'))->first();
+        $dis = DB::table('prescription')
+            ->where('patient_email', session('email'))
+            ->where('notification', 0)
+            ->get();
+        $notif = count($dis);
+        return view('Patient.archive',compact(['prescriptions','customer','notif']));
     }
     public function archiveStore(Request $request)
     {
@@ -153,10 +207,19 @@ class PatientController extends Controller
     }
     public function patientListSingle($id)
     {
+        if(session('email') == null){
+                   return redirect()->route('home');
+        }
         $prescription = Prescription::find($id);
         $dis = Prescription::all();
         $count = count($dis);
-        return view('Patient.patientListSingle',compact(['prescription','count']));
+        $customer = DB::table('user')->where('email', session('email'))->first();
+        $x = DB::table('prescription')
+            ->where('patient_email', session('email'))
+            ->where('notification', 0)
+            ->get();
+        $notif = count($x);
+        return view('Patient.patientListSingle',compact(['prescription','count','customer','notif']));
     }
     
     public function DoctorSearch(Request $request)
@@ -184,7 +247,7 @@ class PatientController extends Controller
                 '</tr>';*/
                 if($key == 0)
                 {
-                  $output.='<a class="list-group-item list-group-item-action flex-column align-items-start active" href="#">
+                  $output.='<a class="list-group-item list-group-item-action flex-column align-items-start active" href="patient/doctor/'.$doctor->id.'">
                         <div class="d-flex w-100 justify-content-between">
                           <h5 class="mb-1">'.$doctor->firstname.' '.$doctor->lastname.'</h5>
                           <small>'.$doctor->degree.'</small>
@@ -198,9 +261,9 @@ class PatientController extends Controller
                 }
                 else
                 {
-                    $output.='<a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
+                    $output.='<a class="list-group-item list-group-item-action flex-column align-items-start" href="patient/doctor/'.$doctor->id.'">
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">'.$doctor->firstname.' '.$doctor->firstname.'</h5>
+                          <h5 class="mb-1">'.$doctor->firstname.' '.$doctor->lastname.'</h5>
                           <small>'.$doctor->degree.'</small>
                         </div>
                         <img class="" style="width: 100px; height: 100px; float: right;" src="images/'.$doctor->image.'" alt="Card image cap">
@@ -220,7 +283,7 @@ class PatientController extends Controller
     {
         if($request->ajax())
         {
-             $output="";
+             $output="Not Found !";
             $doctors= DB::table('doctor')
             ->join('user', 'user.email', '=' ,'doctor.email')
             ->where('specialized','LIKE','%'.$request->search.'%')
@@ -271,7 +334,7 @@ class PatientController extends Controller
     {
         if($request->ajax())
         {
-             $output="";
+             $output="Not Found !";
             $doctors= DB::table('doctor')
             ->join('user', 'user.email', '=' ,'doctor.email')
             ->where('location','LIKE','%'.$request->search.'%')
@@ -322,7 +385,7 @@ class PatientController extends Controller
     {
         if($request->ajax())
         {
-             $output="";
+             $output="Not Found !";
             $tests= DB::table('medical_test')
             ->join('user', 'user.email', '=' ,'medical_test.doctor_email')
             ->where('patient_email',session('email'))

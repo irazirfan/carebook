@@ -23,22 +23,18 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-			  <li class="nav-item">
-                <a class="nav-link" href="/">Home </a>
+			        <li class="nav-item">
+                <a class="nav-link" href="{{route('home')}}">Home </a>
               </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="#">Features </a>
-              </li> -->
-              <li class="nav-item">
-                <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{route('home.about')}}">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/pricing">Pricing</a>
+                <a class="nav-link" href="{{route('home.pricing')}}">Pricing</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/signup">Signup</a>
+                <li class="nav-item ">
+                <a class="nav-link" href="{{route('home.signup')}}">Sign up</a>
               </li>
-          
             </ul>
           </div>
     </div>

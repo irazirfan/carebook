@@ -27,14 +27,14 @@
 <hr>
 <div class="container bootstrap snippet">
     <div class="row">
-        <div class="col-sm-10"><h1>{{$user->firstname}}&nbsp{{$user->lastname}}</h1></div>
-        <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div>
+        <div class="col-sm-10" style="padding-left: 50px"><h1>{{$user->firstname}}&nbsp{{$user->lastname}}</h1></div>
+        <!-- <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div> -->
     </div>
     <div class="row">
-        <div class="col-sm-3"><!--left col-->
+        <div class="col-sm-3" ><!--left col-->
             <form class="form"  method="post" enctype="multipart/form-data">
                 @csrf
-            <div class="text-center">
+            <div class="text-center" style="padding-left: 20px">
                 @if ($user->image == null)
                     {{-- expr --}}
                 <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
@@ -54,7 +54,7 @@
 
 
             <div class="tab-content">
-                <div class="tab-pane active" id="profile" style="height: 350px">
+                <div class="tab-pane active" id="profile" style="height: 300px">
                     <hr>
                         <div class="form-group">
 
@@ -110,7 +110,7 @@
 
 
                 </div><!--/tab-pane-->
-                <div class="tab-pane" id="edit-profile" style="height: 350px">
+                <div class="tab-pane" id="edit-profile" style="height: 300px">
 
                     <h2></h2>
 
@@ -163,7 +163,7 @@
                         </div> -->
 
                 </div><!--/tab-pane-->
-                <div class="tab-pane" id="change-password" style="height: 350px">
+                <div class="tab-pane" id="change-password" style="height: 300px">
 
                     <hr>
 

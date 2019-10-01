@@ -10,8 +10,11 @@
     <link href="{{asset('patientTheme/vendors/pace-progress/css/pace.min.css')}}" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    
+    <link href="{{asset('theme/CSS/bootstrap.min.css')}}">
+    <script src="{{asset('theme/JS/bootstrap.min.js')}}"></script>
+    <script src="{{asset('theme/JS/jquery-3.4.1.min.js')}}"></script>
+    
     <!-- Sticky Notes -->
 
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,13 +40,15 @@
    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
    <![endif]-->
     
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+   <script src="{{asset('theme/JS/jquery-1.6.2.min.js')}}"></script>
    <script>!window.jQuery && document.write(unescape('%3Cscript src="doctorTheme/js/jquery1.6.2.js"%3E%3C/script%3E'))</script>
 
    <script src="{{asset('doctorTheme/js/respond.min.js')}}"></script>
    <script src="{{asset('doctorTheme/js/modernizr.custom.23610.js')}}"></script>
    <script src="{{asset('doctorTheme/js/html5sticky.js')}}"></script>
    <script src="{{asset('doctorTheme/js/prettyDate.js')}}"></script>
+
+   
     
 @endsection
 
@@ -203,8 +208,7 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
 </script>
-<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="{{asset('theme/JS/jquery-1.6.2.min.js')}}"></script>
 <script type="text/javascript" >
 $('#search').live('keyup',function(){
 $value=$(this).val();

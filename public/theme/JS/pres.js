@@ -10,28 +10,37 @@ showDate();
 function addNewSymtoms(){
     console.log("in new symtoms");
     var table = document.getElementById("symtom_table");
+    var table1 = document.getElementById("symtom_table1");
     var symptom = document.getElementById("s_field").value;
     console.log(symptom);
     var rowLength = table.rows.length + 1;
     var row = table.insertRow(-1);
+    var row1 = table1.insertRow(-1);
     var cell1 = row.insertCell(0);
+    var cell2 = row1.insertCell(0);
     cell1.innerHTML = "<div><input type='text' style='border-color: transparent' name='sfield_"+rowLength+"' id='s_field_"+rowLength+"' value='"+symptom+"' readonly></div>";
+    cell2.innerHTML = "<div><input type='text' style='border-color: transparent'  value='"+symptom+"' readonly></div>";
     initSymArr();
     
 }
 
 function addNewTest(){
     var table = document.getElementById("test_table");
+    var table1 = document.getElementById("test_table1");
     var test =  document.getElementById("t_field").value;
     var rowLength = table.rows.length + 1;
     var row = table.insertRow(-1);
+    var row1 = table1.insertRow(-1);
     var cell1 = row.insertCell(0);
+    var cell2 = row1.insertCell(0);
     cell1.innerHTML = "<div class='autocomplete'><input type='text' style='border-color: transparent' name='tfield_"+rowLength+"' id='t_field_"+rowLength+"' value='"+test+"' readonly></div>";
+    cell2.innerHTML = "<div class='autocomplete'><input type='text' style='border-color: transparent' value='"+test+"' readonly></div>";
     initTesArr();
 }
 
 function addNewMedicine(){
     var table = document.getElementById("med_table");
+    var table1 = document.getElementById("med_table1");
     var rowLength = table.rows.length + 1;
     var medicine = document.getElementById("medicineName").value;
     var days = document.getElementById("days").value;
@@ -41,8 +50,11 @@ function addNewMedicine(){
     var night= document.getElementById("night").value;
     var comment= document.getElementById("comment").value;
     var row = table.insertRow(-1);
+    var row1 = table1.insertRow(-1);
     var cell1 = row.insertCell(0);
+    var cell2 = row1.insertCell(0);
     cell1.innerHTML = "<div class='even'><input type='text' name='medicineName_"+rowLength+"' id='medicineName_"+rowLength+"' style='border-color: transparent; width:auto' value='"+medicine+"' readonly>(<input type='text' name='morning_"+rowLength+"' style='border-color: transparent; width:20px' value='"+morning+"' readonly>-<input type='text' name='afternoon_"+rowLength+"' style='border-color: transparent; width:20px; text-align:center' value='"+afternoon+"' readonly>-<input type='text' name='evening_"+rowLength+"' style='border-color: transparent; width:20px; text-align:center' value='"+evening+"' readonly>-<input type='text' name='night_"+rowLength+"' style='border-color: transparent; width:20px; text-align:center' value='"+night+"' readonly>)<input type='text' name='days_"+rowLength+"' style='border-color: transparent;width:20px; text-align:center' value='"+days+"' readonly>days<br><input type='text' name='comment_"+rowLength+"' style='border-color: transparent' value='"+comment+"' readonly><br></div>";
+    cell2.innerHTML = "<div class='even'><input type='text'  style='border-color: transparent; width:auto' value='"+medicine+"' readonly>(<input type='text' style='border-color: transparent; width:20px' value='"+morning+"' readonly>-<input type='text' style='border-color: transparent; width:20px; text-align:center' value='"+afternoon+"' readonly>-<input type='text' style='border-color: transparent; width:20px; text-align:center' value='"+evening+"' readonly>-<input type='text' style='border-color: transparent; width:20px; text-align:center' value='"+night+"' readonly>)<input type='text' style='border-color: transparent;width:20px; text-align:center' value='"+days+"' readonly>days<br><input type='text' style='border-color: transparent' value='"+comment+"' readonly><br></div>";
     initMedArr();
 }
 

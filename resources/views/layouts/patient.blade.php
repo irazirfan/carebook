@@ -22,7 +22,7 @@
     @yield('style')
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{asset('theme/JS/jquery-3.4.1.min.js')}}"></script>
     <style>
 .container {
    position: absolute;
@@ -73,41 +73,29 @@ table, th, td {
         <img class="navbar-brand-full" src="{{asset('patientTheme/img/brand/log3.png')}}" width="89" height="25" alt="CareBook Logo">
       </a>
 
-      <ul class="nav navbar-nav ml-auto">
+      <ul class="nav navbar-nav ml-auto" style="padding-right: 50px">
 
-        <li class="nav-item d-md-down-none">
-          <a class="nav-link" href="#">
-            <i class="icon-bell"></i>
-            <span class="badge badge-pill badge-danger">0</span>
-          </a>
-        </li>
-
-        <!-- <li class="nav-item d-md-down-none">
-          <a class="nav-link" href="#">
-            <i class="icon-list"></i>
-          </a>
-        </li>
-        
-        <li class="nav-item d-md-down-none">
-          <a class="nav-link" href="#">
-            <i class="icon-location-pin"></i>
-          </a>
-        </li> -->
+       <!--  <li class="nav-item d-md-down-none">
+         <a class="nav-link" href="#">
+           <i class="icon-bell"></i>
+           <span class="badge badge-pill badge-danger">0</span>
+         </a>
+       </li> -->
 
         <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <img class="img-avatar" src="{{asset('patientTheme/img/avatars/9.jpg')}}" alt="fahim@gmail.com">
+          <a class="nav-link"  href="{{route('patient.profile')}}"  >
+            <img class="img-avatar" src="{{asset('images')}}/{{$customer->image}}" alt="fahim@gmail.com">
           </a>
         </li>
 
       </ul>
 
-      <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" data-toggle="aside-menu-lg-show">
+      <!-- <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" data-toggle="aside-menu-lg-show">
         <span class="navbar-toggler-icon"></span>
       </button>
       <button class="navbar-toggler aside-menu-toggler d-lg-none" type="button" data-toggle="aside-menu-show">
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button> -->
     </header>
 
     <div class="app-body">
@@ -129,7 +117,7 @@ table, th, td {
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{route('patient.notification')}}">
-                <i class="nav-icon icon-pencil"></i> Notifications<span class="badge badge-pill badge-danger">0</span></a>
+                <i class="nav-icon icon-pencil"></i> Notifications<span class="badge badge-pill badge-danger">{{$notif}}</span></a>
             </li>       
           </ul>
         </nav>
@@ -161,24 +149,7 @@ table, th, td {
     <script src="patientTheme/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
     <script src="patientTheme/node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
     
-    <script type="text/javascript">
-$('#search').on('click',function(){
-$value=$('#search1').val();
-console.log($value);
-$.ajax({
-type : 'get',
-url : '{{URL::to('search')}}',
-data:{'search':$value},
-success:function(data){
-  console.log(data);
-$('#div1').html(data);
-}
-});
-})
-</script>
-<script type="text/javascript">
-$.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
-</script>
+    
 
   </body>
 </html>

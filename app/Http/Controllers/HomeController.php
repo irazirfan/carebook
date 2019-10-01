@@ -109,7 +109,7 @@ class HomeController extends Controller
              $doctor = DB::table('doctor')
                 ->where('email', $email)
                 ->first();
-              if($doctor != null){
+              if($doctor != null && $doctor->status == 1){
                 return redirect()->route('doctorlogin');
               }
               else

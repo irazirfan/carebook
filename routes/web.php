@@ -30,9 +30,9 @@ Route::get('/signup', function () {
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::post('/', 'HomeController@verify');
-Route::get('/about', 'HomeController@about');
-Route::get('/pricing', 'HomeController@pricing');
-Route::get('/signup', 'HomeController@signup');
+Route::get('/about', 'HomeController@about')->name('home.about');
+Route::get('/pricing', 'HomeController@pricing')->name('home.pricing');
+Route::get('/signup', 'HomeController@signup')->name('home.signup');
 Route::post('/signup', 'HomeController@store');
 Route::get('/doctorlogin', 'HomeController@doctorlogin')->name('doctorlogin');
 Route::post('/doctorlogin', 'HomeController@doctorloginVerify');
@@ -48,12 +48,12 @@ Route::get('/patient/archive', 'PatientController@archive')->name('patient.archi
 Route::post('/patient/archive', 'PatientController@archiveStore');
 Route::get('/patient/patient/{id}', 'PatientController@patientListSingle')->name('patient.single');
 Route::get('patient/profile/search', 'PatientController@Password');
-Route::get('patient/doctor/search', 'PatientController@DoctorSearch');
-Route::get('patient/doctor/speciality', 'PatientController@Speciality');
-Route::get('patient/doctor/location', 'PatientController@Location');
-Route::get('patient/archive/search', 'PatientController@archiveSearch');
+Route::get('patient/doctorlist', 'PatientController@DoctorSearch');
+Route::get('patient/doctorlist/speciality', 'PatientController@Speciality');
+Route::get('patient/doctorlist/location', 'PatientController@Location');
+Route::get('patient/doctorlist/search', 'PatientController@archiveSearch');
 
-Route::get('/search', 'PatientController@search');
+/*Route::get('/search', 'PatientController@search');*/
 
 Route::get('/doctor', 'DoctorController@index')->name('doctor');
 Route::get('doctor/pressIn/{id}', 'DoctorController@session');
