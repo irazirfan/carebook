@@ -5,9 +5,7 @@
     <link href="patientTheme/node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
     <link href="patientTheme/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="patientTheme/node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
-    <link href="{{asset('theme/CSS/bootstrap.min.css')}}">
-    <script src="{{asset('theme/JS/bootstrap.min.js')}}"></script>
-    <script src="{{asset('theme/JS/jquery-3.4.1.min.js')}}"></script>
+
     <!-- Main styles for this application-->
     <link href="{{asset('patientTheme/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('patientTheme/vendors/pace-progress/css/pace.min.css')}}" rel="stylesheet">
@@ -45,9 +43,16 @@
                   </div>
                   <div class="card-body" >
                     <div class="list-group">
+                      @php
+                        $count=0;
+                      @endphp
                       @foreach ($prescriptions as $prescription)
                         {{-- expr --}}
+                        @if ($count == 0)
                       <a class="list-group-item list-group-item-action flex-column align-items-start active"  href="{{route('patientlist.single', [$prescription->prescription_id])}}">
+                        @else
+                        <a class="list-group-item list-group-item-action flex-column align-items-start "  href="{{route('patientlist.single', [$prescription->prescription_id])}}">
+                        @endif
                         <div class="d-flex w-100 justify-content-between">
                           <h5 class="mb-1">{{$prescription->firstname}} &nbsp {{$prescription->lastname}}
                           </h5>
@@ -59,6 +64,9 @@
 
                         </div>          
                       </a>
+                      @php
+                        $count++;
+                      @endphp
                       @endforeach
                     </div>
                     <nav aria-label="..." style="float: right;">

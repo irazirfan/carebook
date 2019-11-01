@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Doctor | Carebook</title>
+    <title>Technation | Carebook</title>
     @yield('style')
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -42,12 +42,8 @@
     <div class="container-fluid display-table">
         <div class="row display-table-row">
             <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
-                <!-- <div class="logo">
-                    <a hef="home.html"><img src="http://jskrishna.com/work/merkury/images/logo.png" alt="merkery_logo" class="hidden-xs hidden-sm">
-                        <img src="http://jskrishna.com/work/merkury/images/circle-logo.png" alt="merkery_logo" class="visible-xs visible-sm circle-logo">
-                    </a>
-                </div> -->
-                <div class="navi">
+               
+                <div class="navi" style="height: 540px">
                     @yield('nav')
                 </div>
             </div>
@@ -58,10 +54,18 @@
                 </div>
             </div>
         </div>
+        <!-- <footer class="app-footer">
+          <div>
+            <a href="#">CareBook</a>
+            <span>&copy; 2019-SUMMER-SP2</span>
+          </div>
+          <div class="ml-auto">
+            <span>Powered by</span>
+            <a href="#">CareBook</a>
+          </div>
+        </footer> -->
     </div>
 
-        </div>
-    </div>
 @yield('script')
 </body>
 </html>

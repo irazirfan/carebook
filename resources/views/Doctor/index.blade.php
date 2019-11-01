@@ -11,9 +11,6 @@
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
     
-    <link href="{{asset('theme/CSS/bootstrap.min.css')}}">
-    <script src="{{asset('theme/JS/bootstrap.min.js')}}"></script>
-    <script src="{{asset('theme/JS/jquery-3.4.1.min.js')}}"></script>
     
     <!-- Sticky Notes -->
 
@@ -52,7 +49,6 @@
     
 @endsection
 
-@section('content')
   @section('nav')
     <ul>
       <li class="active"><a href="{{route('doctor')}}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Dashboard</span></a></li>
@@ -62,7 +58,7 @@
       <li><a href="{{route('logout')}}"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
     </ul>
   @endsection
-    
+@section('content')    
       <!--<body class="app flex-row align-items-center">-->
 
       <div class="container-fluid">

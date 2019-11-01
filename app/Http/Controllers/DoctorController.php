@@ -204,14 +204,24 @@ class DoctorController extends Controller
 			->update(['image' => $name]);
 			
 		}
-
-		$user = Reg::where('email',session('email'))->first();
-		$user->phone = $request->phone;
-		$user->firstname = $request->first_name;
-		$user->lastname = $request->last_name;
-		$user->address = $request->address;
-		$user->password = $request->confirm_password;
-		$user->update();
+		if($request->confirm_password != null){
+			$user = Reg::where('email',session('email'))->first();
+			$user->phone = $request->phone;
+			$user->firstname = $request->first_name;
+			$user->lastname = $request->last_name;
+			$user->address = $request->address;
+			$user->password = $request->confirm_password;
+			$user->update();
+		}
+		else
+		{
+			$user = Reg::where('email',session('email'))->first();
+			$user->phone = $request->phone;
+			$user->firstname = $request->first_name;
+			$user->lastname = $request->last_name;
+			$user->address = $request->address;
+			$user->update();
+		}
 		return back();
 	}
 	public function Password(Request $request)
@@ -239,7 +249,8 @@ class DoctorController extends Controller
 		$prescription = Prescription::find($id);
 		$dis = Prescription::all();
 		$count = count($dis);
-		return view('Doctor.patientListSingle',compact(['prescription','count']));
+		$customer = DB::table('user')->where('email', session('email'))->first();
+		return view('Doctor.patientListSingle',compact(['prescription','count', 'customer']));
 	}
 	public function patient()
 	{
@@ -398,9 +409,12 @@ public function InsertTest(Request $request)
 			$test->name = $request->search;
 			$test->save();
 
+			$last = DB::table('prescription')->latest('id')->first();
+			$lastid = $last+1;
 			$doctor_email = session('email');
 			$medical = new MedicalTest();
 			$medical->test_name = $request->search;
+			$medical->pat_id = $request->lastid;
 			$medical->patient_email = $request->email;
 			$medical->doctor_email = $doctor_email;
 			$medical->save();
@@ -408,20 +422,21 @@ public function InsertTest(Request $request)
 		}
 	}
 }
-public function InsertMedicine(Request $request)
-{
-	if($request->ajax())
+	public function InsertMedicine(Request $request)
 	{
-		$output="";
-		$medicine=DB::table('medicine')->where('name',$request->search)
-		->get();
-		if(count($medicine)<1)
+		if($request->ajax())
 		{
-			$medicine = new Medicine();
-			$medicine->name = $request->search;
-			$medicine->save();
-			return Response($output);
+			$output="";
+			$medicine=DB::table('medicine')->where('name',$request->search)
+			->get();
+			if(count($medicine)<1)
+			{
+				$medicine = new Medicine();
+				$medicine->name = $request->search;
+				$medicine->save();
+				return Response($output);
+			}
 		}
 	}
-}
+	 
 }

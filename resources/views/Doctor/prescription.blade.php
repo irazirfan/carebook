@@ -17,10 +17,10 @@
 <!-- Global site tag (gtag.js) - Google Analytics-->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
  <!-- profiler content -->
- <link href="{{asset('theme/CSS/bootstrap.min.css')}}" >
-<script src="{{asset('theme/JS/bootstrap.min.js')}}"></script>
-<script src="{{asset('theme/JS/jquery-3.4.1.min.js')}}"></script>
-
+ <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	
 <style>
 
 	table {
@@ -122,7 +122,7 @@
 	}
 </style>
 @endsection
-@section('content')
+
 <!------------------- header part start------------------------->
 @section('nav')
 <ul>
@@ -133,6 +133,7 @@
 	<li><a href="{{route('logout')}}"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
 </ul>
 @endsection
+@section('content')
 <div class="container bootstrap snippet">
 	<div class="row" style="padding-left:20px; padding-right: 20px">
 		<div class="prescription1">
@@ -494,6 +495,7 @@
 <script type="text/javascript">
 	$.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
 </script>
+
 @endsection
 @section('script')
 <script src="{{asset('theme/JS/jquery.min.js')}}"></script>

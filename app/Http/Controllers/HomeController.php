@@ -45,10 +45,22 @@ class HomeController extends Controller
     {
         return view('doctorlogin');
     }
+    public function techlogin()
+    {
+        return view('techlogin');
+    }
     public function doctorloginVerify(Request $request)
     {
         if ($request->type == 'doctor') {
           return redirect()->route('doctor');
+        }
+        else
+           return redirect()->route('patient');
+    }
+    public function techloginVerify(Request $request)
+    {
+        if ($request->type == 'technation') {
+          return redirect()->route('tech');
         }
         else
            return redirect()->route('patient');
@@ -109,8 +121,14 @@ class HomeController extends Controller
              $doctor = DB::table('doctor')
                 ->where('email', $email)
                 ->first();
-              if($doctor != null && $doctor->status == 1){
+             $tech = DB::table('technician')
+                    ->where('email', $email)
+                    ->first();
+              if(count($doctor)>0 && $doctor->status == 1){
                 return redirect()->route('doctorlogin');
+              }
+              elseif (count($tech)>0){
+                return redirect()->route('techlogin');
               }
               else
                 return redirect()->route('patient');

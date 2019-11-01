@@ -27,6 +27,9 @@ Route::get('/signup', function () {
 });*/
 
 //Auth::routes();
+if(version_compare(PHP_VERSION, '7.2.0', '>=')) {
+    error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+}
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::post('/', 'HomeController@verify');
@@ -36,6 +39,8 @@ Route::get('/signup', 'HomeController@signup')->name('home.signup');
 Route::post('/signup', 'HomeController@store');
 Route::get('/doctorlogin', 'HomeController@doctorlogin')->name('doctorlogin');
 Route::post('/doctorlogin', 'HomeController@doctorloginVerify');
+Route::get('/techlogin', 'HomeController@techlogin')->name('techlogin');
+Route::post('/techlogin', 'HomeController@techloginVerify');
 Route::get('/signout', 'HomeController@signout')->name('signout');
 
 Route::get('/patient', 'PatientController@index')->name('patient');
@@ -51,7 +56,7 @@ Route::get('patient/profile/search', 'PatientController@Password');
 Route::get('patient/doctorlist', 'PatientController@DoctorSearch');
 Route::get('patient/doctorlist/speciality', 'PatientController@Speciality');
 Route::get('patient/doctorlist/location', 'PatientController@Location');
-Route::get('patient/doctorlist/search', 'PatientController@archiveSearch');
+Route::get('patient/archivelist/search', 'PatientController@archiveSearch');
 
 /*Route::get('/search', 'PatientController@search');*/
 
@@ -81,7 +86,10 @@ Route::get('/administrator/technicianList', 'AdminController@technician')->name(
 Route::get('/administrator/accept/{id}', 'AdminController@accept')->name('admin.accept');
 Route::get('/administrator/reject/{id}', 'AdminController@reject')->name('admin.reject');
 
-
-
+Route::get('/tech', 'TechController@index')->name('tech');
+Route::post('/tech', 'TechController@store');
+Route::get('/tech/profile', 'TechController@profile')->name('tech.profile');
+Route::post('/tech/profile', 'TechController@profileStore');
+Route::get('tech/search', 'TechController@PatSearch');
 
 Route::get('/logout', 'LogoutController@index')->name('logout');

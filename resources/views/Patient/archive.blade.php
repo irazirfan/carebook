@@ -29,12 +29,13 @@
                     <div class="col-md-4" style="float: right;">
                       <select name="file_type" class="form-control" id="file_type">
                           <option value="prescription">Prescription</option>
+                          <option value="old_prescription">Old Prescription</option>
                           <option value="report">Report</option>
                         </select>
                     </div>
                   </div>
                   <div class="card-body">
-                    <div class="list-group">
+                    <div class="list-group" id="tbody">
                       @php
                         $count =0;
                       @endphp
@@ -94,8 +95,8 @@
                     <div class="row">
                       <div class="col-sm-12">
                         <div class="form-group">
-                          <label for="name">Doctor Email</label>
-                          <input class="form-control" name="doctor_email" type="text" placeholder="Enter Doctor Email">
+                          <label for="name">Doctor Name</label>
+                          <input class="form-control" name="doctor_name" type="text" placeholder="Enter Doctor Name">
                         </div>
                       </div>
                     </div>
@@ -136,7 +137,7 @@
                   <div>
                 @if($errors->any())
                     @foreach($errors->all() as $err)
-                    {{$err}} <br>
+                    <span style="background-color: red">{{$err}}</span> <br>
                     @endforeach
                 @endif
             </div>
@@ -151,9 +152,10 @@
     console.log($value);
     $.ajax({
     type : 'get',
-    url : '{{URL::to('patient/archive/search')}}',
+    url : '{{URL::to('patient/archivelist/search')}}',
     data:{'search':$value},
     success:function(data){
+      console.log(data);
     $('#tbody').html(data);
     }
     });

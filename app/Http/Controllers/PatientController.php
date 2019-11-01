@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Disease;
 use App\Prescription;
+use App\OldPrescription;
 use App\Test;
 use App\Symptom;
 use App\Medicine;
@@ -184,7 +185,7 @@ class PatientController extends Controller
     public function archiveStore(Request $request)
     {
         $this->validate($request, [
-            'doctor_email'=>'Required',
+            'doctor_name'=>'Required',
             'date'=>'Required',
             'file_type'=>'Required',
             'file_input'=>'Required|max:10000'
@@ -196,10 +197,10 @@ class PatientController extends Controller
         //\Storage::put($name,$file);
         $path = $request->file('file_input')->storeAs('public/storage',$name);
         
-          $pres  = new Prescription;
-          $pres->pdf  = $name;
+          $pres  = new OldPrescription;
           $pres->patient_email = session('email');
-          $pres->doctor_email = $request->doctor_email;
+          $pres->doctor_name = $request->doctor_name;
+          $pres->pdf  = $name;
           $pres->date = $request->date;
           $pres->save();  
         }
@@ -386,41 +387,81 @@ class PatientController extends Controller
         if($request->ajax())
         {
              $output="Not Found !";
-            $tests= DB::table('medical_test')
-            ->join('user', 'user.email', '=' ,'medical_test.doctor_email')
-            ->where('patient_email',session('email'))
-            ->select('medical_test.*', 'user.firstname', 'user.lastname')
-            ->get();
-            if($tests && $request->search == 'report')
+             if($request->search == 'report')
+             {
+                $tests= DB::table('medical_test')
+                ->join('user', 'user.email', '=' ,'medical_test.doctor_email')
+                ->where('patient_email',session('email'))
+                ->select('medical_test.*', 'user.firstname', 'user.lastname')
+                ->get();
+                if($tests && $request->search == 'report')
+                {
+                    foreach ($tests as $key => $test) {
+                    /*$output.='<tr>'.
+                    '<td>'.$product->id.'</td>'.
+                    '<td>'.$product->name.'</td>'.
+                    '</tr>';*/
+                    if($key == 0)
+                    {
+                      $output.='<a class="list-group-item list-group-item-action flex-column align-items-start active" href="#">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h5 class="mb-1">'.$test->firstname.'('.$test->test_name.')</h5>
+
+                              <small>'.$test->created_at.'</small>
+                            </div>          
+                          </a>';
+                    }
+                    else
+                    {
+                        $output.='<a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h5 class="mb-1">'.$test->firstname.'('.$test->test_name.')</h5>
+
+                              <small>'.$test->created_at.'</small>
+                            </div>          
+                          </a>';
+                    }
+
+                    }
+                return Response($output);
+                }
+            }
+            elseif($request->search == 'old_prescription')
             {
-                foreach ($tests as $key => $test) {
-                /*$output.='<tr>'.
-                '<td>'.$product->id.'</td>'.
-                '<td>'.$product->name.'</td>'.
-                '</tr>';*/
-                if($key == 0)
+                $press= DB::table('old_prescription')
+                ->where('patient_email',session('email'))
+                ->get();
+                if($press)
                 {
-                  $output.='<a class="list-group-item list-group-item-action flex-column align-items-start active" href="#">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">'.$test->firstname.'('.$test->test_name.')</h5>
+                    foreach ($press as $key => $pres) {
+                    /*$output.='<tr>'.
+                    '<td>'.$product->id.'</td>'.
+                    '<td>'.$product->name.'</td>'.
+                    '</tr>';*/
+                    if($key == 0)
+                    {
+                      $output.='<a class="list-group-item list-group-item-action flex-column align-items-start active" href="#">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h5 class="mb-1">'.$pres->doctor_name.'</h5>
 
-                          <small>'.$test->created_at.'</small>
-                        </div>          
-                      </a>';
-                }
-                else
-                {
-                    $output.='<a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">'.$test->firstname.'('.$test->test_name.')</h5>
+                              <small>'.$pres->date.'</small>
+                            </div>          
+                          </a>';
+                    }
+                    else
+                    {
+                        $output.='<a class="list-group-item list-group-item-action flex-column align-items-start" href="#">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h5 class="mb-1">'.$pres->doctor_name.'</h5>
 
-                          <small>'.$test->created_at.'</small>
-                        </div>          
-                      </a>';
-                }
+                              <small>'.$pres->date.'</small>
+                            </div>          
+                          </a>';
+                    }
 
+                    }
+                return Response($output);
                 }
-            return Response($output);
             }
         }
     }

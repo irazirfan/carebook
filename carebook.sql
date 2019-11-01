@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2019 at 08:12 PM
+-- Generation Time: Nov 01, 2019 at 04:35 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.1.28
 
@@ -94,8 +94,7 @@ CREATE TABLE `doctor` (
 
 INSERT INTO `doctor` (`id`, `email`, `bmdc`, `degree`, `specialized`, `consulting`, `location`, `status`, `contact`, `updated_at`, `created_at`) VALUES
 (1, 'shaheb@mail.com', 51464186, 'MBBS(DU), FCPS(UK), MD(USA)', 'Neuro Medicine', '3pm-8pm', 'Lab Aid Hospital, Panthpath, Dhaka.', 1, '01454511511', '2019-09-15 05:47:45', '2019-07-19 18:52:19'),
-(6, 'karim1@gmail.com', 561256156, 'abcd', 'Medicine', '10.0am-12.00pm', 'Banani', 0, '01682927466', '2019-09-14 16:25:34', '2019-09-14 16:25:34'),
-(7, 'karim2@gmail.com', 5126516, 'abcd', 'Medicine', '10.0am-12.00pm', 'Banani', 0, '01682927466', '2019-09-14 16:56:25', '2019-09-14 16:56:25');
+(6, 'karim1@gmail.com', 561256156, 'abcd', 'Medicine', '10.0am-12.00pm', 'Banani', 1, '01682927466', '2019-10-01 06:47:03', '2019-09-14 16:25:34');
 
 -- --------------------------------------------------------
 
@@ -106,6 +105,7 @@ INSERT INTO `doctor` (`id`, `email`, `bmdc`, `degree`, `specialized`, `consultin
 CREATE TABLE `medical_test` (
   `id` int(11) NOT NULL,
   `test_name` varchar(200) COLLATE utf32_unicode_ci NOT NULL,
+  `pat_id` int(20) NOT NULL,
   `patient_email` varchar(200) COLLATE utf32_unicode_ci NOT NULL,
   `doctor_email` varchar(200) COLLATE utf32_unicode_ci NOT NULL,
   `pdf` varchar(200) COLLATE utf32_unicode_ci DEFAULT NULL,
@@ -117,15 +117,17 @@ CREATE TABLE `medical_test` (
 -- Dumping data for table `medical_test`
 --
 
-INSERT INTO `medical_test` (`id`, `test_name`, `patient_email`, `doctor_email`, `pdf`, `updated_at`, `created_at`) VALUES
-(1, 'dasdaadfascasdsa', 'shaheb@mail.com', 'shaheb@mail.com', NULL, '2019-09-10 21:00:04', '2019-09-10 21:00:04'),
-(2, 'sfs', 'shaheb@mail.com', 'shaheb@mail.com', NULL, '2019-09-13 18:20:12', '2019-09-13 18:20:12'),
-(3, 'dfcda', 'shaheb@mail.com', 'shaheb@mail.com', NULL, '2019-09-13 18:25:48', '2019-09-13 18:25:48'),
-(4, 'sdfsd', 'shaheb@mail.com', 'shaheb@mail.com', NULL, '2019-09-13 18:39:00', '2019-09-13 18:39:00'),
-(5, 'ada', 'shaheb@mail.com', 'shaheb@mail.com', NULL, '2019-09-13 19:29:53', '2019-09-13 19:29:53'),
-(6, 'asdas', 'shaheb@mail.com', 'shaheb@mail.com', NULL, '2019-09-13 19:32:42', '2019-09-13 19:32:42'),
-(7, 'dfa', 'shaheb@mail.com', 'shaheb@mail.com', NULL, '2019-09-13 19:50:41', '2019-09-13 19:50:41'),
-(8, 'blood', '123@gmail.com', 'shaheb@mail.com', NULL, '2019-09-15 08:07:14', '2019-09-15 08:07:14');
+INSERT INTO `medical_test` (`id`, `test_name`, `pat_id`, `patient_email`, `doctor_email`, `pdf`, `updated_at`, `created_at`) VALUES
+(1, 'dasdaadfascasdsa', 1, 'shaheb@mail.com', 'shaheb@mail.com', 'sdfvsdfv1@gmail.com1572261318.pdf', '2019-09-10 21:00:04', '2019-09-10 21:00:04'),
+(2, 'sfs', 1, 'shaheb@mail.com', 'shaheb@mail.com', 'sdfvsdfv1@gmail.com1572261334.pdf', '2019-09-13 18:20:12', '2019-09-13 18:20:12'),
+(3, 'dfcda', 2, 'shaheb@mail.com', 'shaheb@mail.com', NULL, '2019-09-13 18:25:48', '2019-09-13 18:25:48'),
+(4, 'sdfsd', 2, 'shaheb@mail.com', 'shaheb@mail.com', NULL, '2019-09-13 18:39:00', '2019-09-13 18:39:00'),
+(5, 'ada', 3, 'shaheb@mail.com', 'shaheb@mail.com', NULL, '2019-09-13 19:29:53', '2019-09-13 19:29:53'),
+(6, 'asdas', 3, 'shaheb@mail.com', 'shaheb@mail.com', NULL, '2019-09-13 19:32:42', '2019-09-13 19:32:42'),
+(7, 'dfa', 6, 'shaheb@mail.com', 'shaheb@mail.com', NULL, '2019-09-13 19:50:41', '2019-09-13 19:50:41'),
+(8, 'blood', 5, '123@gmail.com', 'shaheb@mail.com', NULL, '2019-09-15 08:07:14', '2019-09-15 08:07:14'),
+(9, 'xray', 9, 'mahmudulhasan661@gmail.com', 'shaheb@mail.com', NULL, '2019-10-01 15:30:40', '2019-10-01 15:30:40'),
+(10, 'Hikku', 10, 'mahmudulhasan661@gmail.com', 'shaheb@mail.com', 'sdfvsdfv1@gmail.com1572261397.pdf', '2019-10-02 08:22:35', '2019-10-02 08:22:35');
 
 -- --------------------------------------------------------
 
@@ -152,7 +154,8 @@ INSERT INTO `medicine` (`id`, `name`, `updated_at`, `created_at`) VALUES
 (5, 'sdas', '2019-09-13 19:32:52', '2019-09-13 19:32:52'),
 (6, 'dasas', '2019-09-13 19:34:13', '2019-09-13 19:34:13'),
 (7, 'dfas', '2019-09-13 19:50:50', '2019-09-13 19:50:50'),
-(8, 'napa', '2019-09-15 08:07:29', '2019-09-15 08:07:29');
+(8, 'napa', '2019-09-15 08:07:29', '2019-09-15 08:07:29'),
+(9, 'nfn', '2019-10-02 08:27:30', '2019-10-02 08:27:30');
 
 -- --------------------------------------------------------
 
@@ -167,6 +170,29 @@ CREATE TABLE `medicine_brand` (
   `type` varchar(25) NOT NULL,
   `dosage` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `old_prescription`
+--
+
+CREATE TABLE `old_prescription` (
+  `id` int(11) NOT NULL,
+  `patient_email` varchar(50) COLLATE utf32_unicode_ci NOT NULL,
+  `doctor_name` varchar(50) COLLATE utf32_unicode_ci NOT NULL,
+  `pdf` varchar(100) COLLATE utf32_unicode_ci NOT NULL,
+  `date` varchar(50) COLLATE utf32_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+
+--
+-- Dumping data for table `old_prescription`
+--
+
+INSERT INTO `old_prescription` (`id`, `patient_email`, `doctor_name`, `pdf`, `date`, `created_at`, `updated_at`) VALUES
+(1, 'mahmudulhasan661@gmail.com', 'Dr abcd', 'mahmudulhasan661@gmail.com1569998614.pdf', '2019-10-01', '2019-10-02 06:43:35', '2019-10-02 06:43:35');
 
 -- --------------------------------------------------------
 
@@ -190,11 +216,16 @@ CREATE TABLE `prescription` (
 --
 
 INSERT INTO `prescription` (`prescription_id`, `pdf`, `patient_email`, `doctor_email`, `date`, `notification`, `updated_at`, `created_at`) VALUES
-(1, 'efwrfw09-10-2019_0810pm.pdf', 'shaheb@mail.com', 'shaheb@mail.com', '2019-09-10', 0, '2019-09-10 20:10:26', '2019-09-10 20:10:26'),
-(2, 'Md.  Mahmudul Hasan09-13-2019_0620pm.pdf', 'shaheb@mail.com', 'shaheb@mail.com', '2019-09-13', 0, '2019-09-13 18:20:33', '2019-09-13 18:20:33'),
-(3, 'Md.  Mahmudul Hasan09-13-2019_0732pm.pdf', 'shaheb@mail.com', 'shaheb@mail.com', '2019-09-13', 0, '2019-09-13 19:32:59', '2019-09-13 19:32:59'),
+(1, 'efwrfw09-10-2019_0810pm.pdf', 'shaheb@mail.com', 'shaheb@mail.com', '2019-09-10', 1, '2019-09-10 20:10:26', '2019-09-10 20:10:26'),
+(2, 'Md.  Mahmudul Hasan09-13-2019_0620pm.pdf', 'shaheb@mail.com', 'shaheb@mail.com', '2019-09-13', 1, '2019-09-13 18:20:33', '2019-09-13 18:20:33'),
+(3, 'Md.  Mahmudul Hasan09-13-2019_0732pm.pdf', 'shaheb@mail.com', 'shaheb@mail.com', '2019-09-13', 1, '2019-09-13 19:32:59', '2019-09-13 19:32:59'),
 (4, 'mahmudulhasan661@gmail.com1568409204.pdf', 'mahmudulhasan661@gmail.com', 'shaheb@mail.com', '2019-09-02', 1, '2019-09-13 21:13:24', '2019-09-13 21:13:24'),
-(5, 'Karim09-15-2019_0810am.pdf', '123@gmail.com', 'shaheb@mail.com', '2019-09-15', 0, '2019-09-15 08:10:58', '2019-09-15 08:10:58');
+(5, 'Karim09-15-2019_0810am.pdf', '123@gmail.com', 'shaheb@mail.com', '2019-09-15', 0, '2019-09-15 08:10:58', '2019-09-15 08:10:58'),
+(6, 'shaheb@mail.com1569904435.jpg', 'shaheb@mail.com', 'mmmmmmmm', '2019-10-08', 0, '2019-10-01 04:33:57', '2019-10-01 04:33:57'),
+(7, 'shaheb@mail.com1569909347.png', 'shaheb@mail.com', 'mmmmmmmm', '2019-10-17', 0, '2019-10-01 05:55:48', '2019-10-01 05:55:48'),
+(8, 'shaheb@mail.com1569909451.png', 'shaheb@mail.com', 'mahmudul@gmail.com', '2019-10-01', 0, '2019-10-01 05:57:31', '2019-10-01 05:57:31'),
+(9, 'Karim10-01-2019_0344pm.pdf', 'mahmudulhasan661@gmail.com', 'shaheb@mail.com', '2019-10-01', 1, '2019-10-01 15:44:19', '2019-10-01 15:44:19'),
+(10, 'Karim10-02-2019_0828am.pdf', 'mahmudulhasan661@gmail.com', 'shaheb@mail.com', '2019-10-02', 1, '2019-10-02 08:28:03', '2019-10-02 08:28:03');
 
 -- --------------------------------------------------------
 
@@ -222,7 +253,13 @@ INSERT INTO `symptom` (`id`, `name`, `updated_at`, `created_at`) VALUES
 (6, 'ada', '2019-09-13 19:32:40', '2019-09-13 19:32:40'),
 (7, 'asdfa', '2019-09-13 19:34:02', '2019-09-13 19:34:02'),
 (8, 'dcasd', '2019-09-13 19:50:39', '2019-09-13 19:50:39'),
-(9, 'headache', '2019-09-15 08:05:56', '2019-09-15 08:05:56');
+(9, 'headache', '2019-09-15 08:05:56', '2019-09-15 08:05:56'),
+(10, 'sdas', '2019-10-01 03:50:33', '2019-10-01 03:50:33'),
+(11, 'hvjh', '2019-10-01 03:50:42', '2019-10-01 03:50:42'),
+(12, 'dfasd', '2019-10-01 13:06:42', '2019-10-01 13:06:42'),
+(13, 'fsdfsd', '2019-10-01 15:22:46', '2019-10-01 15:22:46'),
+(14, 'Knee pain', '2019-10-01 15:30:33', '2019-10-01 15:30:33'),
+(15, 'hichki', '2019-10-02 08:22:24', '2019-10-02 08:22:24');
 
 -- --------------------------------------------------------
 
@@ -273,7 +310,11 @@ INSERT INTO `test` (`test_id`, `name`, `updated_at`, `created_at`) VALUES
 (8, 'ada', '2019-09-13 19:29:53', '2019-09-13 19:29:53'),
 (9, 'asdas', '2019-09-13 19:32:42', '2019-09-13 19:32:42'),
 (10, 'dfa', '2019-09-13 19:50:41', '2019-09-13 19:50:41'),
-(11, 'blood', '2019-09-15 08:07:14', '2019-09-15 08:07:14');
+(11, 'blood', '2019-09-15 08:07:14', '2019-09-15 08:07:14'),
+(12, 'kbkbiu', '2019-10-01 03:51:01', '2019-10-01 03:51:01'),
+(13, 'dfz', '2019-10-01 13:13:21', '2019-10-01 13:13:21'),
+(14, 'xray', '2019-10-01 15:30:40', '2019-10-01 15:30:40'),
+(15, 'Hikku', '2019-10-02 08:22:35', '2019-10-02 08:22:35');
 
 -- --------------------------------------------------------
 
@@ -310,9 +351,9 @@ INSERT INTO `user` (`email`, `phone`, `firstname`, `lastname`, `address`, `gende
 ('karim2@gmail.com', '01682927466', 'dasdasd', 'Azij', 'Abdur Sadek Road', 'Male', '123', NULL, '56156', '2019-09-14 16:56:25', '2019-09-14 16:56:25'),
 ('karim@gmail.com', '01682927466', 'Abdul', 'Karim', 'abdur Sadek Road', 'Male', '1234', NULL, '05166262', '2019-09-14 15:46:07', '2019-09-14 15:46:07'),
 ('mahmudulhasan661@gmail.com', '01682927466', 'Md. Mahmudul Hasan', 'Bhuiya', 'Abdur Sadek Road', 'Male', '1234', '1568300857.JPG', '48949', '2019-09-12 11:28:47', '2019-07-19 18:42:15'),
-('sdfvsdfv1@gmail.com', 'sdfs', 'sfs', 'sfsdf', 'sdcsd', 'Male', 'sdfsd', NULL, '41861896', '2019-07-19 19:03:23', '2019-07-19 19:03:23'),
+('sdfvsdfv1@gmail.com', 'sdfs', 'sfs', 'sfsdf', 'sdcsd', 'Male', 'sdfsd', '1572262151.JPG', '41861896', '2019-07-19 19:03:23', '2019-07-19 19:03:23'),
 ('sdfvsdfv@gmail.com', 'sdfs', 'sfs', 'sfsdf', 'sdcsd', 'Male', 'dsfsd', NULL, '41861896', '2019-07-19 19:00:23', '2019-07-19 19:00:23'),
-('shaheb@mail.com', '01682927466', 'Md.  Mahmudul Hasan', 'Bhuiyan', 'Abdur Sadek Road', 'Male', '123', '1568225638.JPG', '48949', '2019-09-11 18:54:41', '2019-07-19 18:52:19'),
+('shaheb@mail.com', '012456987888', 'Md.  Mahmudul Hasan', 'Bhuiyan', 'Abdur Sadek Road, BRA', 'Male', '1234567', '1569908652.jpg', '48949', '2019-10-02 06:29:55', '2019-07-19 18:52:19'),
 ('shasan7774@gmail.com', '01675997774', 'Hasan Shahriar', 'Fahim', '7/I, Abdur Sadik Road, Bashundhara R/A', 'Male', '446977', '1568530757.jpg', '15484848488487', '2019-09-15 06:52:36', '2019-09-15 06:52:36'),
 ('sifat@gmail.com', '01682927466', 'Sifat', 'Mozumdar', 'Abdur Sadek Road', 'Male', '1234', NULL, '1541561', '2019-09-14 15:59:31', '2019-09-14 15:59:31');
 
@@ -357,6 +398,12 @@ ALTER TABLE `medicine`
 --
 ALTER TABLE `medicine_brand`
   ADD PRIMARY KEY (`medicine_id`);
+
+--
+-- Indexes for table `old_prescription`
+--
+ALTER TABLE `old_prescription`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `prescription`
@@ -409,31 +456,37 @@ ALTER TABLE `disease`
 -- AUTO_INCREMENT for table `doctor`
 --
 ALTER TABLE `doctor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `medical_test`
 --
 ALTER TABLE `medical_test`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `medicine`
 --
 ALTER TABLE `medicine`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `old_prescription`
+--
+ALTER TABLE `old_prescription`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `prescription`
 --
 ALTER TABLE `prescription`
-  MODIFY `prescription_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `prescription_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `symptom`
 --
 ALTER TABLE `symptom`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `technician`
@@ -445,7 +498,7 @@ ALTER TABLE `technician`
 -- AUTO_INCREMENT for table `test`
 --
 ALTER TABLE `test`
-  MODIFY `test_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `test_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

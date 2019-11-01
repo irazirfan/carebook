@@ -1,4 +1,4 @@
-@extends('layouts.doctor')
+@extends('layouts.tech')
 @section('style')
 
 <!------ Include the above in your HEAD tag ---------->
@@ -23,18 +23,14 @@
     
     
 @endsection
-
-@section('content')
-  @section('nav')
+ @section('nav')
     <ul>
-      <li ><a href="{{route('doctor')}}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Dashboard</span></a></li>
-      <li ><a href="{{route('doctor.prescription')}}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Prescription</span></a></li>
-      <li ><a href="{{route('doctor.patient')}}"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Patient</span></a></li>
-      <li class="active"><a href="{{route('doctor.profile')}}"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Profile</span></a></li>
+      <li ><a href="{{route('tech')}}"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Dashboard</span></a></li>
+      <li><a href="{{route('tech.profile')}}"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Profile</span></a></li>
       <li><a href="{{route('logout')}}"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
     </ul>
   @endsection
-
+@section('content')
 <!------ Include the above in your HEAD tag ---------->
 
 
@@ -151,15 +147,6 @@
                                 <input type="text" class="form-control" name="last_name" id="last_name" value="{{$user->lastname}}" title="enter your last name if any." required>
                             </div>
                         </div>
-
-                       <!--  <div class="form-group">
-                       
-                           <div class="col-xs-6">
-                               <label for="email"><h4>Email</h4></label>
-                               <input type="email" class="form-control" name="email" id="email" value="" title="enter your email." required>
-                           </div>
-                       </div> -->
-
                         <div class="form-group">
 
                             <div class="col-xs-6">
@@ -175,14 +162,6 @@
                                 <input type="text" class="form-control" name="address" id="address" value="{{$user->address}}" title="enter an address" required>
                             </div>
                         </div>
-
-                        <!-- <div class="form-group">
-                            <div class="col-xs-12">
-                                <br>
-                                <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                            </div>
-                        </div> -->
-
                 </div><!--/tab-pane-->
                 <div class="tab-pane" id="change-password" style="height: 400px">
 
@@ -215,7 +194,6 @@
                             <div class="col-xs-12">
                                 <br>
                                 <button class="btn btn-lg btn-success pull-left" type="submit" id="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                <!--<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>-->
                             </div>
                         </div>
                     </form>
@@ -225,27 +203,4 @@
     </div><!--/col-9-->
 </div><!--/row-->
 </div>
-<!-- <script type="text/javascript">
-$('#new_password').on('click',function(){
-$value=$('#password').val();
-$.ajax({
-type : 'get',
-url : '{{URL::to('doctor/profile/search')}}',
-data:{'search':$value},
-success:function(data){   
-    if(data == 'true'){
-        $('#submit').prop('disabled', true);
-        $('#error').text('Current Password is wrong!');
-    }
-    if(data != 'true'){
-        $('#submit').prop('disabled', false);
-        $('#error').text('');
-    }
-}
-});
-})
-</script> -->
-<script type="text/javascript">
-$.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
-</script>
 @endsection
